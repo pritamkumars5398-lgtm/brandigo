@@ -31,18 +31,18 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={ref} style={{ padding:"100px 0", background:"#ffffff", position:"relative", overflow:"hidden" }}>
-      <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"360px", height:"360px", borderRadius:"50%", background:"radial-gradient(circle, rgba(232,180,0,0.06) 0%, transparent 70%)", pointerEvents:"none" }} />
+      <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"360px", height:"360px", borderRadius:"50%", background:"radial-gradient(circle, rgba(11,60,93,0.06) 0%, transparent 70%)", pointerEvents:"none" }} />
 
       <div className="site-wrap">
         {/* Header */}
         <div style={{ textAlign:"center", marginBottom:"60px", opacity:inView?1:0, transform:inView?"translateY(0)":"translateY(24px)", transition:"opacity 0.6s ease, transform 0.6s ease" }}>
           <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"10px", marginBottom:"14px" }}>
-            <div style={{ width:"32px", height:"2px", background:"#e8b400" }} />
-            <span style={{ color:"#e8b400", fontSize:"12px", fontWeight:700, letterSpacing:"3px", textTransform:"uppercase" }}>Get In Touch</span>
-            <div style={{ width:"32px", height:"2px", background:"#e8b400" }} />
+            <div style={{ width:"32px", height:"2px", background:"#f58220" }} />
+            <span style={{ color:"#f58220", fontSize:"12px", fontWeight:700, letterSpacing:"3px", textTransform:"uppercase" }}>Get In Touch</span>
+            <div style={{ width:"32px", height:"2px", background:"#f58220" }} />
           </div>
           <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:800, color:"#1a1a1a", marginBottom:"14px" }}>
-            Let&apos;s Build Something <span style={{ color:"#e8b400" }}>Great Together</span>
+            Let&apos;s Build Something <span style={{ color:"#f58220" }}>Great Together</span>
           </h2>
           <p style={{ color:"#777", maxWidth:"460px", margin:"0 auto", lineHeight:1.75 }}>Ready to elevate your brand? Contact us today for a free consultation.</p>
         </div>
@@ -55,17 +55,17 @@ export default function Contact() {
               <div style={{ display:"grid", gap:"16px" }} className="sm:grid-cols-2">
                 <div>
                   <label style={{ display:"block", color:"#555", fontSize:"11px", fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", marginBottom:"6px" }}>Full Name</label>
-                  <input type="text" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} required placeholder="Your name" style={iBase} onFocus={e=>(e.target.style.borderColor="#e8b400")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
+                  <input type="text" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} required placeholder="Your name" style={iBase} onFocus={e=>(e.target.style.borderColor="#f58220")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
                 </div>
                 <div>
                   <label style={{ display:"block", color:"#555", fontSize:"11px", fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", marginBottom:"6px" }}>Email</label>
-                  <input type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} required placeholder="your@email.com" style={iBase} onFocus={e=>(e.target.style.borderColor="#e8b400")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
+                  <input type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} required placeholder="your@email.com" style={iBase} onFocus={e=>(e.target.style.borderColor="#f58220")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
                 </div>
               </div>
               <div style={{ display:"grid", gap:"16px" }} className="sm:grid-cols-2">
                 <div>
                   <label style={{ display:"block", color:"#555", fontSize:"11px", fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", marginBottom:"6px" }}>Phone</label>
-                  <input type="tel" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} placeholder="+91 00000 00000" style={iBase} onFocus={e=>(e.target.style.borderColor="#e8b400")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
+                  <input type="tel" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} placeholder="+91 00000 00000" style={iBase} onFocus={e=>(e.target.style.borderColor="#f58220")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
                 </div>
                 <div>
                   <label style={{ display:"block", color:"#555", fontSize:"11px", fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", marginBottom:"6px" }}>Service</label>
@@ -83,9 +83,9 @@ export default function Contact() {
               </div>
               <div>
                 <label style={{ display:"block", color:"#555", fontSize:"11px", fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", marginBottom:"6px" }}>Message</label>
-                <textarea value={form.message} onChange={e=>setForm({...form,message:e.target.value})} required rows={4} placeholder="Tell us about your project..." style={{ ...iBase, resize:"none" }} onFocus={e=>(e.target.style.borderColor="#e8b400")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
+                <textarea value={form.message} onChange={e=>setForm({...form,message:e.target.value})} required rows={4} placeholder="Tell us about your project..." style={{ ...iBase, resize:"none" }} onFocus={e=>(e.target.style.borderColor="#f58220")} onBlur={e=>(e.target.style.borderColor="#e5e7eb")} />
               </div>
-              <button type="submit" style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"8px", padding:"15px", borderRadius:"0", border:"none", background:sent?"#22c55e":"#e8b400", color:sent?"#fff":"#000", fontWeight:700, fontSize:"15px", cursor:"pointer", transition:"background 0.2s" }}>
+              <button type="submit" style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"8px", padding:"15px", borderRadius:"0", border:"none", background:sent?"#22c55e":"#f58220", color:"#fff", fontWeight:700, fontSize:"15px", cursor:"pointer", transition:"background 0.2s" }}>
                 {sent ? "Message Sent!" : <><span>Send Message</span><Send size={16}/></>}
               </button>
             </form>
@@ -94,10 +94,10 @@ export default function Contact() {
           {/* Info */}
           <div style={{ display:"flex", flexDirection:"column", gap:"20px", opacity:inView?1:0, transform:inView?"translateX(0)":"translateX(30px)", transition:"opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s" }}>
             <div style={{ display:"grid", gap:"12px" }} className="sm:grid-cols-2">
-              {[{icon:Phone,label:"Call Us",value:"+91 91049 63161",href:"tel:+919104963161"},{icon:Mail,label:"Email Us",value:"info@jkbrandingindia.com",href:"mailto:info@jkbrandingindia.com"}].map(({icon:Icon,label,value,href})=>(
-                <a key={label} href={href} style={{ display:"flex", alignItems:"center", gap:"12px", padding:"16px 20px", borderRadius:"0", border:"1px solid rgba(0,0,0,0.07)", background:"#fff", textDecoration:"none", transition:"border-color 0.2s" }} className="hover:border-[#e8b400]/50">
-                  <div style={{ width:"40px", height:"40px", borderRadius:"12px", background:"#fef3c7", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-                    <Icon size={17} style={{ color:"#e8b400" }} />
+              {[{icon:Phone,label:"Call Us",value:"+91 91049 63161",href:"tel:+919104963161"},{icon:Mail,label:"Email Us",value:"info@brandingoindia.com",href:"mailto:info@brandingoindia.com"}].map(({icon:Icon,label,value,href})=>(
+                <a key={label} href={href} style={{ display:"flex", alignItems:"center", gap:"12px", padding:"16px 20px", borderRadius:"0", border:"1px solid rgba(0,0,0,0.07)", background:"#fff", textDecoration:"none", transition:"border-color 0.2s" }} className="hover:border-[#f58220]/50">
+                  <div style={{ width:"40px", height:"40px", borderRadius:"12px", background:"#fff5eb", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
+                    <Icon size={17} style={{ color:"#f58220" }} />
                   </div>
                   <div>
                     <p style={{ color:"#aaa", fontSize:"11px", fontWeight:600, marginBottom:"2px" }}>{label}</p>
@@ -108,11 +108,11 @@ export default function Contact() {
             </div>
 
             {offices.map(o=>(
-              <div key={o.city} style={{ padding:"20px 24px", borderRadius:"0", border:"1px solid rgba(0,0,0,0.07)", background:"#fff", transition:"border-color 0.2s" }} className="hover:border-[#e8b400]/40">
+              <div key={o.city} style={{ padding:"20px 24px", borderRadius:"0", border:"1px solid rgba(0,0,0,0.07)", background:"#fff", transition:"border-color 0.2s" }} className="hover:border-[#f58220]/40">
                 <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"8px" }}>
-                  <MapPin size={15} style={{ color:"#e8b400" }} />
+                  <MapPin size={15} style={{ color:"#f58220" }} />
                   <span style={{ fontWeight:700, color:"#1a1a1a", fontSize:"14px" }}>{o.city}</span>
-                  <span style={{ padding:"2px 10px", background:"#fef3c7", color:"#b38600", fontSize:"11px", fontWeight:700, borderRadius:"999px", border:"1px solid rgba(232,180,0,0.3)" }}>{o.label}</span>
+                  <span style={{ padding:"2px 10px", background:"#fff5eb", color:"#d66b10", fontSize:"11px", fontWeight:700, borderRadius:"999px", border:"1px solid rgba(245,130,32,0.3)" }}>{o.label}</span>
                 </div>
                 <p style={{ color:"#888", fontSize:"13px", lineHeight:1.6, paddingLeft:"23px" }}>{o.address}</p>
               </div>
@@ -122,7 +122,7 @@ export default function Contact() {
               <p style={{ color:"#aaa", fontSize:"11px", fontWeight:700, letterSpacing:"2px", textTransform:"uppercase", marginBottom:"12px" }}>Follow Us</p>
               <div style={{ display:"flex", gap:"10px" }}>
                 {[SocialFacebook,SocialLinkedin,SocialInstagram,SocialYoutube].map((Icon,i)=>(
-                  <a key={i} href="#" style={{ width:"40px", height:"40px", borderRadius:"50%", border:"1.5px solid #e5e7eb", background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", color:"#888", transition:"all 0.2s" }} className="hover:border-[#e8b400] hover:text-[#e8b400] hover:bg-[#fffbeb]">
+                  <a key={i} href="#" style={{ width:"40px", height:"40px", borderRadius:"50%", border:"1.5px solid #e5e7eb", background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", color:"#888", transition:"all 0.2s" }} className="hover:border-[#f58220] hover:text-[#f58220] hover:bg-[#fff5eb]">
                     <Icon />
                   </a>
                 ))}

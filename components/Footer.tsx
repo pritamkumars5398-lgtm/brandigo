@@ -33,7 +33,7 @@ export default function Footer() {
     <footer style={{ background: "#fff" }}>
 
       {/* CTA Banner */}
-      <div style={{ background: "#e8b400", position: "relative", overflow: "hidden" }}>
+      <div style={{ background: "#f58220", position: "relative", overflow: "hidden" }}>
         {/* Diagonal stripe pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(0,0,0,0.04) 30px, rgba(0,0,0,0.04) 31px)", pointerEvents: "none" }} />
         <div className="site-wrap" style={{ position: "relative", zIndex: 1, padding: "48px 24px", display: "flex", flexDirection: "column", gap: "20px", alignItems: "center", justifyContent: "space-between" }}>
@@ -74,13 +74,13 @@ export default function Footer() {
 
             {/* Col 1 */}
             <div>
-              <Image src="https://jkbrandingindia.com/wp-content/uploads/2024/10/JKB-REG-LOGO-FINAL-WHITE.png" alt="JK Branding" width={160} height={45} style={{ height: "40px", width: "auto", objectFit: "contain", marginBottom: "16px" }} unoptimized />
+              <Image src="/logo.png" alt="Brandingo" width={140} height={45} style={{ height: "40px", width: "auto", objectFit: "contain", marginBottom: "16px", filter: "brightness(0) invert(1)" }} />
               <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", lineHeight: 1.75, marginBottom: "20px" }}>
-                JK Branding India Pvt. Ltd. — 17+ years of expertise in branding, designing, and marketing. Making every customer feel WoW.
+                Brandingo India Pvt. Ltd. — 17+ years of expertise in branding, designing, and marketing. Making every customer feel WoW.
               </p>
               <div style={{ display: "flex", gap: "10px" }}>
                 {[SocialFacebook, SocialLinkedin, SocialInstagram, SocialYoutube].map((Icon, i) => (
-                  <a key={i} href="#" style={{ width: "34px", height: "34px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.4)", transition: "all 0.2s" }} className="hover:border-[#e8b400]/60 hover:text-[#e8b400]">
+                  <a key={i} href="#" style={{ width: "34px", height: "34px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.4)", transition: "all 0.2s" }} className="hover:border-[#f58220]/60 hover:text-[#f58220]">
                     <Icon />
                   </a>
                 ))}
@@ -93,7 +93,7 @@ export default function Footer() {
               <ul style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 {quickLinks.map((l) => (
                   <li key={l.label}>
-                    <Link href={l.href} style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", display: "flex", alignItems: "center", gap: "6px", transition: "color 0.2s" }} className="hover:text-[#e8b400] group">
+                    <Link href={l.href} style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", display: "flex", alignItems: "center", gap: "6px", transition: "color 0.2s" }} className="hover:text-[#f58220] group">
                       <ArrowRight size={11} style={{ opacity: 0, transition: "opacity 0.2s, transform 0.2s" }} className="group-hover:opacity-100 group-hover:translate-x-0.5" />
                       {l.label}
                     </Link>
@@ -108,7 +108,7 @@ export default function Footer() {
               <ul style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 {serviceLinks.map((s) => (
                   <li key={s}>
-                    <Link href="#services" style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", display: "flex", alignItems: "center", gap: "6px", transition: "color 0.2s" }} className="hover:text-[#e8b400] group">
+                    <Link href="#services" style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", display: "flex", alignItems: "center", gap: "6px", transition: "color 0.2s" }} className="hover:text-[#f58220] group">
                       <ArrowRight size={11} style={{ opacity: 0, transition: "opacity 0.2s" }} className="group-hover:opacity-100" />
                       {s}
                     </Link>
@@ -122,19 +122,19 @@ export default function Footer() {
               <h4 style={{ color: "#fff", fontWeight: 700, fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "20px" }}>Contact Us</h4>
               <ul style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <li style={{ display: "flex", gap: "10px" }}>
-                  <MapPin size={14} style={{ color: "#e8b400", flexShrink: 0, marginTop: "2px" }} />
+                  <MapPin size={14} style={{ color: "#f58220", flexShrink: 0, marginTop: "2px" }} />
                   <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", lineHeight: 1.65 }}>
                     Office No. 1104, Wings Business Bay, Nr ITC Fortune Hotel, 150 ft. Ring Road, Rajkot
                   </span>
                 </li>
                 <li>
-                  <a href="tel:+919104963161" style={{ display: "flex", alignItems: "center", gap: "10px", color: "rgba(255,255,255,0.4)", fontSize: "13px", transition: "color 0.2s" }} className="hover:text-[#e8b400]">
-                    <Phone size={14} style={{ color: "#e8b400" }} /> +91 91049 63161
+                  <a href="tel:+919104963161" style={{ display: "flex", alignItems: "center", gap: "10px", color: "rgba(255,255,255,0.4)", fontSize: "13px", transition: "color 0.2s" }} className="hover:text-[#f58220]">
+                    <Phone size={14} style={{ color: "#f58220" }} /> +91 91049 63161
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@jkbrandingindia.com" style={{ display: "flex", alignItems: "center", gap: "10px", color: "rgba(255,255,255,0.4)", fontSize: "13px", transition: "color 0.2s" }} className="hover:text-[#e8b400]">
-                    <Mail size={14} style={{ color: "#e8b400" }} /> info@jkbrandingindia.com
+                  <a href="mailto:info@brandingoindia.com" style={{ display: "flex", alignItems: "center", gap: "10px", color: "rgba(255,255,255,0.4)", fontSize: "13px", transition: "color 0.2s" }} className="hover:text-[#f58220]">
+                    <Mail size={14} style={{ color: "#f58220" }} /> info@brandingoindia.com
                   </a>
                 </li>
               </ul>
@@ -142,7 +142,7 @@ export default function Footer() {
                 <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "8px" }}>Also In</p>
                 {["Jamnagar", "Ahmedabad"].map((c) => (
                   <div key={c} style={{ display: "flex", alignItems: "center", gap: "8px", color: "rgba(255,255,255,0.35)", fontSize: "13px", marginBottom: "6px" }}>
-                    <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#e8b400", flexShrink: 0 }} /> {c}
+                    <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#f58220", flexShrink: 0 }} /> {c}
                   </div>
                 ))}
               </div>
@@ -155,10 +155,10 @@ export default function Footer() {
           <div className="site-wrap" style={{ padding: "18px 24px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
             <p style={{ color: "rgba(255,255,255,0.22)", fontSize: "12px" }}>
               Copyright 2024 © All Right Reserved Design by{" "}
-              <span style={{ color: "rgba(255,255,255,0.4)", fontWeight: 600 }}>JK Branding (India) Pvt. Ltd.</span>
+              <span style={{ color: "rgba(255,255,255,0.4)", fontWeight: 600 }}>Brandingo (India) Pvt. Ltd.</span>
             </p>
             <p style={{ color: "rgba(255,255,255,0.22)", fontSize: "12px" }}>
-              Powered by <span style={{ color: "#e8b400", fontWeight: 600 }}>JK Branding (India) Pvt. Ltd.</span>
+              Powered by <span style={{ color: "#f58220", fontWeight: 600 }}>Brandingo (India) Pvt. Ltd.</span>
             </p>
           </div>
         </div>

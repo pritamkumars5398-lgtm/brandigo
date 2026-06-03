@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold: #e8b400;
-  --color-gold-dark: #c99b00;
-  --color-gold-light: #fef3c7;
+  --color-brand-teal: #0b3c5d;
+  --color-brand-teal-dark: #07273d;
+  --color-brand-teal-light: #f0f6fa;
+  --color-brand-orange: #f58220;
+  --color-brand-orange-hover: #ff933c;
+  --color-brand-orange-light: #fff5eb;
   --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
@@ -32,7 +35,7 @@ a {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f0f0f0; }
-::-webkit-scrollbar-thumb { background: #e8b400; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #f58220; border-radius: 3px; }
 
 /* Marquee */
 @keyframes marquee {
@@ -64,9 +67,9 @@ a {
   box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 }
 
-/* Gold gradient text */
-.gold-text {
-  color: #e8b400;
+/* Brand text */
+.brand-text {
+  color: #f58220;
 }
 
 /* Centered page container */
@@ -90,7 +93,7 @@ a {
   display: inline-block;
   width: 32px;
   height: 2px;
-  background: #e8b400;
+  background: #f58220;
   vertical-align: middle;
   margin: 0 10px;
 }

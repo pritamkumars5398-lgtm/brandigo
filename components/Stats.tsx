@@ -20,7 +20,7 @@ export default function Stats() {
       style={{ padding: "80px 0", background: "#ffffff", position: "relative", overflow: "hidden" }}
     >
       {/* Top gold stripe */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, transparent, #e8b400, transparent)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, transparent, #f58220, transparent)" }} />
 
       <div className="site-wrap">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px" }} className="lg:grid-cols-4">
@@ -41,7 +41,7 @@ export default function Stats() {
               className="card-hover"
             >
               {/* Bottom gold accent */}
-              <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "48px", height: "3px", background: "#e8b400", borderRadius: "2px 2px 0 0" }} />
+              <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "48px", height: "3px", background: "#f58220", borderRadius: "2px 2px 0 0" }} />
 
               <div
                 style={{
@@ -51,11 +51,11 @@ export default function Stats() {
                   width: "56px",
                   height: "56px",
                   borderRadius: "0",
-                  background: "#fef3c7",
+                  background: "#fff5eb",
                   marginBottom: "16px",
                 }}
               >
-                <stat.icon size={24} style={{ color: "#e8b400" }} />
+                <stat.icon size={24} style={{ color: "#f58220" }} />
               </div>
 
               <div style={{ fontSize: "2.8rem", fontWeight: 800, color: "#1a1a1a", lineHeight: 1 }}>

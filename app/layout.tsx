@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "JK Branding India Pvt. Ltd. | Build Your Brand's Journey",
+  title: "Brandingo India Pvt. Ltd. | Build Your Brand's Journey",
   description:
-    "JK Branding India Pvt. Ltd. – 17+ years of expertise in Graphic Designing, Digital Marketing, Website Development, SEO, Photography, and more.",
+    "Brandingo India Pvt. Ltd. – 17+ years of expertise in Graphic Designing, Digital Marketing, Website Development, SEO, Photography, and more.",
 };
 
 export default function RootLayout({

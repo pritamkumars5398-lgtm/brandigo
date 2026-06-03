@@ -40,12 +40,12 @@ export default function Services() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "14px" }}>
-            <div style={{ width: "32px", height: "2px", background: "#e8b400" }} />
-            <span style={{ color: "#e8b400", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>What We Do</span>
-            <div style={{ width: "32px", height: "2px", background: "#e8b400" }} />
+            <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
+            <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>What We Do</span>
+            <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
           </div>
           <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "14px" }}>
-            Our <span style={{ color: "#e8b400" }}>Services</span>
+            Our <span style={{ color: "#f58220" }}>Services</span>
           </h2>
           <p style={{ color: "#777", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
             Comprehensive branding and marketing solutions tailored to elevate your business.
@@ -70,7 +70,7 @@ export default function Services() {
               className="card-hover group"
             >
               {/* Hover top-border accent */}
-              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "#e8b400", transform: "scaleX(0)", transformOrigin: "left", transition: "transform 0.3s ease" }} className="group-hover:scale-x-100" />
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "#f58220", transform: "scaleX(0)", transformOrigin: "left", transition: "transform 0.3s ease" }} className="group-hover:scale-x-100" />
 
               {/* Icon */}
               <div
@@ -78,7 +78,7 @@ export default function Services() {
                   width: "60px",
                   height: "60px",
                   borderRadius: "0",
-                  background: "#fef3c7",
+                  background: "#fff5eb",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -86,19 +86,19 @@ export default function Services() {
                   position: "relative",
                   transition: "background 0.3s",
                 }}
-                className="group-hover:bg-[#e8b400]"
+                className="group-hover:bg-[#f58220]"
               >
                 <Image src={service.icon} alt={service.title} fill className="object-contain p-3" unoptimized />
               </div>
 
-              <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#1a1a1a", marginBottom: "10px", transition: "color 0.2s" }} className="group-hover:text-[#e8b400]">
+              <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#1a1a1a", marginBottom: "10px", transition: "color 0.2s" }} className="group-hover:text-[#f58220]">
                 {service.title}
               </h3>
               <p style={{ color: "#888", fontSize: "13.5px", lineHeight: 1.7, marginBottom: "18px" }}>
                 {service.description}
               </p>
 
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: "#e8b400", fontSize: "13px", fontWeight: 600, opacity: 0, transition: "opacity 0.2s" }} className="group-hover:opacity-100">
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: "#f58220", fontSize: "13px", fontWeight: 600, opacity: 0, transition: "opacity 0.2s" }} className="group-hover:opacity-100">
                 Read More <ArrowRight size={13} />
               </span>
             </div>
@@ -114,14 +114,14 @@ export default function Services() {
               alignItems: "center",
               gap: "8px",
               padding: "14px 32px",
-              border: "2px solid #e8b400",
-              color: "#b38600",
+              border: "2px solid #f58220",
+              color: "#f58220",
               fontWeight: 700,
               borderRadius: "999px",
               fontSize: "14px",
               transition: "background 0.2s, color 0.2s",
             }}
-            className="hover:bg-[#e8b400] hover:text-black group"
+            className="hover:bg-[#f58220] hover:text-white group"
           >
             Get a Free Consultation <ArrowRight size={16} />
           </Link>

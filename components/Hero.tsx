@@ -27,7 +27,7 @@ export default function Hero() {
       id="home"
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #fffbeb 0%, #ffffff 50%, #fef9e7 100%)",
+        background: "linear-gradient(135deg, #f0f6fa 0%, #ffffff 50%, #e8f1f7 100%)",
         position: "relative",
         overflow: "hidden",
         display: "flex",
@@ -39,7 +39,7 @@ export default function Hero() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "radial-gradient(circle, rgba(232,180,0,0.2) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(11,60,93,0.15) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
           pointerEvents: "none",
           opacity: 0.6,
@@ -56,7 +56,7 @@ export default function Hero() {
           width: "500px",
           height: "500px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(232,180,0,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(11,60,93,0.08) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -69,7 +69,7 @@ export default function Hero() {
           width: "400px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(232,180,0,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(245,130,32,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
           animationDelay: "4s",
         }}
@@ -87,16 +87,15 @@ export default function Hero() {
               position: "absolute",
               inset: "20px",
               borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(232,180,0,0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(11,60,93,0.12) 0%, transparent 70%)",
             }}
           />
           <Image
-            src="https://jkbrandingindia.com/wp-content/uploads/2024/10/jk-logo-filled.png"
-            alt="JK Branding"
+            src="/logo.png"
+            alt="Brandingo"
             fill
             className="object-contain animate-float"
             style={{ opacity: 0.9 }}
-            unoptimized
           />
         </div>
       </div>
@@ -116,13 +115,13 @@ export default function Hero() {
                 gap: "8px",
                 padding: "8px 18px",
                 borderRadius: "999px",
-                border: "1px solid rgba(232,180,0,0.5)",
-                background: "rgba(232,180,0,0.1)",
+                border: "1px solid rgba(245,130,32,0.3)",
+                background: "rgba(245,130,32,0.08)",
                 marginBottom: "28px",
               }}
             >
-              <Star size={14} style={{ color: "#e8b400" }} fill="#e8b400" />
-              <span style={{ color: "#b38600", fontSize: "13px", fontWeight: 600 }}>
+              <Star size={14} style={{ color: "#f58220" }} fill="#f58220" />
+              <span style={{ color: "#d66b10", fontSize: "13px", fontWeight: 600 }}>
                 17+ Years of Excellence in Branding
               </span>
             </div>
@@ -142,7 +141,7 @@ export default function Hero() {
               to Build{" "}
               <span
                 style={{
-                  color: "#e8b400",
+                  color: "#f58220",
                   display: "inline-block",
                   opacity: fadeIn ? 1 : 0,
                   transform: fadeIn ? "translateY(0)" : "translateY(10px)",
@@ -154,7 +153,7 @@ export default function Hero() {
             </h1>
 
             <p style={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.75, marginBottom: "36px", maxWidth: "520px" }}>
-              Build Your Brand&apos;s Journey with JK Branding — your partner in
+              Build Your Brand&apos;s Journey with Brandingo — your partner in
               Graphic Design, Digital Marketing, Website Development &amp; more.
             </p>
 
@@ -167,13 +166,13 @@ export default function Hero() {
                   alignItems: "center",
                   gap: "8px",
                   padding: "14px 32px",
-                  background: "#e8b400",
-                  color: "#000",
+                  background: "#f58220",
+                  color: "#fff",
                   fontWeight: 700,
                   borderRadius: "999px",
                   fontSize: "15px", transition: "background 0.2s",
                 }}
-                className="hover:bg-[#f5d020]"
+                className="hover:bg-[#ff933c]"
               >
                 Discover More <ArrowRight size={17} />
               </Link>
@@ -191,7 +190,7 @@ export default function Hero() {
                   fontSize: "15px",
                   transition: "border-color 0.2s, background 0.2s",
                 }}
-                className="hover:border-[#e8b400] hover:bg-[#fffbeb]"
+                className="hover:border-[#f58220] hover:bg-[#fff5eb]"
               >
                 <Play size={15} fill="#333" /> Read More
               </Link>
@@ -205,7 +204,7 @@ export default function Hero() {
                 { value: "200+", label: "Happy Clients" },
                 { value: "10+", label: "Awards Won" },
               ].map((s) => (
-                <div key={s.label} style={{ borderLeft: "3px solid #e8b400", paddingLeft: "14px" }}>
+                <div key={s.label} style={{ borderLeft: "3px solid #f58220", paddingLeft: "14px" }}>
                   <div style={{ fontSize: "2rem", fontWeight: 800, color: "#1a1a1a" }}>{s.value}</div>
                   <div style={{ fontSize: "12px", color: "#888", marginTop: "2px", fontWeight: 500 }}>{s.label}</div>
                 </div>
@@ -230,7 +229,7 @@ export default function Hero() {
         }}
       >
         <span style={{ color: "#aaa", fontSize: "10px", letterSpacing: "4px", fontWeight: 600 }}>SCROLL</span>
-        <div style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom, #e8b400, transparent)" }} />
+        <div style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom, #f58220, transparent)" }} />
       </div>
     </section>
   );

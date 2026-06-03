@@ -45,12 +45,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="#home">
             <Image
-              src="https://jkbrandingindia.com/wp-content/uploads/2024/10/jk-logo-filled.png"
-              alt="JK Branding India"
-              width={52}
+              src="/logo.png"
+              alt="Brandingo India"
+              width={75}
               height={52}
               style={{ height: "48px", width: "auto", objectFit: "contain" }}
-              unoptimized
             />
           </Link>
 
@@ -68,7 +67,7 @@ export default function Navbar() {
                   paddingBottom: "4px",
                   transition: "color 0.2s",
                 }}
-                className="group hover:text-[#e8b400]"
+                className="group hover:text-[#f58220]"
               >
                 {link.label}
                 <span
@@ -78,7 +77,7 @@ export default function Navbar() {
                     left: 0,
                     height: "2px",
                     width: 0,
-                    background: "#e8b400",
+                    background: "#f58220",
                     borderRadius: "2px",
                     transition: "width 0.25s ease",
                   }}
@@ -100,7 +99,7 @@ export default function Navbar() {
                 alignItems: "center",
                 gap: "6px",
               }}
-              className="hover:text-[#e8b400] transition-colors"
+              className="hover:text-[#f58220] transition-colors"
             >
               +91 91049 63161
             </Link>
@@ -108,14 +107,14 @@ export default function Navbar() {
               href="/contact"
               style={{
                 padding: "10px 24px",
-                background: "#e8b400",
-                color: "#000",
+                background: "#f58220",
+                color: "#ffffff",
                 fontWeight: 700,
                 fontSize: "13px",
                 borderRadius: "999px",
                 transition: "background 0.2s, box-shadow 0.2s",
               }}
-              className="hover:bg-[#f5d020] hover:shadow-md"
+              className="hover:bg-[#ff933c] hover:shadow-md"
             >
               Get Quote
             </Link>
@@ -159,7 +158,7 @@ export default function Navbar() {
                 borderRadius: "8px",
                 transition: "background 0.15s",
               }}
-              className="hover:bg-[#fef3c7] hover:text-[#e8b400]"
+              className="hover:bg-[#fff5eb] hover:text-[#f58220]"
             >
               {link.label}
             </Link>
@@ -172,8 +171,8 @@ export default function Navbar() {
               marginTop: "12px",
               textAlign: "center",
               padding: "14px",
-              background: "#e8b400",
-              color: "#000",
+              background: "#f58220",
+              color: "#ffffff",
               fontWeight: 700,
               borderRadius: "999px",
               fontSize: "14px",
