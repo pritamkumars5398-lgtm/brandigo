@@ -33,10 +33,11 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        background: scrolled ? "rgba(255,255,255,0.97)" : "#ffffff",
-        boxShadow: scrolled ? "0 1px 24px rgba(0,0,0,0.08)" : "0 1px 0 rgba(0,0,0,0.06)",
-        backdropFilter: "blur(12px)",
-        transition: "box-shadow 0.3s ease",
+        background: scrolled ? "rgba(255, 255, 255, 0.88)" : "transparent",
+        boxShadow: scrolled ? "0 10px 30px rgba(0,0,0,0.04)" : "none",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "none",
+        transition: "background 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, backdrop-filter 0.3s ease",
       }}
     >
       <div className="site-wrap">

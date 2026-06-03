@@ -58,6 +58,13 @@ a {
 }
 .animate-float { animation: float 4s ease-in-out infinite; }
 
+/* Slow spin */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 25s linear infinite; }
+
 /* Card hover */
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
