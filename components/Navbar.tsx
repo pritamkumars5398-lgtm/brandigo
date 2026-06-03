@@ -55,7 +55,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "32px" }} className="hidden lg:flex">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
