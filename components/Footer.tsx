@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useInView } from "react-intersection-observer";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 const SocialFacebook = () => (
@@ -35,20 +38,36 @@ const serviceLinks = [
 ];
 
 export default function Footer() {
+  // Word-by-word entrance for the CTA headline + subtext (replays on scroll-in)
+  const { ref: ctaRef, inView: ctaInView } = useInView({ threshold: 0.3, triggerOnce: false });
+  const wordIn = (i: number): React.CSSProperties => ({
+    display: "inline-block",
+    marginRight: "0.28em",
+    opacity: ctaInView ? 1 : 0,
+    transform: ctaInView ? "translateX(0)" : "translateX(-40px)",
+    transition: `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s`,
+  });
+  const headline = ["Ready", "to", "Build", "Your", "Brand?"];
+  const subtext = ["Get", "in", "touch", "with", "our", "experts", "for", "a", "free", "consultation", "today."];
+
   return (
     <footer style={{ background: "#fff" }}>
 
       {/* CTA Banner */}
-      <div style={{ background: "#f58220", position: "relative", overflow: "hidden" }}>
+      <div ref={ctaRef} style={{ background: "#f58220", position: "relative", overflow: "hidden" }}>
         {/* Diagonal stripe pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(0,0,0,0.04) 30px, rgba(0,0,0,0.04) 31px)", pointerEvents: "none" }} />
         <div className="site-wrap" style={{ position: "relative", zIndex: 1, padding: "48px 24px", display: "flex", flexDirection: "column", gap: "20px", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ textAlign: "center" }}>
             <h3 style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 900, color: "#000", marginBottom: "6px" }}>
-              Ready to Build Your Brand?
+              {headline.map((w, i) => (
+                <span key={i} style={wordIn(i)}>{w}</span>
+              ))}
             </h3>
             <p style={{ color: "rgba(0,0,0,0.6)", fontWeight: 500, fontSize: "15px" }}>
-              Get in touch with our experts for a free consultation today.
+              {subtext.map((w, i) => (
+                <span key={i} style={wordIn(headline.length + i)}>{w}</span>
+              ))}
             </p>
           </div>
           <Link

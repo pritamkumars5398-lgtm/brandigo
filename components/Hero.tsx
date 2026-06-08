@@ -41,6 +41,20 @@ export default function Hero() {
   const [wordIdx, setWordIdx] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
 
+  // One-time entrance: content slides in from the left on mount.
+  const [entered, setEntered] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setEntered(true), 80);
+    return () => clearTimeout(t);
+  }, []);
+  // Per-word entrance: each word eases up + fades in, staggered one after another.
+  const wordEnter = (i: number): React.CSSProperties => ({
+    display: "inline-block",
+    opacity: entered ? 1 : 0,
+    transform: entered ? "translateY(0)" : "translateY(24px)",
+    transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.13}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.13}s`,
+  });
+
   useEffect(() => {
     const interval = setInterval(() => {
       setFadeIn(false);
@@ -288,19 +302,27 @@ export default function Hero() {
                 color: "#1a1a1a",
               }}
             >
-              We are Helping
-              <br />
-              to Build{" "}
-              <span
-                style={{
-                  color: "#f58220",
-                  display: "inline-block",
-                  opacity: fadeIn ? 1 : 0,
-                  transform: fadeIn ? "translateY(0)" : "translateY(10px)",
-                  transition: "opacity 350ms ease, transform 350ms ease",
-                }}
-              >
-                {words[wordIdx]}
+              {["We", "are", "Helping", "\n", "to", "Build"].map((w, i) =>
+                w === "\n" ? (
+                  <br key={`br-${i}`} />
+                ) : (
+                  <span key={i} style={{ ...wordEnter(i), marginRight: "0.28em" }}>
+                    {w}
+                  </span>
+                )
+              )}
+              {/* Rotating word — entrance reveal on outer span, swap-fade on inner */}
+              <span style={{ ...wordEnter(6), color: "#f58220" }}>
+                <span
+                  style={{
+                    display: "inline-block",
+                    opacity: fadeIn ? 1 : 0,
+                    transform: fadeIn ? "translateY(0)" : "translateY(10px)",
+                    transition: "opacity 350ms ease, transform 350ms ease",
+                  }}
+                >
+                  {words[wordIdx]}
+                </span>
               </span>
             </h1>
 

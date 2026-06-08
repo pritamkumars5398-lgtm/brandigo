@@ -48,7 +48,7 @@ export default function Contact() {
 
         <div style={{ display: "grid", gap: "40px", alignItems: "start" }} className="lg:grid-cols-2">
           {/* Form */}
-          <div style={{ padding: "40px 36px", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(-30px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s" }}>
+          <div style={{ padding: "40px 36px", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(-60px)", transition: "opacity 1.3s ease 0.1s, transform 1.5s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
             <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1a1a1a", marginBottom: "24px" }}>Send Us a Message</h3>
             <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               <div style={{ display: "grid", gap: "16px" }} className="sm:grid-cols-2">
@@ -91,7 +91,7 @@ export default function Contact() {
           </div>
 
           {/* Info */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(30px)", transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(60px)", transition: "opacity 1.3s ease 0.2s, transform 1.5s cubic-bezier(0.16,1,0.3,1) 0.2s" }}>
             <div style={{ display: "grid", gap: "12px" }} className="sm:grid-cols-2">
               {[{ icon: Phone, label: "Call Us", value: "+91 91049 63161", href: "tel:+919104963161" }, { icon: Mail, label: "Email Us", value: "info@brandingoindia.com", href: "mailto:info@brandingoindia.com" }].map(({ icon: Icon, label, value, href }) => (
                 <a key={label} href={href} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "16px 20px", borderRadius: "0", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", textDecoration: "none", transition: "border-color 0.2s" }} className="hover:border-[#f58220]/50">

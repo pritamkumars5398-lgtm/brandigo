@@ -12,11 +12,25 @@ const services = [
   { icon: "https://jkbrandingindia.com/wp-content/uploads/2024/10/vector.png", title: "Search Engine Optimization", description: "Improve your website's visibility on Google, Bing and other search engines through proven SEO strategies.", href: "/services/search-engine-optimization" },
   { icon: "https://jkbrandingindia.com/wp-content/uploads/2025/01/camera.png", title: "Photo & Videography", description: "Transforming moments into timeless memories through stunning photography and cinematic videography.", href: "/services/photo-videography" },
   { icon: "https://jkbrandingindia.com/wp-content/uploads/2024/10/adwords.png", title: "Google Ads", description: "Targeted online advertising to acquire new customers and maximize your return on investment.", href: "/services/google-ads" },
-  { icon: "https://jkbrandingindia.com/wp-content/uploads/2024/10/meta_ads.png", title: "META Ads", description: "Targeted social media advertising on Meta platforms to reach your audience.", href: "/services/meta-ads" }
+  { icon: "/meta-ads.svg", title: "META Ads", description: "Targeted social media advertising on Meta platforms to reach your audience.", href: "/services/meta-ads" }
+];
+
+// Each card flies in from a different spot, then settles into the grid.
+// Pattern per 3-col row: left column ← from left, middle ↑ from below,
+// right column → from right — each with a little tilt + scale.
+const cardEntrance = [
+  "translate(-220px, 120px) rotate(-14deg) scale(0.75)",
+  "translate(0, 260px) rotate(4deg) scale(0.7)",
+  "translate(220px, 120px) rotate(14deg) scale(0.75)",
+  "translate(-260px, -40px) rotate(-12deg) scale(0.75)",
+  "translate(0, 300px) rotate(-4deg) scale(0.7)",
+  "translate(260px, -40px) rotate(12deg) scale(0.75)",
+  "translate(-220px, 140px) rotate(-14deg) scale(0.75)",
 ];
 
 export default function Services() {
-  const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true });
+  // triggerOnce: false → re-animates every time the section scrolls into view
+  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
 
   return (
     <section id="services" ref={ref} style={{ padding: "100px 0", background: "#ffffff", position: "relative", overflow: "hidden" }}>
@@ -64,8 +78,9 @@ export default function Services() {
                 border: "1px solid rgba(0,0,0,0.07)", position: "relative",
                 overflow: "hidden",
                 opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(24px)",
-                transition: `opacity 0.5s ease ${(i % 3) * 0.1 + Math.floor(i / 3) * 0.1}s, transform 0.5s ease ${(i % 3) * 0.1 + Math.floor(i / 3) * 0.1}s`,
+                transform: inView ? "translate(0,0) rotate(0deg) scale(1)" : cardEntrance[i % cardEntrance.length],
+                transition: `opacity 1s cubic-bezier(0.22,1,0.36,1) ${i * 0.16}s, transform 1.3s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.16}s`,
+                willChange: "transform, opacity",
                 textDecoration: "none",
               }}
               className="card-hover group"

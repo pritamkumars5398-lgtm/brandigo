@@ -1,7 +1,7 @@
 "use client";
 
 import { useInView } from "react-intersection-observer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
@@ -14,9 +14,19 @@ const testimonials = [
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
   const prev = () => setCurrent(i => (i - 1 + testimonials.length) % testimonials.length);
   const next = () => setCurrent(i => (i + 1) % testimonials.length);
+
+  // Auto-advance to the next testimonial; pauses on hover and when off-screen.
+  useEffect(() => {
+    if (paused || !inView) return;
+    const id = setInterval(() => {
+      setCurrent(i => (i + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, [paused, inView]);
   const getVisible = () => {
     const p = (current - 1 + testimonials.length) % testimonials.length;
     const n = (current + 1) % testimonials.length;
@@ -24,7 +34,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" ref={ref} style={{ padding: "100px 0", background: "#f9fafb", position: "relative", overflow: "hidden" }}>
+    <section id="testimonials" ref={ref} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} style={{ padding: "100px 0", background: "#f9fafb", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: "10%", right: "-60px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(11,60,93,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div className="site-wrap">
@@ -43,12 +53,12 @@ export default function Testimonials() {
         </div>
 
         {/* Desktop: 3 cards */}
-        <div style={{ opacity: inView ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }} className="hidden md:grid md:grid-cols-3 gap-5">
+        <div key={current} style={{ opacity: inView ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }} className="hidden md:grid md:grid-cols-3 gap-5">
           {getVisible().map((idx, pos) => {
             const t = testimonials[idx];
             const isCenter = pos === 1;
             return (
-              <div key={`${idx}-${pos}`} style={{ padding: "32px 28px", borderRadius: "0", border: isCenter ? "2px solid rgba(245,130,32,0.4)" : "1px solid rgba(0,0,0,0.07)", background: isCenter ? "#fff" : "#fcfcfc", transform: isCenter ? "scale(1.03)" : "scale(1)", opacity: isCenter ? 1 : 0.65, transition: "all 0.3s ease" }}>
+              <div key={`${idx}-${pos}`} className="testimonial-flip" style={{ animationDelay: `${pos * 0.12}s`, padding: "32px 28px", borderRadius: "0", border: isCenter ? "2px solid rgba(245,130,32,0.4)" : "1px solid rgba(0,0,0,0.07)", background: isCenter ? "#fff" : "#fcfcfc", opacity: isCenter ? 1 : 0.65 }}>
                 <Quote size={28} style={{ color: isCenter ? "#f58220" : "#ddd", marginBottom: "16px", transform: "scaleX(-1)" }} />
                 <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.75, marginBottom: "20px" }}>&ldquo;{t.text}&rdquo;</p>
                 <div style={{ display: "flex", gap: "3px", marginBottom: "16px" }}>
@@ -69,7 +79,7 @@ export default function Testimonials() {
 
         {/* Mobile: single card */}
         <div className="md:hidden" style={{ opacity: inView ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
-          <div style={{ padding: "32px 24px", borderRadius: "0", border: "2px solid rgba(245,130,32,0.3)", background: "#fff" }}>
+          <div key={current} className="testimonial-flip" style={{ padding: "32px 24px", borderRadius: "0", border: "2px solid rgba(245,130,32,0.3)", background: "#fff" }}>
             <Quote size={26} style={{ color: "#f58220", marginBottom: "14px", transform: "scaleX(-1)" }} />
             <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.75, marginBottom: "20px" }}>&ldquo;{testimonials[current].text}&rdquo;</p>
             <div style={{ display: "flex", gap: "3px", marginBottom: "14px" }}>

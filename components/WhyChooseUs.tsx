@@ -20,7 +20,8 @@ const skills = [
 
 
 export default function WhyChooseUs() {
-  const { ref, inView } = useInView({ threshold: 0.08, triggerOnce: true });
+  // triggerOnce: false → re-animates each time the section scrolls into view
+  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
 
   return (
     <section id="why" ref={ref} style={{ padding: "100px 0", background: "#ffffff", position: "relative", overflow: "hidden" }}>
@@ -56,8 +57,9 @@ export default function WhyChooseUs() {
                   borderRadius: "0",
                   background: "#fff",
                   border: "1px solid rgba(0,0,0,0.07)", opacity: inView ? 1 : 0,
-                  transform: inView ? "translateY(0)" : "translateY(24px)",
-                  transition: `opacity 0.5s ease ${i * 0.12}s, transform 0.5s ease ${i * 0.12}s`,
+                  transform: inView ? "translateX(0)" : "translateX(-120px)",
+                  transition: `opacity 1.3s ease ${i * 0.22}s, transform 1.8s cubic-bezier(0.16,1,0.3,1) ${i * 0.22}s`,
+                  willChange: "transform, opacity",
                 }}
                 className="card-hover"
               >

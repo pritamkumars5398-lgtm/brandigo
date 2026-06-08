@@ -9,9 +9,20 @@ import { projects } from "@/lib/projects-data";
 
 const categories = ["All", "Real Estate", "FMCG", "Corporate", "Hospitality"];
 
+// Cards fly in from different directions, then settle into the grid.
+const cardEntrance = [
+  "translate(-200px, 100px) rotate(-12deg) scale(0.8)",
+  "translate(0, 240px) rotate(4deg) scale(0.78)",
+  "translate(200px, 100px) rotate(12deg) scale(0.8)",
+  "translate(-240px, -30px) rotate(-10deg) scale(0.8)",
+  "translate(0, 260px) rotate(-4deg) scale(0.78)",
+  "translate(240px, -30px) rotate(10deg) scale(0.8)",
+];
+
 export default function Portfolio() {
   const [active, setActive] = useState("All");
-  const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true });
+  // triggerOnce: false → re-animates each time the section scrolls into view
+  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
   const filtered = active === "All" ? projects : projects.filter(p => p.category === active);
 
   return (
@@ -44,7 +55,7 @@ export default function Portfolio() {
         {/* Grid */}
         <div style={{ display: "grid", gap: "20px" }} className="sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project, i) => (
-            <Link key={project.id} href={`/projects/${project.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block", borderRadius: "0", overflow: "hidden", background: "#fff", border: "1px solid rgba(0,0,0,0.07)", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s` }} className="card-hover group">
+            <Link key={project.id} href={`/projects/${project.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block", borderRadius: "0", overflow: "hidden", background: "#fff", border: "1px solid rgba(0,0,0,0.07)", opacity: inView ? 1 : 0, transform: inView ? "translate(0,0) rotate(0deg) scale(1)" : cardEntrance[i % cardEntrance.length], transition: `opacity 0.9s cubic-bezier(0.22,1,0.36,1) ${i * 0.12}s, transform 1.1s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.12}s`, willChange: "transform, opacity" }} className="card-hover group">
               <div style={{ position: "relative", height: "200px", overflow: "hidden" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }} className="group-hover:scale-110" />

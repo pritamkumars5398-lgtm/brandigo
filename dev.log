@@ -1,0 +1,334 @@
+
+> jk-branding@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.7 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.15:3000
+✓ Ready in 1793ms
+
+ GET / 200 in 2.8s (next.js: 1302ms, application-code: 1469ms)
+[browser] Image with src "/brandingo-logo-v2.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET / 200 in 401ms (next.js: 13ms, application-code: 388ms)
+ GET / 200 in 455ms (next.js: 12ms, application-code: 443ms)
+[browser] Image with src "/brandingo-logo-v2.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+✓ Compiled in 175ms
+⨯ ReferenceError: FluidSmoke is not defined
+    at RootLayout (app\layout.tsx:25:10)
+  23 |     <html lang="en" className={plusJakartaSans.variable}>
+  24 |       <body>
+> 25 |         <FluidSmoke />
+     |          ^
+  26 |         {children}
+  27 |       </body>
+  28 |     </html> {
+  digest: '2852988690'
+}
+⨯ ReferenceError: FluidSmoke is not defined
+    at RootLayout (app\layout.tsx:25:10)
+  23 |     <html lang="en" className={plusJakartaSans.variable}>
+  24 |       <body>
+> 25 |         <FluidSmoke />
+     |          ^
+  26 |         {children}
+  27 |       </body>
+  28 |     </html> {
+  digest: '2852988690'
+}
+⨯ ReferenceError: FluidSmoke is not defined
+    at RootLayout (app\layout.tsx:25:10)
+  23 |     <html lang="en" className={plusJakartaSans.variable}>
+  24 |       <body>
+> 25 |         <FluidSmoke />
+     |          ^
+  26 |         {children}
+  27 |       </body>
+  28 |     </html> {
+  digest: '2852988690'
+}
+ GET / 200 in 157ms (next.js: 11ms, application-code: 146ms)
+ GET / 200 in 790ms (next.js: 129ms, application-code: 662ms)
+✓ Compiled in 145ms
+ GET / 500 in 1538ms (next.js: 291ms, application-code: 1247ms)
+[browser] Uncaught ReferenceError: FluidSmoke is not defined
+    at RootLayout (about://React/Server/D:%5CBranding%5Cbrandigo%5C.next%5Cdev%5Cserver%5Cchunks%5Cssr%5C%5Broot-of-the-server%5D__0s6sb0v._.js?0:54:269)
+ GET / 200 in 733ms (next.js: 115ms, application-code: 618ms)
+[browser] Image with src "/brandingo-logo-v2.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 279ms (next.js: 8ms, application-code: 271ms)
+ GET / 200 in 378ms (next.js: 6ms, application-code: 372ms)
+ GET / 200 in 372ms (next.js: 6ms, application-code: 366ms)
+[browser] Image with src "/brandingo-logo-v2.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+✓ Compiled in 829ms
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 931ms (next.js: 487ms, application-code: 444ms)
+ GET / 500 in 924ms (next.js: 496ms, application-code: 428ms)
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 51ms (next.js: 20ms, application-code: 31ms)
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  [90m3 |[0m [36mimport[0m [33mSplashCursor[0m [36mfrom[0m [32m"@/components/SplashCursor"[0m;
+  [90m4 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m geist = [33mGeist[0m({subsets:[[32m'latin'[0m],variable:[32m'--font-sans'[0m});
+  [90m8 |[0m
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 57ms (next.js: 28ms, application-code: 29ms)
+ GET / 500 in 80ms (next.js: 48ms, application-code: 32ms)
+[browser] Uncaught Error: ./app/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  3 | import SplashCursor from "@/components/SplashCursor";
+  4 | import "./globals.css";
+> 5 | import { cn } from "@/lib/utils";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+  8 |
+
+Import map: aliased to relative './lib/utils' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (Error: ./app/layout.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (Error: (./app/layout.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+ GET / 200 in 895ms (next.js: 217ms, application-code: 677ms)
+ GET / 200 in 261ms (next.js: 13ms, application-code: 248ms)
+[browser] Image with src "/brandingo-logo-v2.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 349ms (next.js: 9ms, application-code: 340ms)
+[browser] Image with src "/brandingo-logo-v2.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[?25h
