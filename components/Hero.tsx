@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Play, Star } from "lucide-react";
+import MotionWrapper from "./ui/MotionWrapper";
 
 const words = ["Brands", "Identities", "Success", "Futures", "Legacy"];
 
@@ -175,7 +176,7 @@ export default function Hero() {
         <SunburstSpokes size={96} color="#0b3c5d" style={{ position: "absolute", left: "320px", top: "480px", opacity: 0.85 }} className="animate-spin-slow" />
 
         {/* Capsule 1: Large Center-Left (Yellow) */}
-        <div
+        <MotionWrapper variant="scaleIn" delay={0.2} duration={0.8}
           style={{
             position: "absolute",
             left: "130px",
@@ -197,10 +198,10 @@ export default function Hero() {
             sizes="210px"
             style={{ objectFit: "cover" }}
           />
-        </div>
+        </MotionWrapper>
 
         {/* Capsule 2: Top-Right (Purple) */}
-        <div
+        <MotionWrapper variant="scaleIn" delay={0.4} duration={0.8}
           style={{
             position: "absolute",
             left: "360px",
@@ -223,10 +224,10 @@ export default function Hero() {
             sizes="160px"
             style={{ objectFit: "cover" }}
           />
-        </div>
+        </MotionWrapper>
 
         {/* Capsule 3: Bottom-Right (Sky-Blue) */}
-        <div
+        <MotionWrapper variant="scaleIn" delay={0.6} duration={0.8}
           style={{
             position: "absolute",
             left: "340px",
@@ -249,7 +250,7 @@ export default function Hero() {
             sizes="160px"
             style={{ objectFit: "cover" }}
           />
-        </div>
+        </MotionWrapper>
       </div>
 
       {/* Content */}
@@ -260,103 +261,111 @@ export default function Hero() {
           <div style={{ maxWidth: "660px" }}>
 
             {/* Badge */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "8px 18px",
-                borderRadius: "999px",
-                border: "1px solid rgba(245,130,32,0.3)",
-                background: "rgba(245,130,32,0.08)",
-                marginBottom: "28px",
-              }}
-            >
-              <Star size={14} style={{ color: "#f58220" }} fill="#f58220" />
-              <span style={{ color: "#d66b10", fontSize: "13px", fontWeight: 600 }}>
-                17+ Years of Excellence in Branding
-              </span>
-            </div>
+            <MotionWrapper variant="fadeUp" delay={0.1}>
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "8px 18px",
+                  borderRadius: "999px",
+                  border: "1px solid rgba(245,130,32,0.3)",
+                  background: "rgba(245,130,32,0.08)",
+                  marginBottom: "28px",
+                }}
+              >
+                <Star size={14} style={{ color: "#f58220" }} fill="#f58220" />
+                <span style={{ color: "#d66b10", fontSize: "13px", fontWeight: 600 }}>
+                  17+ Years of Excellence in Branding
+                </span>
+              </div>
+            </MotionWrapper>
 
             {/* Heading */}
-            <h1
-              style={{
-                fontSize: "clamp(2.4rem, 5.5vw, 4.2rem)",
-                fontWeight: 800,
-                lineHeight: 1.1,
-                marginBottom: "24px",
-                color: "#1a1a1a",
-              }}
-            >
-              We are Helping
-              <br />
-              to Build{" "}
-              <span
+            <MotionWrapper variant="fadeUp" delay={0.2}>
+              <h1
                 style={{
-                  color: "#f58220",
-                  display: "inline-block",
-                  opacity: fadeIn ? 1 : 0,
-                  transform: fadeIn ? "translateY(0)" : "translateY(10px)",
-                  transition: "opacity 350ms ease, transform 350ms ease",
+                  fontSize: "clamp(2.4rem, 5.5vw, 4.2rem)",
+                  fontWeight: 800,
+                  lineHeight: 1.1,
+                  marginBottom: "24px",
+                  color: "#1a1a1a",
                 }}
               >
-                {words[wordIdx]}
-              </span>
-            </h1>
+                We are Helping
+                <br />
+                to Build{" "}
+                <span
+                  style={{
+                    color: "#f58220",
+                    display: "inline-block",
+                    opacity: fadeIn ? 1 : 0,
+                    transform: fadeIn ? "translateY(0)" : "translateY(10px)",
+                    transition: "opacity 350ms ease, transform 350ms ease",
+                  }}
+                >
+                  {words[wordIdx]}
+                </span>
+              </h1>
+            </MotionWrapper>
 
-            <p style={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.75, marginBottom: "36px", maxWidth: "520px" }}>
-              Build Your Brand&apos;s Journey with Brandingo — your partner in
-              Graphic Design, Digital Marketing, Website Development &amp; more.
-            </p>
+            <MotionWrapper variant="fadeUp" delay={0.3}>
+              <p style={{ color: "#666", fontSize: "1.1rem", lineHeight: 1.75, marginBottom: "36px", maxWidth: "520px" }}>
+                Build Your Brand&apos;s Journey with Brandingo — your partner in
+                Graphic Design, Digital Marketing, Website Development &amp; more.
+              </p>
+            </MotionWrapper>
 
             {/* CTA buttons */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", marginBottom: "56px" }}>
-              <Link
-                href="#about"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "14px 32px",
-                  background: "#f58220",
-                  color: "#fff",
-                  fontWeight: 700,
-                  borderRadius: "999px",
-                  fontSize: "15px", transition: "background 0.2s",
-                }}
-                className="hover:bg-[#ff933c]"
-              >
-                Discover More <ArrowRight size={17} />
-              </Link>
-              <Link
-                href="#about"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "14px 32px",
-                  border: "1.5px solid #d1d5db",
-                  color: "#333",
-                  fontWeight: 600,
-                  borderRadius: "999px",
-                  fontSize: "15px",
-                  transition: "border-color 0.2s, background 0.2s",
-                }}
-                className="hover:border-[#f58220] hover:bg-[#fff5eb]"
-              >
-                <Play size={15} fill="#333" /> Read More
-              </Link>
-            </div>
+            <MotionWrapper variant="fadeUp" delay={0.4}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", marginBottom: "56px" }}>
+                <Link
+                  href="#about"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "14px 32px",
+                    background: "#f58220",
+                    color: "#fff",
+                    fontWeight: 700,
+                    borderRadius: "999px",
+                    fontSize: "15px", transition: "background 0.2s",
+                  }}
+                  className="hover:bg-[#ff933c]"
+                >
+                  Discover More <ArrowRight size={17} />
+                </Link>
+                <Link
+                  href="#about"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "14px 32px",
+                    border: "1.5px solid #d1d5db",
+                    color: "#333",
+                    fontWeight: 600,
+                    borderRadius: "999px",
+                    fontSize: "15px",
+                    transition: "border-color 0.2s, background 0.2s",
+                  }}
+                  className="hover:border-[#f58220] hover:bg-[#fff5eb]"
+                >
+                  <Play size={15} fill="#333" /> Read More
+                </Link>
+              </div>
+            </MotionWrapper>
 
             {/* Stats row */}
             <div style={{ display: "flex", flexWrap: "nowrap", justifyContent: "space-between", gap: "24px" }}>
-  {[{ value: "10+", label: "Years Experience" },{ value: "40,000+", label: "Projects Completed" },{ value: "35,000+", label: "Happy Clients" }].map((s) => (
-    <div key={s.label} style={{ borderLeft: "3px solid #f58220", paddingLeft: "14px" }}>
-      <div style={{ fontSize: "2rem", fontWeight: 800, color: "#1a1a1a" }}>{s.value}</div>
-      <div style={{ fontSize: "12px", color: "#888", marginTop: "2px", fontWeight: 500 }}>{s.label}</div>
-    </div>
-  ))}
-</div>
+              {[{ value: "10+", label: "Years Experience" },{ value: "40,000+", label: "Projects Completed" },{ value: "35,000+", label: "Happy Clients" }].map((s, idx) => (
+                <MotionWrapper key={s.label} variant="fadeUp" delay={0.5 + idx * 0.1} style={{ borderLeft: "3px solid #f58220", paddingLeft: "14px" }}>
+                  <div style={{ fontSize: "2rem", fontWeight: 800, color: "#1a1a1a" }}>{s.value}</div>
+                  <div style={{ fontSize: "12px", color: "#888", marginTop: "2px", fontWeight: 500 }}>{s.label}</div>
+                </MotionWrapper>
+              ))}
+            </div>
           </div>
         </div>
       </div>

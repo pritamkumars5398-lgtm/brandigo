@@ -1,9 +1,9 @@
 "use client";
 
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import MotionWrapper from "./ui/MotionWrapper";
 
 const highlights = [
   "17+ Years of Experience in Designing, Printing & Brand Development",
@@ -14,16 +14,15 @@ const highlights = [
 ];
 
 export default function About() {
-  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
   return (
-    <section id="about" ref={ref} style={{ padding:"100px 0", background:"#f9fafb", position:"relative", overflow:"hidden" }}>
+    <section id="about" style={{ padding:"100px 0", background:"#f9fafb", position:"relative", overflow:"hidden" }}>
       <div style={{ position:"absolute", top:"-120px", right:"-120px", width:"400px", height:"400px", borderRadius:"50%", background:"radial-gradient(circle, rgba(11,60,93,0.06) 0%, transparent 70%)", pointerEvents:"none" }} />
 
       <div className="site-wrap">
         <div style={{ display:"grid", gap:"64px", alignItems:"center" }} className="lg:grid-cols-2">
 
           {/* Image */}
-          <div style={{ opacity:inView?1:0, transform:inView?"translateX(0)":"translateX(-40px)", transition:"opacity 0.7s ease, transform 0.7s ease" }}>
+          <MotionWrapper variant="fadeLeft" delay={0.2}>
             <div style={{ position:"relative" }}>
               <div style={{ position:"absolute", top:"-12px", left:"-12px", right:"12px", bottom:"12px", borderRadius:"0", border:"2px solid rgba(245,130,32,0.3)" }} />
               <div style={{ borderRadius:"0", overflow:"hidden", background:"#fff", border:"1px solid rgba(0,0,0,0.07)", display:"flex", alignItems:"center", justifyContent:"center", minHeight:"320px", position:"relative", width:"100%" }}>
@@ -38,10 +37,10 @@ export default function About() {
                 <div style={{ fontSize:"11px", fontWeight:700, color:"#fff", textTransform:"uppercase", letterSpacing:"0.05em", marginTop:"2px" }}>Years Experience</div>
               </div>
             </div>
-          </div>
+          </MotionWrapper>
 
           {/* Content */}
-          <div style={{ opacity:inView?1:0, transform:inView?"translateX(0)":"translateX(40px)", transition:"opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
+          <MotionWrapper variant="fadeRight" delay={0.4}>
             <div style={{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"16px" }}>
               <div style={{ width:"32px", height:"2px", background:"#f58220" }} />
               <span style={{ color:"#f58220", fontSize:"12px", fontWeight:700, letterSpacing:"3px", textTransform:"uppercase" }}>Who We Are</span>
@@ -71,22 +70,24 @@ export default function About() {
                 Explore Our Services
               </Link>
             </div>
-          </div>
+          </MotionWrapper>
         </div>
 
         {/* Industry Insights */}
-        <div style={{ marginTop:"80px", padding:"48px 40px", borderRadius:"0", background:"#fff", border:"1px solid rgba(0,0,0,0.07)", textAlign:"center", position:"relative", overflow:"hidden", opacity:inView?1:0, transition:"opacity 0.6s ease 0.5s" }}>
-          <div style={{ position:"absolute", top:0, left:0, right:0, height:"3px", background:"linear-gradient(90deg, transparent, #f58220 50%, transparent)" }} />
-          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"10px", marginBottom:"12px" }}>
-            <div style={{ width:"24px", height:"2px", background:"#f58220" }} />
-            <span style={{ color:"#f58220", fontSize:"11px", fontWeight:700, letterSpacing:"3px", textTransform:"uppercase" }}>Industry Insights &amp; Trends</span>
-            <div style={{ width:"24px", height:"2px", background:"#f58220" }} />
+        <MotionWrapper variant="fadeUp" delay={0.6}>
+          <div style={{ marginTop:"80px", padding:"48px 40px", borderRadius:"0", background:"#fff", border:"1px solid rgba(0,0,0,0.07)", textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", top:0, left:0, right:0, height:"3px", background:"linear-gradient(90deg, transparent, #f58220 50%, transparent)" }} />
+            <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"10px", marginBottom:"12px" }}>
+              <div style={{ width:"24px", height:"2px", background:"#f58220" }} />
+              <span style={{ color:"#f58220", fontSize:"11px", fontWeight:700, letterSpacing:"3px", textTransform:"uppercase" }}>Industry Insights &amp; Trends</span>
+              <div style={{ width:"24px", height:"2px", background:"#f58220" }} />
+            </div>
+            <h3 style={{ fontSize:"1.5rem", fontWeight:700, color:"#1a1a1a", marginBottom:"12px" }}>Staying Ahead in the Branding Landscape</h3>
+            <p style={{ color:"#777", maxWidth:"600px", margin:"0 auto", lineHeight:1.75, fontSize:"0.95rem" }}>
+              We continuously monitor industry trends and leverage the latest technologies to ensure your brand stays relevant, competitive, and ahead of the curve.
+            </p>
           </div>
-          <h3 style={{ fontSize:"1.5rem", fontWeight:700, color:"#1a1a1a", marginBottom:"12px" }}>Staying Ahead in the Branding Landscape</h3>
-          <p style={{ color:"#777", maxWidth:"600px", margin:"0 auto", lineHeight:1.75, fontSize:"0.95rem" }}>
-            We continuously monitor industry trends and leverage the latest technologies to ensure your brand stays relevant, competitive, and ahead of the curve.
-          </p>
-        </div>
+        </MotionWrapper>
       </div>
     </section>
   );

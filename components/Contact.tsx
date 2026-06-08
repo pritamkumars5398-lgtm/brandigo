@@ -1,8 +1,8 @@
 "use client";
 
-import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
+import MotionWrapper from "./ui/MotionWrapper";
 
 const SocialFacebook = () => <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>;
 const SocialLinkedin = () => <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10V9h4v1.5A6 6 0 0 1 16 8zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>;
@@ -17,7 +17,6 @@ const offices = [
 const iBase: React.CSSProperties = { width: "100%", padding: "12px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "0", color: "#1a1a1a", fontSize: "14px", outline: "none", transition: "border-color 0.2s" };
 
 export default function Contact() {
-  const { ref, inView } = useInView({ threshold: 0.08, triggerOnce: true });
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
   const [sent, setSent] = useState(false);
 
@@ -29,69 +28,74 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} style={{ padding: "100px 0", background: "#ffffff", position: "relative", overflow: "hidden" }}>
+    <section id="contact" style={{ padding: "100px 0", background: "#ffffff", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "360px", height: "360px", borderRadius: "50%", background: "radial-gradient(circle, rgba(11,60,93,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div className="site-wrap">
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "60px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "14px" }}>
-            <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
-            <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Get In Touch</span>
-            <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
+        <MotionWrapper variant="fadeUp" delay={0.2}>
+          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "14px" }}>
+              <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
+              <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Get In Touch</span>
+              <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
+            </div>
+            <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.8rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "14px" }}>
+              Let&apos;s Build Something <span style={{ color: "#f58220" }}>Great Together</span>
+            </h2>
+            <p style={{ color: "#777", maxWidth: "460px", margin: "0 auto", lineHeight: 1.75 }}>Ready to elevate your brand? Contact us today for a free consultation.</p>
           </div>
-          <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.8rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "14px" }}>
-            Let&apos;s Build Something <span style={{ color: "#f58220" }}>Great Together</span>
-          </h2>
-          <p style={{ color: "#777", maxWidth: "460px", margin: "0 auto", lineHeight: 1.75 }}>Ready to elevate your brand? Contact us today for a free consultation.</p>
-        </div>
+        </MotionWrapper>
 
         <div style={{ display: "grid", gap: "40px", alignItems: "start" }} className="lg:grid-cols-2">
           {/* Form */}
-          <div style={{ padding: "40px 36px", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(-30px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s" }}>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1a1a1a", marginBottom: "24px" }}>Send Us a Message</h3>
-            <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div style={{ display: "grid", gap: "16px" }} className="sm:grid-cols-2">
-                <div>
-                  <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Full Name</label>
-                  <input type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required placeholder="Your name" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
+          <MotionWrapper variant="fadeRight" delay={0.4}>
+            <div style={{ padding: "40px 36px", border: "1px solid rgba(0,0,0,0.07)", background: "#fff" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1a1a1a", marginBottom: "24px" }}>Send Us a Message</h3>
+              <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div style={{ display: "grid", gap: "16px" }} className="sm:grid-cols-2">
+                  <div>
+                    <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Full Name</label>
+                    <input type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required placeholder="Your name" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
+                  </div>
+                  <div>
+                    <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Email</label>
+                    <input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required placeholder="your@email.com" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
+                  </div>
+                </div>
+                <div style={{ display: "grid", gap: "16px" }} className="sm:grid-cols-2">
+                  <div>
+                    <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Phone</label>
+                    <input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+91 00000 00000" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
+                  </div>
+                  <div>
+                    <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Service</label>
+                    <select value={form.service} onChange={e => setForm({ ...form, service: e.target.value })} style={{ ...iBase, color: form.service ? "#1a1a1a" : "#aaa" }}>
+                      <option value="">Select service</option>
+                      <option value="graphic">Graphic Designing</option>
+                      <option value="digital">Digital Marketing</option>
+                      <option value="web">Website Development</option>
+                      <option value="seo">SEO</option>
+                      <option value="photo">Photo &amp; Videography</option>
+                      <option value="ads">Google Ads</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
                 </div>
                 <div>
-                  <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Email</label>
-                  <input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required placeholder="your@email.com" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
+                  <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Message</label>
+                  <textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required rows={4} placeholder="Tell us about your project..." style={{ ...iBase, resize: "none" }} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
                 </div>
-              </div>
-              <div style={{ display: "grid", gap: "16px" }} className="sm:grid-cols-2">
-                <div>
-                  <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Phone</label>
-                  <input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+91 00000 00000" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
-                </div>
-                <div>
-                  <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Service</label>
-                  <select value={form.service} onChange={e => setForm({ ...form, service: e.target.value })} style={{ ...iBase, color: form.service ? "#1a1a1a" : "#aaa" }}>
-                    <option value="">Select service</option>
-                    <option value="graphic">Graphic Designing</option>
-                    <option value="digital">Digital Marketing</option>
-                    <option value="web">Website Development</option>
-                    <option value="seo">SEO</option>
-                    <option value="photo">Photo &amp; Videography</option>
-                    <option value="ads">Google Ads</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label style={{ display: "block", color: "#555", fontSize: "11px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>Message</label>
-                <textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required rows={4} placeholder="Tell us about your project..." style={{ ...iBase, resize: "none" }} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
-              </div>
-              <button type="submit" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "15px", borderRadius: "0", border: "none", background: sent ? "#22c55e" : "#f58220", color: "#fff", fontWeight: 700, fontSize: "15px", cursor: "pointer", transition: "background 0.2s" }}>
-                {sent ? "Message Sent!" : <><span>Send Message</span><Send size={16} /></>}
-              </button>
-            </form>
-          </div>
+                <button type="submit" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "15px", borderRadius: "0", border: "none", background: sent ? "#22c55e" : "#f58220", color: "#fff", fontWeight: 700, fontSize: "15px", cursor: "pointer", transition: "background 0.2s" }}>
+                  {sent ? "Message Sent!" : <><span>Send Message</span><Send size={16} /></>}
+                </button>
+              </form>
+            </div>
+          </MotionWrapper>
 
           {/* Info */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(30px)", transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s" }}>
+          <MotionWrapper variant="fadeLeft" delay={0.6}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <div style={{ display: "grid", gap: "12px" }} className="sm:grid-cols-2">
               {[{ icon: Phone, label: "Call Us", value: "+91 91049 63161", href: "tel:+919104963161" }, { icon: Mail, label: "Email Us", value: "info@brandingoindia.com", href: "mailto:info@brandingoindia.com" }].map(({ icon: Icon, label, value, href }) => (
                 <a key={label} href={href} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "16px 20px", borderRadius: "0", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", textDecoration: "none", transition: "border-color 0.2s" }} className="hover:border-[#f58220]/50">
@@ -126,8 +130,9 @@ export default function Contact() {
                   </a>
                 ))}
               </div>
+              </div>
             </div>
-          </div>
+          </MotionWrapper>
         </div>
       </div>
     </section>
