@@ -23,7 +23,7 @@ export default function Stats() {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, transparent, #f58220, transparent)" }} />
 
       <div className="site-wrap">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px" }} className="lg:grid-cols-4">
+        <div style={{ display: "grid", gap: "24px" }} className="grid-cols-1 sm:grid-cols-3">
           {stats.map((stat, i) => (
             <div
               key={stat.label}

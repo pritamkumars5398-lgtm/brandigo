@@ -6,28 +6,52 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
-    q: "How long does a typical branding project take?",
-    a: "It depends on scope. A logo concept is usually ready in 3–7 working days, while a full brand identity or website project can take 2–4 weeks. We'll share a clear timeline before we begin.",
+    q: "WHEN DOES MY PROJECT START?",
+    a: "Work on your project starts soon after we get your logo request along with the advance payment.",
   },
   {
-    q: "What do I need to provide to get started?",
-    a: "Just a short brief about your business, your goals, any references you like, and your preferred colors or style. If you have existing assets (old logo, brand guidelines), share those too — the more context, the better.",
+    q: "HOW MANY CONCEPTS DO YOU OFFER?",
+    a: "We offer you with 3 or 6 initial design concepts depending on the package that you choose.",
   },
   {
-    q: "How many revisions are included?",
-    a: "Every package includes a set number of revisions on the chosen concept (3–5 depending on the plan). We work closely with you until the design feels right.",
+    q: "WHAT FILE FORMATS ARE SUPPLIED BY YOU?",
+    a: "For your convenience, we provide the designs in the following file formats: PNG JPG PDF AI or CDR.",
   },
   {
-    q: "Will I get the source files?",
-    a: "Yes. You receive editable source files — CDR, PDF, PNG, JPG and AI — so you fully own your brand assets and can use them anywhere.",
+    q: "DO YOU PROVIDE A VECTOR FORMAT FOR LOGO?",
+    a: "Yes, we do provide EPS / .AI/.CDR files which are all vector files.",
   },
   {
-    q: "What are your payment terms?",
-    a: "Projects begin with 100% advance for our standard packages. For larger custom engagements we offer milestone-based billing — just ask.",
+    q: "HOW DO YOU DELIVER LOGO DESIGN FILES TO YOUR CLIENT?",
+    a: "We communicate via mail. We will send you the files via mail or send you a link to download the files if the file size is too big. We also use Drop box or wetransfer.com in such cases to send heavy files.",
   },
   {
-    q: "Do you offer custom packages?",
-    a: "Absolutely. Beyond logo design we handle digital marketing, web development, SEO, photography and more. Tell us what you need and we'll tailor a package for you.",
+    q: "DO YOU PROVIDE MONEY BACK GUARANTEE?",
+    a: "No. Our services are not available with a money guarantee. However, we always assure that the needs and expectations of our clients are always fulfilled. We tirelessly work on your designing till the time you are satisfied with the results.",
+  },
+  {
+    q: "WHAT ARE THE OTHER DESIGN SERVICES THAT YOU OFFER?",
+    a: "We have vast experience in designing different types of stationery which include brochures, business cards, flyers, banners, posters, signage, billboard and more. Our designers first understand the goals and objectives of your business then produce designs that perfectly meet your business requirements.",
+  },
+  {
+    q: "DO YOU PROVIDE PRINTING SERVICES?",
+    a: "No. We provide the print ready files which can be printed by any local printers.",
+  },
+  {
+    q: "I HAVE SOME MORE QUESTIONS WHICH I CANNOT FIND HERE. HOW DO I GET THOSE ANSWERS?",
+    a: "You can ask your question anytime by filling in the “Your requirement” field in the form in ‘’Contact Us‘’ page. We will get back to you with our answers.",
+  },
+  {
+    q: "Can I speak directly with the designers?",
+    a: "Absolutely, we completely understand that you want to convey opinions, & vision behind the logo. We are top logo design agency which follows a transparent process, which makes it easy for you to directly connect with our logo designers & get what you want.",
+  },
+  {
+    q: "How many logo revisions do you make?",
+    a: 'Brand purpose is related to what the brand is selling or providing. While Both mission and vision statements are combined into one comprehensive "mission statement" to define the organization\'s reason for existing. (Note: It looks like whoever built their website accidentally pasted the wrong answer for this specific question!)',
+  },
+  {
+    q: "Do you provide support once the logo design process is complete.",
+    a: "Absolutely, we pride ourselves as a leading logo design agency. We value your opinions & provide you the service even after the logo design process is complete.",
   },
 ];
 

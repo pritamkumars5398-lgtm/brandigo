@@ -79,7 +79,7 @@ export default function Portfolio() {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "48px" }}>
-          <Link href="/projects" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 32px", border: "2px solid #f58220", color: "#f58220", fontWeight: 700, borderRadius: "999px", fontSize: "14px", background: "transparent", cursor: "pointer", transition: "all 0.2s" }} className="hover:bg-[#f58220] hover:text-white group">
+          <Link href="/projects" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 32px", border: "2px solid #f58220", fontWeight: 700, borderRadius: "999px", fontSize: "14px", background: "transparent", cursor: "pointer", transition: "all 0.2s" }} className="text-[#f58220] hover:bg-[#f58220] hover:text-white group">
             View All Projects <ArrowRight size={16} />
           </Link>
         </div>

@@ -26,11 +26,13 @@ export default function About() {
           <div style={{ opacity:inView?1:0, transform:inView?"translateX(0)":"translateX(-40px)", transition:"opacity 0.7s ease, transform 0.7s ease" }}>
             <div style={{ position:"relative" }}>
               <div style={{ position:"absolute", top:"-12px", left:"-12px", right:"12px", bottom:"12px", borderRadius:"0", border:"2px solid rgba(245,130,32,0.3)" }} />
-              <div style={{ borderRadius:"0", overflow:"hidden", background:"#fff", border:"1px solid rgba(0,0,0,0.07)", display:"flex", alignItems:"center", justifyContent:"center", minHeight:"320px", position:"relative", width:"100%" }}>
-                <iframe 
-                  src="https://lottie.host/embed/eede9cfc-4e35-4bc1-85be-a1f21e574c75/YaBMV1rdqi.json" 
-                  style={{ width:"100%", height:"320px", border:"none" }}
-                  allowFullScreen
+              <div style={{ borderRadius:"0", overflow:"hidden", background:"#fff", border:"1px solid rgba(0,0,0,0.07)", position:"relative", width:"100%", height:"380px" }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80"
+                  alt="The Brandingo team collaborating"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  style={{ objectFit:"cover" }}
                 />
               </div>
               <div style={{ position:"absolute", bottom:"-20px", right:"-20px", background:"#f58220", borderRadius:"0", padding:"18px 22px", textAlign:"center" }}>
