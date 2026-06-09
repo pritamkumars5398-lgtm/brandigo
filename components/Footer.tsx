@@ -20,7 +20,7 @@ const SocialYoutube = () => (
 
 const quickLinks = [
   { label: "Home", href: "/" }, { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" }, { label: "Projects", href: "/projects" },
+  { label: "Services", href: "/services" },
   { label: "Blog", href: "/blog" }, { label: "Career", href: "/career" },
   { label: "Contact", href: "/contact" }, { label: "Privacy Policy", href: "/privacy" },
 ];

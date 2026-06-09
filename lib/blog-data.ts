@@ -25,99 +25,99 @@ export const posts: BlogPost[] = [
     content: [
       "In today’s hyper-competitive marketplace, standing out is no longer just about having a great product or service. It is about creating a connection. A strong brand identity is the bridge that links your business values with your audience's emotions, establishing trust and recognition long before a transaction even takes place.",
       "Many business owners mistake a brand identity for simply having a logo. While a logo is a critical component, it is only a single piece of a much larger puzzle. A complete brand identity encompasses your visual systems (colour palettes, typography, imagery guidelines, and layouts), your voice and messaging style, and the core brand promise that you deliver to your customers consistently.",
-      "One of the primary benefits of a robust brand identity is differentiation. When a customer is faced with dozens of virtually identical options, they default to the brand that feels most familiar and reliable. By using consistent design systems and messaging across print, outdoor advertising, and digital platforms, you establish a sense of professionalism that commands authority in your industry.",
+      "One of the primary benefits of a robust brand identity is differentiation. When a customer is faced with dozens of virtually identical options, they default to the brand that feels most familiar and reliable. By using consistent design systems across your brochures, packaging, stationery and signage, you establish a sense of professionalism that commands authority in your industry.",
       "Furthermore, a well-defined identity helps drive customer loyalty. Think of iconic brands like Apple or Nike—people don't buy their products just for utility; they buy them for what the brand represents. When your design and messaging align with your target audience's values, they develop an emotional affinity for your brand, turning one-time buyers into lifelong advocates.",
-      "Investing in your branding is a long-term strategy that yields massive returns. It makes your marketing campaigns more effective because every advertisement, social media graphic, or billboard reinforces a single, coherent brand story. If you want to position your business for sustainable growth in 2024 and beyond, building a strong visual identity is the place to start."
+      "Investing in your branding is a long-term strategy that yields massive returns. Every brochure, packaging design, or banner reinforces a single, coherent brand story. If you want to position your business for sustainable growth in 2024 and beyond, building a strong visual identity is the place to start."
     ]
   },
   {
     id: 2,
-    slug: "digital-marketing-trends",
-    title: "Top Digital Marketing Trends to Watch in 2025",
-    excerpt: "From AI-driven personalisation to short-form video dominance, discover the marketing trends reshaping how brands connect with their audiences.",
-    category: "Digital Marketing",
+    slug: "what-makes-a-logo-memorable",
+    title: "What Makes a Logo Truly Memorable",
+    excerpt: "A great logo is simple, timeless, and instantly recognisable. Here's what separates a forgettable mark from one that becomes the face of a brand.",
+    category: "Logo Design",
     date: "May 20, 2025",
-    readTime: "7 min read",
+    readTime: "6 min read",
     image: "https://jkbrandingindia.com/wp-content/uploads/2024/10/Testimonial-2.jpg",
     featured: false,
     content: [
-      "The digital marketing landscape is shifting at a breakneck pace. Technologies that were considered experimental just a couple of years ago are now fundamental drivers of successful marketing strategies. As we look towards 2025, keeping ahead of these trends is essential for brands wanting to maintain visibility and customer engagement.",
-      "The first major trend is AI-driven personalization. Consumers no longer respond well to generic mass marketing. With machine learning models, businesses can now analyze user behavior in real-time to deliver highly relevant content, product recommendations, and custom email offers. Personalization at scale is becoming the standard expectation for online consumers.",
-      "Another critical area is the absolute dominance of short-form video. Across platforms like TikTok, Instagram Reels, and YouTube Shorts, short-form video remains the highest-performing content type for engagement, shareability, and conversion. Brands must learn to communicate their value proposition in under 30 seconds through creative storytelling, educational clips, and entertaining behind-the-scenes content.",
-      "Interactive content is also on the rise. Polls, quizzes, calculators, and augmented reality (AR) product try-ons actively engage users instead of encouraging passive scrolling. By turning your marketing into an interactive experience, you not only capture user attention but also gather valuable first-party data that can be used to refine your product offerings.",
-      "Finally, search behavior is changing. With the rise of voice assistants and AI search tools (like ChatGPT and Google Search Generative Experience), users are searching using natural conversational phrases rather than simple keywords. Marketers must optimize their content to answer specific questions directly, focusing on informational search intent and conversational tone."
+      "Your logo is the single most visible expression of your brand. It appears on your storefront, your packaging, your business cards, and every piece of collateral you produce. A memorable logo does an enormous amount of work in a tiny amount of space, and getting it right is one of the most valuable investments a business can make.",
+      "The first principle of great logo design is simplicity. The most enduring logos in the world—think Nike, Apple, or FedEx—are remarkably simple. Simplicity makes a logo easy to recognise, easy to reproduce at any size, and easy to remember. When a design tries to say too much, it usually ends up saying nothing at all.",
+      "The second principle is versatility. A strong logo has to work everywhere: embossed on a premium folder, printed in a single colour on an invoice, shrunk down onto a product tag, or blown up across a standee. We always design logos to remain crisp and legible in black and white before adding colour, ensuring they perform in every real-world situation.",
+      "Timelessness matters more than trends. It is tempting to chase whatever style is fashionable this year, but trend-driven logos age quickly. A logo built on solid fundamentals—balanced proportions, clean typography, and a meaningful concept—can serve a brand faithfully for decades with only minor refinements.",
+      "Finally, a memorable logo is appropriate to its audience and industry. The right mark feels like a natural fit for the business it represents. Before we draw a single shape, we study your market, your competitors, and your values, so that the final design is not just beautiful, but strategically built to make your brand unforgettable."
     ]
   },
   {
     id: 3,
-    slug: "seo-guide-small-business",
-    title: "A Complete SEO Guide for Small Businesses",
-    excerpt: "Search engine optimisation doesn't have to be complicated. This step-by-step guide breaks down what you need to rank higher on Google and drive organic traffic.",
-    category: "SEO",
+    slug: "packaging-label-design-shelf-impact",
+    title: "Packaging & Label Design That Sells on the Shelf",
+    excerpt: "On a crowded shelf, packaging is your most powerful salesperson. Learn the design principles that turn browsers into buyers in seconds.",
+    category: "Packaging",
     date: "May 12, 2025",
-    readTime: "9 min read",
+    readTime: "7 min read",
     image: "https://jkbrandingindia.com/wp-content/uploads/2024/10/Testimonial-3.jpg",
     featured: false,
     content: [
-      "Search Engine Optimization (SEO) can feel like a complex maze of technical terms, code updates, and secret algorithms. But at its core, Google's main goal has always remained simple: to provide the best, most relevant answer to a user's search query. For small businesses, focusing on SEO fundamentals is the most cost-effective way to drive consistent, long-term traffic to your website.",
-      "The first step to SEO success is keyword research. You need to understand exactly what terms your target customers are typing into search engines. Focus on long-tail keywords—specific phrases that show high purchase intent. For example, instead of targeting 'marketing agency', a local firm would achieve much better results targeting 'branding and digital marketing agency in Rajkot'.",
-      "Next, optimize your on-page elements. Ensure every page on your site has a single, unique H1 tag containing your primary keyword. Write compelling meta titles and descriptions that include the keyword and entice users to click. Make sure your website URL structure is simple, readable, and structured logically.",
-      "Content is king, but high-quality content is the emperor. Regularly publishing helpful articles, guides, and landing pages that solve customer problems builds your authority. Ensure your articles are comprehensive, well-structured with subheadings, and easy to read on mobile devices.",
-      "For small businesses, local SEO is incredibly powerful. Claim and optimize your Google Business Profile (GBP). Ensure your business name, address, and phone number (NAP) are identical across all directories and websites. Encourage satisfied customers to leave reviews, and respond to every review to show Google that your business is active and reliable."
+      "In the world of consumer products, packaging is the first physical interaction a customer has with your brand. On a shelf lined with competing products, you have roughly three seconds to catch a shopper's eye and convince them to reach out. Great packaging and label design is the difference between a product that flies off the shelf and one that gathers dust.",
+      "Shelf impact starts with contrast and clarity. Your packaging needs to stand apart from everything around it, which means choosing colours, shapes, and typography that pop against your competitors rather than blending in. At the same time, the most important information—what the product is and why it matters—must be readable from a distance.",
+      "Hierarchy guides the buyer's eye. A well-designed label leads the customer through information in the right order: brand, product name, key benefit, then supporting details. When everything shouts for attention at once, nothing gets noticed. We use size, weight, and spacing to make sure the most persuasive elements land first.",
+      "Compliance and practicality cannot be an afterthought. Labels often need to carry nutritional panels, regulatory marks, batch codes, and barcodes. We design layouts that accommodate all mandatory information—such as FSSAI requirements for food products—without compromising the visual appeal that drives the sale.",
+      "Finally, great packaging is consistent with the wider brand. The colours, logo placement, and tone should echo your other materials so that a customer who sees your product on a shelf instantly connects it to the brand they already know and trust. Packaging is not just a container; it is brand-building in the customer's hands."
     ]
   },
   {
     id: 4,
-    slug: "website-design-conversion",
-    title: "How Good Website Design Boosts Conversions",
-    excerpt: "A beautiful website isn't enough — it needs to convert. Learn the design principles that turn casual visitors into paying customers.",
-    category: "Web Design",
+    slug: "brochure-design-that-gets-read",
+    title: "Designing Brochures That Actually Get Read",
+    excerpt: "A brochure is only effective if people open it and keep reading. These design principles turn a folded sheet into a persuasive sales tool.",
+    category: "Print Design",
     date: "May 5, 2025",
     readTime: "6 min read",
     image: "https://jkbrandingindia.com/wp-content/uploads/2024/10/Team-8.jpg",
     featured: false,
     content: [
-      "A stunning design might make a visitor say 'Wow', but unless they take action—whether that’s purchasing a product, subscribing to a newsletter, or filling out a contact form—your website is not fulfilling its business purpose. Good website design balances visual elegance with conversion rate optimization (CRO) to maximize the return on your digital investment.",
-      "The layout must guide the user's eye naturally towards key information. We use visual hierarchy—using size, color contrast, and spacing—to make important elements like headings, key statistics, and call-to-action (CTA) buttons stand out immediately. A user should understand what your business does and where they need to click within the first three seconds of landing on your page.",
-      "Clear, prominent Call-to-Actions are crucial. If you want visitors to contact you, place a bold, high-contrast button in the navigation header, the hero section, and at the end of key content pages. Use action-oriented text like 'Get a Free Quote' or 'Schedule a Consultation' instead of generic buttons like 'Submit' or 'Click Here'.",
-      "Speed and responsiveness are massive factors. In an era where over 60% of web traffic is mobile, having a site that loads slowly or breaks on smaller screens will lead to immediately lost leads. Next.js helps us build incredibly fast, statically optimized websites that load in milliseconds, keeping bounce rates low and engagement high.",
-      "Finally, build trust through social proof. Incorporate client testimonials, case study statistics, and industry certification logos directly into the layout. Showing potential clients that other reputable companies have had outstanding experiences with your business drastically reduces friction and encourages them to reach out."
+      "Despite the rise of screens, a well-crafted brochure remains one of the most persuasive marketing tools a business can put in a prospect's hands. It is tangible, considered, and gives you the space to tell your story properly. But a brochure only works if it is designed to be opened, read, and remembered.",
+      "It begins with the cover. Just like a book, a brochure is judged by its cover, and you have a split second to earn the reader's curiosity. A strong cover pairs a bold, benefit-led headline with a single striking image, leaving enough intrigue that the reader feels compelled to look inside.",
+      "Inside, structure is everything. Readers skim before they commit, so we design with clear headings, short paragraphs, and plenty of white space. A logical flow—who you are, what you offer, why it matters, and how to get in touch—lets a reader absorb your message even if they only glance through it.",
+      "Imagery and quality of print sell credibility. High-resolution photography, premium paper stock, and finishing touches like spot UV or gold foil signal that your business cares about quality. When the physical object feels valuable, the brand behind it feels valuable too.",
+      "Every brochure needs a clear next step. The final panel should make it effortless for the reader to act—a phone number, a website, a QR code, or a simple invitation to get in touch. A beautiful brochure that forgets to ask for the business is a missed opportunity; we design every piece with the call to action in mind."
     ]
   },
   {
     id: 5,
-    slug: "social-media-strategy",
-    title: "Building a Social Media Strategy That Actually Works",
-    excerpt: "Stop posting randomly and start growing. Here's how to craft a social media strategy that builds community, drives engagement, and delivers measurable results.",
-    category: "Social Media",
+    slug: "menu-design-sales-tool",
+    title: "Menu Design: Turn Your Menu Into a Sales Tool",
+    excerpt: "A menu is far more than a price list — it's a silent salesperson. Smart menu design can directly increase what every customer spends.",
+    category: "Menu Design",
     date: "April 28, 2025",
-    readTime: "8 min read",
+    readTime: "5 min read",
     image: "https://jkbrandingindia.com/wp-content/uploads/2024/10/Testimonial-2.jpg",
     featured: false,
     content: [
-      "Many businesses approach social media by posting random product images or industry news updates when they have free time. This ad-hoc approach rarely leads to meaningful business results. A successful social media strategy requires structure, consistency, and a deep understanding of your audience's behavior.",
-      "Start by defining your target audience and choosing the right platforms. You don't need to be active on every single social network. If you are a B2B corporate service provider, your efforts should be focused on LinkedIn and Twitter. If you are a visual consumer brand (FMCG, real estate, design), platforms like Instagram and Facebook will yield much higher returns.",
-      "Next, establish your content pillars. These are 3 to 4 core themes that align with your brand identity and guide your content creation. For example, a branding agency's pillars might be 'Client Showcases', 'Design Tips & Education', 'Behind-the-Scenes Team Culture', and 'Industry Trends'. This ensures your feed remains organized, diverse, and valuable to your followers.",
-      "Consistency is the heartbeat of social media growth. Create a weekly content calendar to plan posts, write captions, and design assets in advance. Batching content creation saves time and ensures a steady stream of updates, keeping your brand top-of-mind for your audience.",
-      "Lastly, prioritize engagement over follower count. Social media is a two-way street. Reply to every comment, answer direct messages promptly, and engage with content created by your clients and partners. Building an active, supportive community around your brand is far more valuable than having thousands of passive, disengaged followers."
+      "For any restaurant, café, or eatery, the menu is one of the hardest-working pieces of design in the entire business. Every single customer reads it, and the way it is designed directly influences what they order and how much they spend. A thoughtfully designed menu is one of the most profitable investments a food business can make.",
+      "Menu design starts with understanding profitability. Not every dish earns the same margin, and a well-designed menu gently steers diners toward the items you most want to sell. By giving high-margin dishes prime visual real estate—boxes, illustrations, or 'chef's recommendation' callouts—you guide choices without the customer ever realising it.",
+      "Layout shapes where the eye lands. Diners tend to scan a menu in predictable patterns, lingering on certain zones more than others. We place your star items where attention naturally falls and use spacing and dividers to make the menu feel calm and easy to read, rather than overwhelming.",
+      "Typography and imagery set the tone. The fonts, colours, and any photography or illustration tell the customer what kind of experience to expect before the food even arrives—whether that's casual and fun or refined and premium. Consistency with your overall brand keeps that experience coherent.",
+      "Finally, clarity sells. Confusing menus frustrate diners and slow down service. Clear descriptions, sensible categories, and tactful price presentation make ordering effortless and enjoyable. When a menu is a pleasure to read, customers order more confidently—and that goes straight to the bottom line."
     ]
   },
   {
     id: 6,
-    slug: "google-ads-beginners",
-    title: "Google Ads for Beginners: Getting Your First Campaign Right",
-    excerpt: "Google Ads can transform your business — or drain your budget fast. This beginner's guide shows you how to set up campaigns that generate real ROI.",
-    category: "Google Ads",
+    slug: "cohesive-stationery-brand",
+    title: "Why Cohesive Stationery Elevates Your Brand",
+    excerpt: "Letterheads, business cards, and envelopes might seem like small details — but cohesive stationery quietly signals professionalism at every touchpoint.",
+    category: "Stationery",
     date: "April 20, 2025",
-    readTime: "10 min read",
+    readTime: "5 min read",
     image: "https://jkbrandingindia.com/wp-content/uploads/2024/10/Testimonial-3.jpg",
     featured: false,
     content: [
-      "Google Ads is one of the most powerful digital advertising tools available because it captures high-intent traffic. When someone searches 'website development agency in Rajkot', they are actively looking to hire a service. By placing your business at the top of these search results, you can acquire qualified leads almost instantly. However, without a strategic setup, you can waste advertising budget quickly.",
-      "The foundation of a successful Google Ads campaign is search intent. You must distinguish between informational keywords (like 'what is web development') and transactional keywords (like 'hire web developers'). Focus your initial budget on transactional keywords to ensure your ads are shown only to prospects ready to make a buying decision.",
-      "Writing compelling, relevant ad copy is essential. Your ad should directly address the user's search query, highlight your unique selling proposition (such as '17+ Years of Experience' or 'Free Consultation'), and include a clear call-to-action. Google rewards relevant ads with higher quality scores, which lowers your cost-per-click (CPC).",
-      "One of the biggest mistakes beginners make is sending paid traffic to their website homepage. Homepages are designed for general exploration and contain too many distractions. Instead, create a dedicated, high-converting landing page for each ad group. The landing page content should match the ad promise exactly, feature a single, clear contact form, and load instantly.",
-      "Finally, track conversions meticulously. You must set up Google Tag Manager or conversion tracking to know exactly which keywords and ads are generating phone calls or form submissions. This data allows you to optimize your bids, pause underperforming keywords, and scale up the campaigns that are delivering actual business revenue."
+      "Business stationery is easy to underestimate. Yet every letterhead you send, every business card you hand over, and every invoice a client receives is a small but powerful moment of contact with your brand. Cohesive, well-designed stationery turns these everyday items into a consistent signal of professionalism and care.",
+      "The business card remains a deceptively important asset. In a single exchange, it communicates who you are and how seriously you take your craft. A card printed on quality stock with clean, confident design leaves a far stronger impression than a flimsy afterthought—and people keep cards that feel premium.",
+      "Letterheads and envelopes carry your brand into formal communication. When a quotation, contract, or invoice arrives on professionally designed stationery, it reassures the recipient that they are dealing with an established, trustworthy organisation. The design does a quiet job of building confidence before a word is even read.",
+      "Consistency is what makes stationery powerful. When your cards, letterheads, folders, and invoices all share the same logo placement, colour palette, and typography, they reinforce one another. Each piece a client encounters strengthens their memory of your brand and deepens their sense of familiarity.",
+      "Great stationery is a system, not a set of disconnected items. We design every element to work together as a family, so that your business presents one polished, unified face across every document. It is one of the simplest ways to make a small business look every bit as credible as a large one."
     ]
   },
   {
@@ -140,39 +140,38 @@ export const posts: BlogPost[] = [
   },
   {
     id: 8,
-    slug: "video-marketing-roi",
-    title: "Why Video Marketing Delivers the Highest ROI",
-    excerpt: "Video content drives more engagement, better retention, and stronger conversions than any other format. Here's how to make video work for your brand.",
-    category: "Content",
+    slug: "banner-standee-design-attention",
+    title: "Banner & Standee Design: Win Attention in Seconds",
+    excerpt: "A banner has one job: stop people in their tracks. These design principles make sure your message lands before a passer-by looks away.",
+    category: "Banner & Standee",
     date: "April 6, 2025",
-    readTime: "6 min read",
+    readTime: "4 min read",
     image: "https://jkbrandingindia.com/wp-content/uploads/2024/10/Testimonial-2.jpg",
     featured: false,
     content: [
-      "In the battle for consumer attention, video content has emerged as the undisputed winner. Study after study shows that consumers prefer watching video over reading text or looking at static images. For modern brands, incorporating video into your marketing mix is no longer a luxury; it is the most effective way to build engagement and drive conversions.",
-      "The main reason video is so powerful is its ability to convey complex information quickly and emotionally. Through a combination of visuals, voiceovers, music, and text overlays, you can tell a comprehensive brand story or explain a technical product feature in under a minute. This multisensory experience makes video content highly memorable.",
-      "From a SEO perspective, search engines love video. Google frequently ranks video search results at the very top of search engine result pages. Additionally, embedding high-quality, relevant videos on your landing pages keeps visitors on your site longer, which signals to search engines that your page contains highly valuable content.",
-      "Video is also the king of social media algorithms. Platforms like Instagram, Facebook, and LinkedIn prioritize video distribution over text or image updates. A single creative Reel or short video clip can easily go viral, giving your business massive brand exposure that would be incredibly expensive to purchase through traditional advertising routes.",
-      "You don't need a Hollywood budget to start. Authentic, raw, behind-the-scenes videos shot on a smartphone often perform better than over-polished corporate ads. Focus on creating valuable, educational, or entertaining video content that answers your customer's most common questions, and watch your brand authority and conversions soar."
+      "Banners and standees live in some of the busiest, most distracting environments imaginable—storefronts, exhibitions, events, and roadsides. They have to communicate instantly, often to someone walking or driving past. Great banner and standee design is the art of saying the right thing fast and making it impossible to ignore.",
+      "The golden rule is one message per banner. A standee that tries to cram in your entire product catalogue, multiple offers, and three paragraphs of text will be read by no one. We distil the design down to a single, clear idea—one headline, one image, one call to action—so the viewer grasps it in a heartbeat.",
+      "Legibility from a distance is non-negotiable. Type that looks fine on a screen can be unreadable across a hall or street. We size headlines generously, choose bold and clean typefaces, and use strong contrast between text and background so your message carries from far away.",
+      "Visual hierarchy directs the eye. The most important element—usually the headline or offer—should dominate, with supporting details stepping back. A clear focal point gives the passer-by an instant entry point and pulls them into the rest of the design.",
+      "Finally, every banner and standee must stay true to your brand. Consistent colours, logo placement, and style mean that even a quick glance reinforces brand recognition. Whether it is a roll-up standee at a trade show or a large banner outside your premises, the design should feel unmistakably yours."
     ]
   },
   {
     id: 9,
-    slug: "exhibition-stall-design-tips",
-    title: "5 Exhibition Stall Design Tips That Draw Crowds",
-    excerpt: "A great exhibition stall is a mini brand experience. These five proven design principles will make your stall the one everyone stops to see.",
-    category: "Design",
+    slug: "invitation-card-design-first-impression",
+    title: "Invitation Card Design: Making the Right First Impression",
+    excerpt: "An invitation sets the tone for the entire event before a single guest arrives. Here's how thoughtful design builds anticipation and elevates the occasion.",
+    category: "Invitation Cards",
     date: "March 30, 2025",
     readTime: "4 min read",
     image: "https://jkbrandingindia.com/wp-content/uploads/2024/10/Testimonial-3.jpg",
     featured: false,
     content: [
-      "Exhibitions, trade shows, and industry conventions offer a golden opportunity to meet potential clients and build brand awareness in the physical world. However, you are competing in a massive hall filled with hundreds of other booths. To stand out, your exhibition stall design must be strategically planned to capture attention and facilitate comfortable conversations.",
-      "Tip 1: Define a clear visual focal point. Don't clutter your walls with endless blocks of small text and dozens of images. Choose one high-impact central banner or digital screen that clearly states your primary value proposition. A visitor walking past should understand what your business does from 20 feet away within three seconds.",
-      "Tip 2: Prioritize open layouts. Avoid blocking the front of your stall with heavy tables, counters, or display racks. This creates a physical and psychological barrier that prevents people from walking in. Keep the layout open, spacious, and inviting, encouraging attendees to step off the aisle and explore your booth space.",
-      "Tip 3: Leverage professional lighting. Lighting is one of the most neglected elements of booth design. A poorly lit stall looks uninspiring and unprofessional. Use strategic spotlights, LED backlighting, and colored accent lights to illuminate your products, highlight your brand signage, and create a warm, premium atmosphere that naturally draws people in.",
-      "Tip 4: Incorporate interactive elements. Give people a reason to stay in your booth. Use touchscreen displays, product demonstration tables, VR headsets, or quick games. Interactive experiences break the ice, facilitate natural conversations, and give your sales team more time to establish a personal connection with prospects.",
-      "Tip 5: Ensure brand consistency. Your stall is a physical extension of your brand identity. Make sure the color scheme, logo placement, typography, and promotional materials match your website and digital presence exactly. This reinforces brand recall, making it easy for leads to find you online and continue the business relationship after the event."
+      "An invitation card is the very first impression of any event, whether it is a wedding, a corporate launch, or a milestone celebration. Long before guests arrive, the card tells them what kind of experience to expect. Thoughtful invitation design sets the tone, builds anticipation, and makes recipients feel genuinely valued.",
+      "Every invitation should reflect the spirit of its occasion. A grand wedding calls for elegance and warmth; a product launch demands something sleek and modern; a festive celebration invites colour and energy. We begin by understanding the mood of your event, so the design feels perfectly matched to the moment.",
+      "Typography carries much of the emotion. The choice between a flowing script, a refined serif, or a clean modern face dramatically changes how an invitation feels. Paired with the right hierarchy, it guides the reader smoothly through the who, what, when, and where without ever feeling cluttered.",
+      "Materials and finishing turn a card into a keepsake. Premium paper, foil stamping, embossing, and special folds transform a simple invitation into something guests want to hold on to. These tactile details communicate effort and importance, making recipients feel like part of something special.",
+      "Above all, an invitation must be clear. Amid all the beauty, the essential details—date, time, venue, and any instructions—need to be effortless to find and read. We balance striking design with perfect clarity, so your invitation is as practical as it is memorable."
     ]
   }
 ];

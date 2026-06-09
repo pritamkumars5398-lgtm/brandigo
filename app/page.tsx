@@ -4,7 +4,6 @@ import ClientLogos from "@/components/ClientLogos";
 import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Pricing from "@/components/Pricing";
 import Vision from "@/components/Vision";
@@ -22,7 +21,6 @@ export default function Home() {
       <Stats />
       <About />
       <Services />
-      <Portfolio />
       <WhyChooseUs />
       <Pricing />
       <Vision />

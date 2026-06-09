@@ -184,7 +184,7 @@ export default function BlogPageClient({ post }: { post: BlogPost }) {
                   Categories
                 </h4>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "10px", padding: 0, margin: 0, listStyle: "none" }}>
-                  {["Branding", "Digital Marketing", "SEO", "Web Design", "Google Ads"].map(c => (
+                  {["Branding", "Logo Design", "Packaging", "Print Design", "Menu Design"].map(c => (
                     <li key={c}>
                       <Link
                         href="/blog"

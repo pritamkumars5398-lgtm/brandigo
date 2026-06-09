@@ -9,7 +9,7 @@ import { ChevronRight, Calendar, Clock, Tag, ArrowRight, Search } from "lucide-r
 
 import { posts } from "@/lib/blog-data";
 
-const categories = ["All", "Branding", "Digital Marketing", "SEO", "Web Design", "Social Media", "Google Ads", "Content", "Design"];
+const categories = ["All", "Branding", "Logo Design", "Packaging", "Print Design", "Menu Design", "Stationery", "Banner & Standee", "Invitation Cards"];
 
 const accent = "#f58220";
 
