@@ -188,6 +188,22 @@ a {
   margin: 0 10px;
 }
 
+/* Pricing: comparison table on desktop, stacked cards on mobile */
+.pricing-cards {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .pricing-table-wrap {
+    display: none;
+  }
+  .pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
