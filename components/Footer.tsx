@@ -47,47 +47,9 @@ export default function Footer() {
     transform: ctaInView ? "translateX(0)" : "translateX(-40px)",
     transition: `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s`,
   });
-  const headline = ["Ready", "to", "Build", "Your", "Brand?"];
-  const subtext = ["Get", "in", "touch", "with", "our", "experts", "for", "a", "free", "consultation", "today."];
-
   return (
     <footer style={{ background: "#fff" }}>
-      <div ref={ctaRef} style={{ background: "#f58220", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(0,0,0,0.04) 30px, rgba(0,0,0,0.04) 31px)", pointerEvents: "none" }} />
-        <div className="site-wrap" style={{ position: "relative", zIndex: 1, padding: "48px 24px", display: "flex", flexDirection: "column", gap: "20px", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ textAlign: "center" }}>
-            <h3 style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 900, color: "#000", marginBottom: "6px" }}>
-              {headline.map((w, i) => (
-                <span key={i} style={wordIn(i)}>{w}</span>
-              ))}
-            </h3>
-            <p style={{ color: "rgba(0,0,0,0.6)", fontWeight: 500, fontSize: "15px" }}>
-              {subtext.map((w, i) => (
-                <span key={i} style={wordIn(headline.length + i)}>{w}</span>
-              ))}
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "14px 32px",
-              background: "#000",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: "14px",
-              borderRadius: "999px",
-              transition: "background 0.2s",
-              whiteSpace: "nowrap",
-            }}
-            className="hover:bg-[#222] sm:self-auto"
-          >
-            Get a Free Quote <ArrowRight size={16} />
-          </Link>
-        </div>
-      </div>
+      {/* The CTA section has been removed as per user request */}
 
       <div style={{ background: "#1a1a1a" }}>
         <div className="site-wrap" style={{ padding: "64px 24px" }}>

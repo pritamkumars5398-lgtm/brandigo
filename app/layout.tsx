@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Geist } from "next/font/google";
-import SplashCursor from "@/components/SplashCursor";
 import ImageProtection from "@/components/ImageProtection";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -51,17 +50,6 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-        <SplashCursor
-          DENSITY_DISSIPATION={10}
-          VELOCITY_DISSIPATION={2.5}
-          PRESSURE={0.35}
-          CURL={45}
-          SPLAT_RADIUS={0.57}
-          SPLAT_FORCE={4000}
-          SHADING={true}
-          RAINBOW_MODE={false}
-          COLOR="#004563"
-        />
         {children}
       </body>
     </html>

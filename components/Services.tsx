@@ -116,35 +116,32 @@ export default function Services() {
           <Link
             href="/services"
             style={{
+              padding: "14px 32px",
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              padding: "14px 32px",
-              background: "#f58220",
-              color: "#fff",
-              fontWeight: 700,
               borderRadius: "999px",
+              fontWeight: 700,
               fontSize: "14px",
-              transition: "background 0.2s",
+              transition: "background 0.2s, color 0.2s, border-color 0.2s",
             }}
-            className="hover:bg-[#ff933c]"
+            className="border-2 border-[#f58220] bg-white text-[#f58220] hover:bg-[#f58220] hover:text-white"
           >
             View All Services <ArrowRight size={16} />
           </Link>
           <Link
             href="/contact"
             style={{
+              padding: "14px 32px",
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              padding: "14px 32px",
-              border: "2px solid #f58220",
-              fontWeight: 700,
               borderRadius: "999px",
+              fontWeight: 700,
               fontSize: "14px",
-              transition: "background 0.2s, color 0.2s",
+              transition: "background 0.2s, color 0.2s, border-color 0.2s",
             }}
-            className="text-[#f58220] hover:bg-[#f58220] hover:text-white group"
+            className="border-2 border-[#f58220] bg-[#f58220] text-white hover:bg-white hover:text-[#f58220]"
           >
             Get a Free Consultation <ArrowRight size={16} />
           </Link>

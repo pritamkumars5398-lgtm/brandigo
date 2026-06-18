@@ -23,7 +23,7 @@ export default function PageHero({ title = "", bgImage }: PageHeroProps) {
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    
+
     const handleType = () => {
       const i = loopNum % ANIMATED_WORDS.length;
       const fullText = ANIMATED_WORDS[i];
@@ -38,7 +38,7 @@ export default function PageHero({ title = "", bgImage }: PageHeroProps) {
 
       if (!isDeleting && text === fullText) {
         // Pause at the end of the word before deleting
-        setTypingSpeed(1500); 
+        setTypingSpeed(1500);
         setIsDeleting(true);
       } else if (isDeleting && text === "") {
         setIsDeleting(false);
@@ -58,7 +58,7 @@ export default function PageHero({ title = "", bgImage }: PageHeroProps) {
       className={`${!bgImage ? defaultBgClass : ""} bg-center bg-cover bg-no-repeat`}
       style={{
         backgroundImage: bgImage ? `linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)), url('${bgImage}')` : undefined,
-        minHeight: "45vh",
+        minHeight: "67vh",
         paddingTop: "90px",
         display: "flex",
         alignItems: "center",
@@ -85,13 +85,13 @@ export default function PageHero({ title = "", bgImage }: PageHeroProps) {
             {title}
           </h1>
         )}
-        
+
         {/* Animated Words Section (Typewriter Effect) */}
         <div style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)", color: "rgba(255,255,255,0.85)", fontWeight: 500, letterSpacing: "1px", minHeight: "36px" }}>
           <span>We specialize in </span>
-          <span 
-            style={{ 
-              color: "#f58220", 
+          <span
+            style={{
+              color: "#f58220",
               fontWeight: 700,
             }}
           >

@@ -128,30 +128,12 @@ export default function Hero() {
         <div className="site-wrap">
           <div style={{ maxWidth: "660px" }}>
 
-            {/* Badge */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "8px 18px",
-                borderRadius: "999px",
-                border: "1px solid rgba(245,130,32,0.3)",
-                background: "rgba(245,130,32,0.08)",
-                marginBottom: "28px",
-              }}
-            >
-              <Star size={14} style={{ color: "#f58220" }} fill="#f58220" />
-              <span style={{ color: "#d66b10", fontSize: "13px", fontWeight: 600 }}>
-                10+ Years of Excellence in Branding
-              </span>
-            </div>
 
             {/* Heading */}
             <h1
               style={{
                 fontSize: "clamp(2.4rem, 5.5vw, 4.2rem)",
-                fontWeight: 800,
+                fontWeight: 600,
                 lineHeight: 1.1,
                 marginBottom: "24px",
                 color: "#ffffff",
@@ -207,24 +189,7 @@ export default function Hero() {
               >
                 Discover More <ArrowRight size={17} />
               </Link>
-              <Link
-                href="#about"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "14px 32px",
-                  border: "1.5px solid #ffffff",
-                  color: "#ffffff",
-                  fontWeight: 600,
-                  borderRadius: "999px",
-                  fontSize: "15px",
-                  transition: "border-color 0.2s, background 0.2s",
-                }}
-                className="hover:border-[#f58220] hover:bg-[#f58220] hover:text-[#ffffff]"
-              >
-                <Play size={15} fill="#ffffff" /> Read More
-              </Link>
+
             </div>
 
             {/* Stats row */}
@@ -243,23 +208,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "28px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "6px",
-          zIndex: 10,
-        }}
-      >
-        <span style={{ color: "#aaa", fontSize: "10px", letterSpacing: "4px", fontWeight: 600 }}>SCROLL</span>
-        <div style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom, #f58220, transparent)" }} />
-      </div>
     </section>
   );
 }
