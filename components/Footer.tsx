@@ -101,9 +101,21 @@ export default function Footer() {
               <ul style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <li style={{ display: "flex", gap: "10px" }}>
                   <MapPin size={14} style={{ color: "#f58220", flexShrink: 0, marginTop: "2px" }} />
-                  <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", lineHeight: 1.65 }}>
-                    607, Iconic Shyamal, Shyamal Cross Roads, 132 Feet Ring Rd, Shyamal, Ahmedabad, Gujarat 380015
-                  </span>
+                  <div>
+                    <p style={{ color: "#fff", fontSize: "11px", fontWeight: 600, marginBottom: "2px" }}>Ahmedabad (Head Office)</p>
+                    <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", lineHeight: 1.65 }}>
+                      607, Iconic Shyamal, Shyamal Cross Roads, 132 Feet Ring Rd, Shyamal, Ahmedabad, Gujarat 380015
+                    </span>
+                  </div>
+                </li>
+                <li style={{ display: "flex", gap: "10px" }}>
+                  <MapPin size={14} style={{ color: "#f58220", flexShrink: 0, marginTop: "2px" }} />
+                  <div>
+                    <p style={{ color: "#fff", fontSize: "11px", fontWeight: 600, marginBottom: "2px" }}>Bangalore (Branch Office)</p>
+                    <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", lineHeight: 1.65 }}>
+                      Shanti Apartments, Behind Indian Bike Showroom, Bhaskaran Rd, Bengaluru, Karnataka 560042
+                    </span>
+                  </div>
                 </li>
                 <li>
                   <a href="tel:+91 99799 92804" style={{ display: "flex", alignItems: "center", gap: "10px", color: "rgba(255,255,255,0.4)", fontSize: "13px", transition: "color 0.2s" }} className="hover:text-[#f58220]">
@@ -116,14 +128,6 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-              <div style={{ marginTop: "20px", paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-                <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "8px" }}>Also In</p>
-                {["Banglore", "Ahmedabad"].map((c) => (
-                  <div key={c} style={{ display: "flex", alignItems: "center", gap: "8px", color: "rgba(255,255,255,0.35)", fontSize: "13px", marginBottom: "6px" }}>
-                    <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#f58220", flexShrink: 0 }} /> {c}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

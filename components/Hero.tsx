@@ -69,15 +69,48 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('/bannermobile.png')] md:bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('/bannertablet.png')] lg:bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('/banner.png')] bg-center bg-cover bg-no-repeat"
       style={{
         minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
         display: "flex",
         alignItems: "center",
+        background: "#07273d", // Fallback color
       }}
     >
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 0,
+        }}
+      >
+        <source
+          src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Dark overlay to ensure contrast */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65))",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
+
       {/* Subtle dot grid */}
       <div
         style={{
@@ -87,6 +120,7 @@ export default function Hero() {
           backgroundSize: "40px 40px",
           pointerEvents: "none",
           opacity: 0.6,
+          zIndex: 2,
         }}
       />
 
@@ -102,6 +136,7 @@ export default function Hero() {
           borderRadius: "50%",
           background: "radial-gradient(circle, rgba(11,60,93,0.08) 0%, transparent 70%)",
           pointerEvents: "none",
+          zIndex: 2,
         }}
       />
       <div
@@ -116,6 +151,7 @@ export default function Hero() {
           background: "radial-gradient(circle, rgba(245,130,32,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
           animationDelay: "4s",
+          zIndex: 2,
         }}
       />
 

@@ -104,7 +104,7 @@ export default function Services() {
                 </p>
 
                 <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 20px", background: "#f58220", color: "#fff", fontWeight: 700, fontSize: "13px", borderRadius: "999px", alignSelf: "flex-start", transition: "background 0.2s" }} className="group-hover:bg-[#ff933c]">
-                  Read More <ArrowRight size={13} />
+                  Explore <ArrowRight size={13} />
                 </span>
               </div>
             </Link>

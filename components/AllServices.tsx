@@ -82,7 +82,7 @@ export default function AllServices() {
                   }}
                   className="hover:bg-[#ff933c]"
                 >
-                  Read More <ArrowRight size={13} />
+                  Explore <ArrowRight size={13} />
                 </Link>
               </div>
             </div>

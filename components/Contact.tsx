@@ -2,17 +2,7 @@
 
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
-
-const SocialFacebook = () => <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>;
-const SocialLinkedin = () => <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10V9h4v1.5A6 6 0 0 1 16 8zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>;
-const SocialInstagram = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="17" height="17"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>;
-const SocialYoutube = () => <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" /><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" /></svg>;
-
-const offices = [
-  { city: "Ahmedabad", label: "Head Office", address: "607, Iconic Shyamal, Shyamal Cross Roads, 132 Feet Ring Rd, Shyamal, Ahmedabad, Gujarat 380015" },
-  { city: "Bangalore", label: "Branch Office", address: "Shanti Apartments, Behind Indian Bike Showroom, Bhaskaran Rd, Bengaluru, Karnataka 560042" }
-];
+import { Send } from "lucide-react";
 
 const iBase: React.CSSProperties = { width: "100%", padding: "12px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "0", color: "#1a1a1a", fontSize: "14px", outline: "none", transition: "border-color 0.2s" };
 
@@ -63,10 +53,10 @@ export default function Contact() {
           <p style={{ color: "#777", maxWidth: "460px", margin: "0 auto", lineHeight: 1.75 }}>Ready to elevate your brand? Contact us today for a free consultation.</p>
         </div>
 
-        <div style={{ display: "grid", gap: "40px", alignItems: "start" }} className="lg:grid-cols-2">
+        <div style={{ display: "flex", justifyContent: "center" }}>
           {/* Form */}
-          <div style={{ padding: "40px 36px", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(-60px)", transition: "opacity 1.3s ease 0.1s, transform 1.5s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1a1a1a", marginBottom: "24px" }}>Send Us a Message</h3>
+          <div style={{ width: "100%", maxWidth: "680px", padding: "40px 36px", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(40px)", transition: "opacity 1.3s ease 0.1s, transform 1.5s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
+            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1a1a1a", marginBottom: "24px", textAlign: "center" }}>Send Us a Message</h3>
             <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               <div style={{ display: "grid", gap: "16px" }} className="sm:grid-cols-2">
                 <div>
@@ -110,45 +100,6 @@ export default function Contact() {
               </button>
               {error && <p style={{ color: "#dc2626", fontSize: "13px", textAlign: "center" }}>{error}</p>}
             </form>
-          </div>
-
-          {/* Info */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px", opacity: inView ? 1 : 0, transform: inView ? "translateX(0)" : "translateX(60px)", transition: "opacity 1.3s ease 0.2s, transform 1.5s cubic-bezier(0.16,1,0.3,1) 0.2s" }}>
-            <div style={{ display: "grid", gap: "12px" }} className="sm:grid-cols-2">
-              {[{ icon: Phone, label: "Call Us", value: "+91 99799 92804", href: "tel:+91 99799 92804" }, { icon: Mail, label: "Email Us", value: "sales@brandingo.in", href: "mailto:sales@brandingo.in" }].map(({ icon: Icon, label, value, href }) => (
-                <a key={label} href={href} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "16px 20px", borderRadius: "0", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", textDecoration: "none", transition: "border-color 0.2s" }} className="hover:border-[#f58220]/50">
-                  <div style={{ width: "40px", height: "40px", borderRadius: "12px", background: "#fff5eb", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <Icon size={17} style={{ color: "#f58220" }} />
-                  </div>
-                  <div>
-                    <p style={{ color: "#aaa", fontSize: "11px", fontWeight: 600, marginBottom: "2px" }}>{label}</p>
-                    <p style={{ color: "#1a1a1a", fontSize: "13px", fontWeight: 700 }}>{value}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {offices.map(o => (
-              <div key={o.city} style={{ padding: "20px 24px", borderRadius: "0", border: "1px solid rgba(0,0,0,0.07)", background: "#fff", transition: "border-color 0.2s" }} className="hover:border-[#f58220]/40">
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                  <MapPin size={15} style={{ color: "#f58220" }} />
-                  <span style={{ fontWeight: 700, color: "#1a1a1a", fontSize: "14px" }}>{o.city}</span>
-                  <span style={{ padding: "2px 10px", background: "#fff5eb", color: "#d66b10", fontSize: "11px", fontWeight: 700, borderRadius: "999px", border: "1px solid rgba(245,130,32,0.3)" }}>{o.label}</span>
-                </div>
-                <p style={{ color: "#888", fontSize: "13px", lineHeight: 1.6, paddingLeft: "23px" }}>{o.address}</p>
-              </div>
-            ))}
-
-            <div>
-              <p style={{ color: "#aaa", fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "12px" }}>Follow Us</p>
-              <div style={{ display: "flex", gap: "10px" }}>
-                {[SocialFacebook, SocialLinkedin, SocialInstagram, SocialYoutube].map((Icon, i) => (
-                  <a key={i} href="#" style={{ width: "40px", height: "40px", borderRadius: "50%", border: "1.5px solid #e5e7eb", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#888", transition: "all 0.2s" }} className="hover:border-[#f58220] hover:text-[#f58220] hover:bg-[#fff5eb]">
-                    <Icon />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
