@@ -142,21 +142,11 @@ export default function PortfolioGallery() {
               <button
                 key={item.id}
                 onClick={() => setLightbox(item.image)}
+                className="portfolio-card group"
                 style={{
-                  display: "block",
-                  width: "100%",
-                  marginBottom: "18px",
-                  position: "relative",
-                  overflow: "hidden",
-                  background: "#0b0b0b",
-                  border: "none",
-                  padding: 0,
-                  cursor: "zoom-in",
-                  breakInside: "avoid",
                   transform: inView ? "translateY(0)" : "translateY(24px)",
-                  transition: `transform 0.5s ease ${(i % 9) * 0.04}s`,
+                  transitionDelay: `${(i % 9) * 0.04}s`,
                 }}
-                className="group"
                 aria-label={`View ${item.category} design`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -164,16 +154,18 @@ export default function PortfolioGallery() {
                   src={item.image}
                   alt={`${item.category} design by Brandingo`}
                   loading="lazy"
-                  style={{ width: "100%", height: "auto", display: "block", transition: "transform 0.5s ease, opacity 0.3s ease" }}
-                  className="group-hover:scale-105"
                 />
                 {/* Hover overlay */}
-                <div style={{ position: "absolute", inset: 0, background: "rgba(0,69,99,0.85)", opacity: 0, transition: "opacity 0.3s ease" }} className="group-hover:opacity-100" />
-                <div style={{ position: "absolute", top: "14px", right: "14px", width: "38px", height: "38px", borderRadius: "50%", background: A, display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transform: "scale(0.6)", transition: "opacity 0.25s ease, transform 0.25s ease" }} className="group-hover:opacity-100 group-hover:scale-100">
-                  <ZoomIn size={17} style={{ color: "#fff" }} />
+                <div className="portfolio-overlay" />
+                
+                {/* Accent Action Circle */}
+                <div className="portfolio-zoom-icon">
+                  <ZoomIn size={18} style={{ color: "#fff" }} />
                 </div>
-                <div style={{ position: "absolute", left: "16px", bottom: "16px", opacity: 0, transform: "translateY(8px)", transition: "opacity 0.3s ease, transform 0.3s ease" }} className="group-hover:opacity-100 group-hover:translate-y-0">
-                  <span style={{ display: "inline-block", padding: "5px 13px", background: A, color: "#fff", fontSize: "11px", fontWeight: 700, borderRadius: "999px" }}>{item.category}</span>
+                
+                {/* Floating Tag */}
+                <div className="portfolio-tag">
+                  <span>{item.category}</span>
                 </div>
               </button>
             ))}
@@ -259,6 +251,94 @@ export default function PortfolioGallery() {
       >
         <ArrowUp size={22} />
       </button>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        .portfolio-card {
+          display: block;
+          width: 100%;
+          margin-bottom: 20px;
+          position: relative;
+          overflow: hidden;
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.04);
+          border-radius: 16px;
+          padding: 0;
+          cursor: zoom-in;
+          break-inside: avoid;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
+          transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+        }
+        .portfolio-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+          border-color: rgba(245, 130, 32, 0.25);
+        }
+        .portfolio-card img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .portfolio-card:hover img {
+          transform: scale(1.04);
+        }
+        .portfolio-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(11, 60, 93, 0) 30%, rgba(11, 60, 93, 0.75) 100%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          z-index: 10;
+        }
+        .portfolio-card:hover .portfolio-overlay {
+          opacity: 1;
+        }
+        .portfolio-zoom-icon {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #f58220;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transform: scale(0.6);
+          transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          z-index: 20;
+          box-shadow: 0 4px 10px rgba(245, 130, 32, 0.3);
+        }
+        .portfolio-card:hover .portfolio-zoom-icon {
+          opacity: 1;
+          transform: scale(1);
+        }
+        .portfolio-tag {
+          position: absolute;
+          left: 18px;
+          bottom: 18px;
+          opacity: 0;
+          transform: translateY(8px);
+          transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          z-index: 20;
+        }
+        .portfolio-card:hover .portfolio-tag {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .portfolio-tag span {
+          display: inline-block;
+          padding: 6px 14px;
+          background: #f58220;
+          color: #fff;
+          font-size: 11px;
+          font-weight: 700;
+          border-radius: 999px;
+          letter-spacing: 0.5px;
+          box-shadow: 0 4px 10px rgba(245, 130, 32, 0.25);
+        }
+      `}} />
     </>
   );
 }
