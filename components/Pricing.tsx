@@ -11,13 +11,13 @@ const rows: { label: string; values: string[]; price?: boolean; highlight?: bool
   { label: "Design Revisions/Changes Option in the Sample", values: ["Unlimited", "Unlimited", "Unlimited"] },
   { label: "Designers Working on Your Project", values: ["1", "2", "2"], highlight: true },
   { label: "Mode of Communication", values: ["Whatsapp / Messenger", "Whatsapp / Messenger", "Whatsapp / Messenger"] },
-  { label: "Logo Design Duration", values: ["3-4 working days", "5-7 working days", "5-7 working days"] },
+  { label: "Logo Design Duration", values: ["3-4 Working Days", "5-7 Working Days", "5-7 Working Days"] },
   { label: "Logo Design Sample Format", values: ["JPG", "JPG", "JPG"] },
   { label: "Logo Source File", values: ["CDR, PDF, PNG, JPG, AI", "CDR, PDF, PNG, JPG, AI", "CDR, PDF, PNG, JPG, AI"], highlight: true },
   { label: "Free Logo Animation Video", values: ["2", "3", "5"] },
-  { label: "Stationery design (Business card, letterhead & Envelope) (2 sample of each)", values: ["No", "Yes", "Yes"] },
+  { label: "Stationery Design (Business Card, Letterhead & Envelope) (2 Sample Of Each)", values: ["No", "Yes", "Yes"] },
   { label: "Festival Post", values: ["No", "20 QTY", "50 QTY"] },
-  { label: "Customize business promotional post", values: ["No", "5 QTY", "15 QTY"] },
+  { label: "Customize Business Promotional Post", values: ["No", "5 QTY", "15 QTY"] },
   { label: "Payment Options - 100% Advance", values: ["Yes", "Yes", "Yes"] },
 ];
 
