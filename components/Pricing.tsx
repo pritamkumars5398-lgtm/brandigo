@@ -17,7 +17,8 @@ const rows: { label: string; values: string[]; price?: boolean; highlight?: bool
   { label: "Free Logo Animation Video", values: ["2", "3", "5"] },
   { label: "Stationery Design (Business Card, Letterhead & Envelope) (2 Sample Of Each)", values: ["No", "Yes", "Yes"] },
   { label: "Festival Post", values: ["No", "20 QTY", "50 QTY"] },
-  { label: "Customize Business Promotional Post", values: ["No", "5 QTY", "15 QTY"] },
+  { label: "Customize Business Promotional Post", values: ["No", "10 QTY", "15 QTY"] },
+  { label: "Company Profile (Brochure) Design", values: ["No", "No", "04 Pages"] },
   { label: "Payment Options - 100% Advance", values: ["Yes", "Yes", "Yes"] },
 ];
 
@@ -165,7 +166,7 @@ export default function Pricing() {
                     }}
                   >
                     <Link
-                      href="/contact"
+                      href={`/order?package=${i === 0 ? "basic" : i === 1 ? "premium" : "ultimate"}`}
                       style={{
                         display: "block",
                         padding: "14px 10px",
@@ -243,7 +244,7 @@ export default function Pricing() {
                 </div>
                 <div style={{ padding: "18px 16px" }}>
                   <Link
-                    href="/contact"
+                    href={`/order?package=${ci === 0 ? "basic" : ci === 1 ? "premium" : "ultimate"}`}
                     style={{
                       display: "block",
                       padding: "14px 10px",
