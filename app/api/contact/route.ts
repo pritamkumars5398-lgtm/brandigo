@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { initEnv } from "@/lib/env";
 
 // nodemailer needs the Node runtime (not Edge), and this must run per-request.
 export const runtime = "nodejs";
@@ -18,6 +19,7 @@ const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 
 export async function POST(request: Request) {
+  initEnv();
   let body: ContactPayload;
   try {
     body = await request.json();

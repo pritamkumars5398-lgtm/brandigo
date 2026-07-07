@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { initEnv } from "@/lib/env";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -7,6 +8,7 @@ const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 
 export async function POST(request: Request) {
+  initEnv();
   try {
     const formData = await request.formData();
 
