@@ -70,7 +70,7 @@ export default function Portfolio() {
                 <p style={{ color: "#888", fontSize: "13.5px", lineHeight: 1.65, marginBottom: "14px" }}>{project.description}</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                   {project.tags.map(tag => (
-                    <span key={tag} style={{ padding: "4px 10px", fontSize: "11px", background: "#f3f4f6", color: "#666", borderRadius: "999px", fontWeight: 500 }}>{tag}</span>
+                    <span key={tag} style={{ padding: "4px 10px", fontSize: "11px", background: "#f3f4f6", color: "#666", borderRadius: "999px", fontWeight: 455 }}>{tag}</span>
                   ))}
                 </div>
               </div>
