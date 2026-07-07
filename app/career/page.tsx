@@ -87,7 +87,7 @@ export default function CareerPage() {
               and portfolio to us.
             </p>
             <Link
-              href="sales@brandingo.in"
+              href="mailto:career@brandingo.in"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
