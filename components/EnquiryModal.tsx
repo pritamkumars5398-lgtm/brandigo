@@ -30,6 +30,17 @@ export default function EnquiryModal() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    const cleanedPhone = form.phone.replace(/[^0-9]/g, "");
+    if (!cleanedPhone) {
+      setError("Please enter your phone number.");
+      return;
+    }
+    if (cleanedPhone.length !== 10) {
+      setError("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     setSending(true);
     try {
       const res = await fetch("/api/contact", {
@@ -157,8 +168,9 @@ export default function EnquiryModal() {
               <input 
                 type="tel" 
                 value={form.phone} 
-                onChange={e => setForm({ ...form, phone: e.target.value })} 
+                onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9]/g, "").slice(0, 10) })} 
                 required
+                maxLength={10}
                 placeholder="Contact Number" 
                 style={{ width: "100%", padding: "12px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "8px", fontSize: "14px", color: "#111827", outline: "none", transition: "border-color 0.2s" }} 
                 onFocus={e => (e.target.style.borderColor = "#f58220")} 

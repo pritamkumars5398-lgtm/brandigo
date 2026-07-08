@@ -12,28 +12,31 @@ export function initEnv() {
   }
 
   try {
-    const envPath = path.join(process.cwd(), ".env.local");
-    if (fs.existsSync(envPath)) {
-      const content = fs.readFileSync(envPath, "utf-8");
-      content.split(/\r?\n/).forEach((line) => {
-        const trimmed = line.trim();
-        if (trimmed && !trimmed.startsWith("#") && trimmed.includes("=")) {
-          const eqIdx = trimmed.indexOf("=");
-          const key = trimmed.slice(0, eqIdx).trim();
-          let val = trimmed.slice(eqIdx + 1).trim();
-          
-          // Remove wrapping quotes if present
-          if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
-            val = val.slice(1, -1);
+    const envFiles = [".env.production", ".env.local", ".env"];
+    for (const file of envFiles) {
+      const envPath = path.join(process.cwd(), file);
+      if (fs.existsSync(envPath)) {
+        const content = fs.readFileSync(envPath, "utf-8");
+        content.split(/\r?\n/).forEach((line) => {
+          const trimmed = line.trim();
+          if (trimmed && !trimmed.startsWith("#") && trimmed.includes("=")) {
+            const eqIdx = trimmed.indexOf("=");
+            const key = trimmed.slice(0, eqIdx).trim();
+            let val = trimmed.slice(eqIdx + 1).trim();
+            
+            // Remove wrapping quotes if present
+            if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+              val = val.slice(1, -1);
+            }
+            
+            if (key && !process.env[key]) {
+              process.env[key] = val;
+            }
           }
-          
-          if (key && !process.env[key]) {
-            process.env[key] = val;
-          }
-        }
-      });
+        });
+      }
     }
   } catch (err) {
-    console.error("Failed to load fallback env variables from .env.local:", err);
+    console.error("Failed to load fallback env variables:", err);
   }
 }

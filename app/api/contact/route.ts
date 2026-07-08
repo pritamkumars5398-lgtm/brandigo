@@ -42,6 +42,12 @@ export async function POST(request: Request) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return Response.json({ ok: false, error: "Please enter a valid email address." }, { status: 400 });
   }
+  if (phone) {
+    const cleaned = phone.replace(/[^0-9]/g, "");
+    if (cleaned.length !== 10) {
+      return Response.json({ ok: false, error: "Please enter a valid 10-digit phone number." }, { status: 400 });
+    }
+  }
 
   const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_TO, CONTACT_FROM } = process.env;
 

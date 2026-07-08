@@ -4,7 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
-import { MapPin, Phone, Mail, Send, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
 
 const branches = [
   { label: "Head Office", city: "Ahmedabad", address: "607, Iconic Shyamal, Shyamal Cross Roads, 132 Feet Ring Rd, Shyamal, Ahmedabad, Gujarat 380015", phone: "+91 99799 92804", mapUrl: "https://maps.app.goo.gl/QHnofgohkDA459Hj9" },
@@ -30,9 +30,21 @@ export default function ContactClient() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    const cleanedPhone = form.phone.replace(/[^0-9]/g, "");
+    if (!cleanedPhone) {
+      setError("Please enter your phone number.");
+      return;
+    }
+    if (cleanedPhone.length !== 10) {
+      setError("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     setSending(true);
     try {
       const res = await fetch("/api/contact", {
@@ -103,12 +115,9 @@ export default function ContactClient() {
                 <div><label style={{
                   color: "#555", fontSize: "13px", fontWeight: 600, marginBottom: "6px"
                 }}>Email :</label><input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required placeholder="Email" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} /></div>
-                <div><label style={{ display: "block", color: "#555", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Contact No :</label><input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="Contact Number" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} /></div>
+                <div><label style={{ display: "block", color: "#555", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Contact No * :</label><input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9]/g, "").slice(0, 10) })} required maxLength={10} placeholder="Contact Number" style={iBase} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} /></div>
                 <div><label style={{ display: "block", color: "#555", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Message :</label><textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required rows={4} placeholder="Message" style={{ ...iBase, resize: "none" }} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} /></div>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "12px 16px", border: "1.5px solid #e5e7eb", background: "#f9fafb" }}>
-                  <input type="checkbox" id="robot" style={{ width: "18px", height: "18px", accentColor: "#f58220", cursor: "pointer" }} />
-                  <label htmlFor="robot" style={{ color: "#555", fontSize: "13px", cursor: "pointer", flex: 1 }}>I&apos;m not a robot</label>
-                </div>
+                
                 {/* Honeypot — hidden from users, catches bots */}
                 <input type="text" name="company" tabIndex={-1} autoComplete="off" value={form.company} onChange={e => setForm({ ...form, company: e.target.value })} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} aria-hidden="true" />
                 <button type="submit" disabled={sending} style={{ width: "100%", padding: "15px", background: sent ? "#22c55e" : "#f58220", color: "#fff", border: "none", fontWeight: 800, fontSize: "15px", letterSpacing: "1px", textTransform: "uppercase", cursor: sending ? "wait" : "pointer", opacity: sending ? 0.7 : 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", transition: "background 0.2s" }}>
@@ -117,6 +126,7 @@ export default function ContactClient() {
                 {error && <p style={{ color: "#dc2626", fontSize: "13px", textAlign: "center" }}>{error}</p>}
               </form>
             </div>
+
           </div>
         </div>
       </section>

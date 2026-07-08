@@ -390,7 +390,8 @@ function OrderFormContent() {
                 <input 
                   type="tel" 
                   value={phone} 
-                  onChange={(e) => setPhone(e.target.value)} 
+                  onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, "").slice(0, 10))} 
+                  maxLength={10}
                   placeholder="9876543210" 
                   style={{ ...iBase, flex: 1 }} 
                   onFocus={(e) => (e.target.style.borderColor = "#f58220")} 
