@@ -116,6 +116,22 @@ export default function Navbar() {
             >
               Get Quote
             </Link>
+            <Link
+              href="/admin/login"
+              style={{
+                padding: "8px 20px",
+                border: "2px solid #0b3c5d",
+                color: "#0b3c5d",
+                fontWeight: 700,
+                fontSize: "13px",
+                borderRadius: "999px",
+                transition: "all 0.2s",
+                whiteSpace: "nowrap",
+              }}
+              className="hover:bg-[#0b3c5d] hover:!text-white"
+            >
+              Admin Login
+            </Link>
           </div>
 
           <button
@@ -160,6 +176,14 @@ export default function Navbar() {
             style={{ display: "block", marginTop: "12px", textAlign: "center", padding: "14px", background: "#f58220", color: "#fff", fontWeight: 700, borderRadius: "999px", fontSize: "14px" }}
           >
             Get Quote
+          </Link>
+          <Link
+            href="/admin/login"
+            onClick={() => setMobileOpen(false)}
+            style={{ display: "block", marginTop: "12px", textAlign: "center", padding: "14px", border: "2px solid #0b3c5d", color: "#0b3c5d", fontWeight: 700, borderRadius: "999px", fontSize: "14px", transition: "all 0.2s" }}
+            className="hover:bg-[#0b3c5d] hover:!text-white"
+          >
+            Admin Login
           </Link>
         </div>
       </div>

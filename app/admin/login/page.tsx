@@ -42,48 +42,53 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col justify-center items-center px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-center items-center px-4 relative overflow-hidden" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "16px" }}>
       {/* Dynamic Background Gradients */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-80 h-80 bg-orange-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#0b3c5d]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-80 h-80 bg-[#f58220]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full max-w-md bg-slate-900/60 backdrop-blur-xl border border-slate-800 p-8 rounded-2xl shadow-2xl relative z-10">
-        <div className="text-center mb-8">
-          <div className="mx-auto w-12 h-12 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center mb-4">
+      <div className="w-full bg-white border border-slate-200 rounded-2xl shadow-xl relative z-10" style={{ width: "100%", maxWidth: "440px", padding: "32px", display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "12px" }}>
+          <div className="bg-[#f58220]/10 border border-[#f58220]/20 text-[#f58220] rounded-xl flex items-center justify-center" style={{ width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Lock className="w-6 h-6" />
           </div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">Admin Portal</h1>
-          <p className="text-sm text-slate-400 mt-2">Enter security password to access control panel</p>
+          <div>
+            <h1 className="text-2xl font-bold text-[#0b3c5d] tracking-tight">Admin Portal</h1>
+            <p className="text-sm text-slate-500 mt-2">Enter security password to access control panel</p>
+          </div>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-6">
-          <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+        <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-550">
               Security Password
             </label>
-            <div className="relative">
+            <div style={{ position: "relative", width: "100%" }}>
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full bg-slate-950 border border-slate-800 text-white rounded-xl py-3 px-4 pr-11 focus:outline-none focus:border-blue-500 transition placeholder:text-slate-700"
+                className="w-full bg-slate-50 border border-slate-250 text-slate-800 rounded-xl transition placeholder:text-slate-400"
+                style={{ width: "100%", paddingLeft: "16px", paddingRight: "48px", height: "48px", outline: "none", borderRadius: "12px" }}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition"
+                className="text-slate-400 hover:text-slate-700 transition"
+                style={{ position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer" }}
               >
                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
             </div>
-            {error && <p className="text-xs text-red-500 mt-2 font-medium">{error}</p>}
+            {error && <p className="text-xs text-red-650 mt-2 font-medium" style={{ marginTop: "6px" }}>{error}</p>}
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl py-3 px-4 flex items-center justify-center gap-2 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-600/20"
+            className="w-full bg-[#f58220] hover:bg-[#ff933c] text-white font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#f58220]/15"
+            style={{ height: "48px", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", border: "none", cursor: "pointer" }}
           >
             {loading ? (
               <>
@@ -96,10 +101,10 @@ export default function AdminLoginPage() {
           </button>
         </form>
 
-        <div className="mt-8 text-center border-t border-slate-800/60 pt-6">
+        <div className="border-t border-slate-200" style={{ borderTop: "1px solid rgb(226, 232, 240)", paddingTop: "20px", textAlign: "center" }}>
           <a
             href="/"
-            className="text-xs text-slate-500 hover:text-slate-400 transition underline underline-offset-4"
+            className="text-xs text-slate-550 hover:text-slate-700 transition underline underline-offset-4 font-semibold"
           >
             Back to Website
           </a>
