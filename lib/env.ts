@@ -11,13 +11,9 @@ export function initEnv() {
     return;
   }
 
-  // If the essential environment variables are already in process.env, do nothing
-  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
-    return;
-  }
-
   try {
-    const envFiles = [".env.production", ".env.local", ".env"];
+    // Load from lowest to highest priority so that higher priority files overwrite lower ones
+    const envFiles = [".env", ".env.local", ".env.production"];
     for (const file of envFiles) {
       const envPath = path.join(/* turbopackIgnore: true */ process.cwd(), file);
       if (fs.existsSync(envPath)) {
@@ -34,7 +30,7 @@ export function initEnv() {
               val = val.slice(1, -1);
             }
             
-            if (key && !process.env[key]) {
+            if (key) {
               process.env[key] = val;
             }
           }

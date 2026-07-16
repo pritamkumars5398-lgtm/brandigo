@@ -335,9 +335,10 @@ export default function AdminPage() {
         <div className="border-t border-slate-200 bg-slate-50/50 shrink-0" style={{ padding: "16px" }}>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-center gap-2 bg-white hover:bg-red-50 hover:text-red-650 border border-slate-250 hover:border-red-200 text-slate-700 font-semibold rounded-xl py-2.5 text-xs transition shadow-sm"
+            className="w-full flex items-center gap-3 text-sm font-semibold text-slate-650 hover:text-red-600 hover:bg-red-50/80 rounded-xl transition cursor-pointer"
+            style={{ padding: "12px 16px" }}
           >
-            <LogOut className="w-3.5 h-3.5" />
+            <LogOut className="w-4.5 h-4.5" />
             Sign Out
           </button>
         </div>
@@ -421,9 +422,10 @@ export default function AdminPage() {
             <div className="border-t border-slate-200 bg-slate-50" style={{ padding: "16px" }}>
               <button
                 onClick={handleLogout}
-                className="w-full flex items-center justify-center gap-2 bg-white hover:bg-red-50 hover:text-red-650 border border-slate-250 hover:border-red-200 text-slate-700 font-semibold rounded-xl py-2.5 text-xs transition shadow-sm"
+                className="w-full flex items-center gap-3 text-sm font-semibold text-slate-650 hover:text-red-600 hover:bg-red-50/80 rounded-xl transition cursor-pointer"
+                style={{ padding: "12px 16px" }}
               >
-                <LogOut className="w-3.5 h-3.5" />
+                <LogOut className="w-4.5 h-4.5" />
                 Sign Out
               </button>
             </div>
