@@ -2,6 +2,7 @@ import nodemailer from "nodemailer";
 import { initEnv } from "@/lib/env";
 import { connectToDatabase } from "@/lib/db";
 import Lead from "@/models/Lead";
+import fs from "fs";
 
 // nodemailer needs the Node runtime (not Edge), and this must run per-request.
 export const runtime = "nodejs";
@@ -101,7 +102,6 @@ export async function POST(request: Request) {
   } catch (dbErr: any) {
     console.error("Database save failed for lead:", dbErr);
     try {
-      const fs = require("fs");
       fs.appendFileSync("db_error.log", `${new Date().toISOString()} - Database save error: ${dbErr.stack || dbErr.message || dbErr}\n`);
     } catch (fsErr) {}
   }

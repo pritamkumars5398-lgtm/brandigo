@@ -1,5 +1,6 @@
 import { connectToDatabase } from "@/lib/db";
 import Lead from "@/models/Lead";
+import fs from "fs";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,7 +13,6 @@ export async function GET() {
   } catch (err: any) {
     console.error("Failed to fetch leads:", err);
     try {
-      const fs = require("fs");
       fs.appendFileSync("db_error.log", `${new Date().toISOString()} - GET leads fetch error: ${err.stack || err.message || err}\n`);
     } catch (fsErr) {}
     return Response.json({ ok: false, error: "Failed to fetch leads" }, { status: 500 });
