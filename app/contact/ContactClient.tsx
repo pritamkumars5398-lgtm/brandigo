@@ -26,7 +26,7 @@ const socialLinks = [
 const iBase: React.CSSProperties = { width: "100%", padding: "13px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "0", fontSize: "14px", color: "#1a1a1a", outline: "none", transition: "border-color 0.2s" };
 
 export default function ContactClient() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", company: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", company_hp: "" });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
@@ -55,7 +55,7 @@ export default function ContactClient() {
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || "Something went wrong.");
       setSent(true);
-      setForm({ name: "", email: "", phone: "", message: "", company: "" });
+      setForm({ name: "", email: "", phone: "", message: "", company_hp: "" });
       setTimeout(() => setSent(false), 4000);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not send your message.");
@@ -119,7 +119,7 @@ export default function ContactClient() {
                 <div><label style={{ display: "block", color: "#555", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Message :</label><textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required rows={4} placeholder="Message" style={{ ...iBase, resize: "none" }} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} /></div>
                 
                 {/* Honeypot — hidden from users, catches bots */}
-                <input type="text" name="company" tabIndex={-1} autoComplete="off" value={form.company} onChange={e => setForm({ ...form, company: e.target.value })} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} aria-hidden="true" />
+                <input type="text" name="company_hp" tabIndex={-1} autoComplete="off" value={form.company_hp} onChange={e => setForm({ ...form, company_hp: e.target.value })} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} aria-hidden="true" />
                 <button type="submit" disabled={sending} style={{ width: "100%", padding: "15px", background: sent ? "#22c55e" : "#f58220", color: "#fff", border: "none", fontWeight: 800, fontSize: "15px", letterSpacing: "1px", textTransform: "uppercase", cursor: sending ? "wait" : "pointer", opacity: sending ? 0.7 : 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", transition: "background 0.2s" }}>
                   {sent ? "Message Sent!" : sending ? "SENDING..." : <><span>SEND</span><Send size={16} /></>}
                 </button>

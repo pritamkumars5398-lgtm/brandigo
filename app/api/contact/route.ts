@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer";
 import { initEnv } from "@/lib/env";
+import { connectToDatabase } from "@/lib/db";
+import Lead from "@/models/Lead";
 
 // nodemailer needs the Node runtime (not Edge), and this must run per-request.
 export const runtime = "nodejs";
@@ -12,7 +14,7 @@ interface ContactPayload {
   service?: string;
   message?: string;
   // Honeypot — real users leave this empty; bots tend to fill every field.
-  company?: string;
+  company_hp?: string;
 }
 
 const esc = (s: string) =>
@@ -34,7 +36,7 @@ export async function POST(request: Request) {
   const message = (body.message ?? "").trim();
 
   // Silently accept honeypot hits so bots think they succeeded.
-  if (body.company) return Response.json({ ok: true });
+  if (body.company_hp) return Response.json({ ok: true });
 
   if (!name || !email || !message) {
     return Response.json({ ok: false, error: "Please fill in your name, email and message." }, { status: 400 });
@@ -85,6 +87,24 @@ export async function POST(request: Request) {
       <p style="margin-top:16px"><strong>Message:</strong></p>
       <p style="white-space:pre-wrap">${esc(message)}</p>
     </div>`;
+
+  // Save lead to database
+  try {
+    await connectToDatabase();
+    await Lead.create({
+      name,
+      email,
+      phone: phone || undefined,
+      service: service || undefined,
+      message,
+    });
+  } catch (dbErr: any) {
+    console.error("Database save failed for lead:", dbErr);
+    try {
+      const fs = require("fs");
+      fs.appendFileSync("db_error.log", `${new Date().toISOString()} - Database save error: ${dbErr.stack || dbErr.message || dbErr}\n`);
+    } catch (fsErr) {}
+  }
 
   try {
     await transporter.sendMail({

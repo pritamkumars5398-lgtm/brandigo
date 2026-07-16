@@ -13,9 +13,9 @@ import {
   X,
   FileText,
   DollarSign,
-  AlertCircle,
-  CheckCircle2,
-  HelpCircle,
+  CircleAlert,
+  CircleCheck,
+  CircleQuestionMark,
   LayoutDashboard,
   Shield,
   Menu,
@@ -202,11 +202,11 @@ export default function AdminPage() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "success":
-        return <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-450 border border-emerald-500/20 flex items-center gap-1 w-fit"><CheckCircle2 className="w-3.5 h-3.5" /> Paid</span>;
+        return <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-450 border border-emerald-500/20 flex items-center gap-1 w-fit"><CircleCheck className="w-3.5 h-3.5" /> Paid</span>;
       case "failed":
-        return <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-450 border border-red-500/20 flex items-center gap-1 w-fit"><AlertCircle className="w-3.5 h-3.5" /> Failed</span>;
+        return <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-450 border border-red-500/20 flex items-center gap-1 w-fit"><CircleAlert className="w-3.5 h-3.5" /> Failed</span>;
       case "pending":
-        return <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-450 border border-amber-500/20 flex items-center gap-1 w-fit"><HelpCircle className="w-3.5 h-3.5" /> Pending</span>;
+        return <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-450 border border-amber-500/20 flex items-center gap-1 w-fit"><CircleQuestionMark className="w-3.5 h-3.5" /> Pending</span>;
       case "refunded":
         return <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-450 border border-blue-500/20 flex items-center gap-1 w-fit"><RefreshCw className="w-3.5 h-3.5" /> Refunded</span>;
       default:
@@ -481,7 +481,7 @@ export default function AdminPage() {
                     <div className="text-3xl font-extrabold text-emerald-400 mt-2">{stats.successfulOrders}</div>
                   </div>
                   <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center absolute top-6 right-6 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5" />
+                    <CircleCheck className="w-5 h-5" />
                   </div>
                 </div>
 
@@ -497,7 +497,7 @@ export default function AdminPage() {
                     </div>
                   </div>
                   <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-450 flex items-center justify-center absolute top-6 right-6 shadow-sm">
-                    <AlertCircle className="w-5 h-5" />
+                    <CircleAlert className="w-5 h-5" />
                   </div>
                 </div>
 

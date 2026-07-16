@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ChevronRight, ArrowRight, CircleCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Project } from "@/lib/projects-data";
@@ -116,7 +116,7 @@ export default function ProjectPageClient({ project }: { project: Project }) {
                 <ul style={{ display: "flex", flexDirection: "column", gap: "18px", padding: 0, margin: 0, listStyle: "none" }}>
                   {project.scope.map((item, idx) => (
                     <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                      <CheckCircle2 size={18} style={{ color: A, flexShrink: 0, marginTop: "2px" }} />
+                      <CircleCheck size={18} style={{ color: A, flexShrink: 0, marginTop: "2px" }} />
                       <span style={{ color: "#333", fontSize: "14.5px", fontWeight: 600, lineHeight: 1.4 }}>{item}</span>
                     </li>
                   ))}

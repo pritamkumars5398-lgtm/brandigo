@@ -8,7 +8,7 @@ const iBase: React.CSSProperties = { width: "100%", padding: "12px 16px", backgr
 
 export default function Contact() {
   const { ref, inView } = useInView({ threshold: 0.08, triggerOnce: true });
-  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "", company: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "", company_hp: "" });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
@@ -37,7 +37,7 @@ export default function Contact() {
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || "Something went wrong.");
       setSent(true);
-      setForm({ name: "", email: "", phone: "", service: "", message: "", company: "" });
+      setForm({ name: "", email: "", phone: "", service: "", message: "", company_hp: "" });
       setTimeout(() => setSent(false), 4000);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not send your message.");
@@ -105,7 +105,7 @@ export default function Contact() {
                 <textarea suppressHydrationWarning value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required rows={4} placeholder="Tell us about your project..." style={{ ...iBase, resize: "none" }} onFocus={e => (e.target.style.borderColor = "#f58220")} onBlur={e => (e.target.style.borderColor = "#e5e7eb")} />
               </div>
               {/* Honeypot — hidden from users, catches bots */}
-              <input suppressHydrationWarning type="text" name="company" tabIndex={-1} autoComplete="off" value={form.company} onChange={e => setForm({ ...form, company: e.target.value })} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} aria-hidden="true" />
+              <input suppressHydrationWarning type="text" name="company_hp" tabIndex={-1} autoComplete="off" value={form.company_hp} onChange={e => setForm({ ...form, company_hp: e.target.value })} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} aria-hidden="true" />
               <button suppressHydrationWarning type="submit" disabled={sending} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "15px", borderRadius: "0", border: "none", background: sent ? "#22c55e" : "#f58220", color: "#fff", fontWeight: 700, fontSize: "15px", cursor: sending ? "wait" : "pointer", opacity: sending ? 0.7 : 1, transition: "background 0.2s" }}>
                 {sent ? "Message Sent!" : sending ? "Sending..." : <><span>Send Message</span><Send size={16} /></>}
               </button>

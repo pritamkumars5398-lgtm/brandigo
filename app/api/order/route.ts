@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer";
 import { initEnv } from "@/lib/env";
+import { connectToDatabase } from "@/lib/db";
+import Order from "@/models/Order";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -173,6 +175,34 @@ File Attachment: ${file && file.size > 0 ? `Yes (${file.name})` : "No"}
           This form submission was processed from Brandingo Checkout.
         </div>
       </div>`;
+
+    // Save order details to MongoDB database
+    try {
+      await connectToDatabase();
+      await Order.create({
+        name,
+        email,
+        phone,
+        bestTime,
+        city,
+        state,
+        logoName,
+        slogan: slogan || undefined,
+        industry,
+        colorPreferences: colorPreferences || undefined,
+        referenceLink: referenceLink || undefined,
+        fileName: (file && file.size > 0) ? file.name : undefined,
+        package: selectedPackage,
+        amount: totalAmount,
+        paymentId: paymentId || undefined,
+        orderId: orderId || undefined,
+        signature: signature || undefined,
+        paymentStatus: isSuccess ? "success" : "failed",
+        failureReason: failureReason || undefined,
+      });
+    } catch (dbErr) {
+      console.error("Database save failed for order:", dbErr);
+    }
 
     await transporter.sendMail({
       from: `Brandingo Orders <${from}>`,

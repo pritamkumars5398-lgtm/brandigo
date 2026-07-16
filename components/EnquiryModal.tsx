@@ -5,7 +5,7 @@ import { X, Send } from "lucide-react";
 
 export default function EnquiryModal() {
   const [isOpen, setIsOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", company: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", company_hp: "" });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
@@ -51,7 +51,7 @@ export default function EnquiryModal() {
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || "Something went wrong.");
       setSent(true);
-      setForm({ name: "", email: "", phone: "", message: "", company: "" });
+      setForm({ name: "", email: "", phone: "", message: "", company_hp: "" });
       setTimeout(() => {
         setIsOpen(false);
         setSent(false);
@@ -192,7 +192,7 @@ export default function EnquiryModal() {
             </div>
             
             {/* Honeypot */}
-            <input type="text" name="company" tabIndex={-1} autoComplete="off" value={form.company} onChange={e => setForm({ ...form, company: e.target.value })} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} aria-hidden="true" />
+            <input type="text" name="company_hp" tabIndex={-1} autoComplete="off" value={form.company_hp} onChange={e => setForm({ ...form, company_hp: e.target.value })} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} aria-hidden="true" />
 
             <button 
               type="submit" 
