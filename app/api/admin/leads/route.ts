@@ -15,7 +15,7 @@ export async function GET() {
     try {
       fs.appendFileSync("db_error.log", `${new Date().toISOString()} - GET leads fetch error: ${err.stack || err.message || err}\n`);
     } catch (fsErr) {}
-    return Response.json({ ok: false, error: "Failed to fetch leads" }, { status: 500 });
+    return Response.json({ ok: false, error: err.message || "Failed to fetch leads" }, { status: 500 });
   }
 }
 

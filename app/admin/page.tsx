@@ -85,6 +85,7 @@ export default function AdminPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Search & Filter States
   const [leadSearch, setLeadSearch] = useState("");
@@ -98,20 +99,37 @@ export default function AdminPage() {
 
   const fetchDashboardData = async () => {
     setRefreshing(true);
+    setError(null);
     try {
       const statsRes = await fetch("/api/admin/stats");
       const statsData = await statsRes.json();
-      if (statsData.ok) setStats(statsData.stats);
+      if (statsData.ok) {
+        setStats(statsData.stats);
+      } else {
+        setError(statsData.error || "Failed to load statistics.");
+        return;
+      }
 
       const leadsRes = await fetch("/api/admin/leads");
       const leadsData = await leadsRes.json();
-      if (leadsData.ok) setLeads(leadsData.leads);
+      if (leadsData.ok) {
+        setLeads(leadsData.leads);
+      } else {
+        setError(leadsData.error || "Failed to load leads.");
+        return;
+      }
 
       const ordersRes = await fetch("/api/admin/orders");
       const ordersData = await ordersRes.json();
-      if (ordersData.ok) setOrders(ordersData.orders);
-    } catch (err) {
+      if (ordersData.ok) {
+        setOrders(ordersData.orders);
+      } else {
+        setError(ordersData.error || "Failed to load orders.");
+        return;
+      }
+    } catch (err: any) {
       console.error("Error loading dashboard data:", err);
+      setError(err.message || "Failed to load dashboard data.");
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -443,6 +461,18 @@ export default function AdminPage() {
           className="flex-1 overflow-y-auto bg-slate-950 z-10"
           style={{ padding: "32px", display: "flex", flexDirection: "column", gap: "32px" }}
         >
+          {error && (
+            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-5 flex items-start gap-4 text-red-400 select-text max-w-4xl shadow-2xl">
+              <CircleAlert className="w-6 h-6 shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-bold text-sm text-white">Database connection error or configuration issue</h4>
+                <p className="text-xs text-red-300/95 mt-1.5 font-mono bg-slate-950/40 p-2.5 rounded-lg border border-red-500/10 whitespace-pre-wrap">{error}</p>
+                <p className="text-xs text-slate-450 mt-3 leading-relaxed">
+                  Please check that your <code className="text-slate-300 font-mono bg-slate-900/80 px-1 py-0.5 rounded border border-slate-800">MONGODB_URI</code> environment variable is configured in Vercel, and that your MongoDB Atlas Network Access whitelist allows connection from all IPs (<code className="text-slate-300 font-mono bg-slate-900/80 px-1 py-0.5 rounded border border-slate-800">0.0.0.0/0</code>) to allow dynamic Vercel serverless functions to connect.
+                </p>
+              </div>
+            </div>
+          )}
           
           {/* 1. Overview Tab */}
           {activeTab === "overview" && (

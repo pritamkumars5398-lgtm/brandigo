@@ -9,9 +9,9 @@ export async function GET() {
     await connectToDatabase();
     const orders = await Order.find({}).sort({ createdAt: -1 });
     return Response.json({ ok: true, orders });
-  } catch (err) {
+  } catch (err: any) {
     console.error("Failed to fetch orders:", err);
-    return Response.json({ ok: false, error: "Failed to fetch orders" }, { status: 500 });
+    return Response.json({ ok: false, error: err.message || "Failed to fetch orders" }, { status: 500 });
   }
 }
 

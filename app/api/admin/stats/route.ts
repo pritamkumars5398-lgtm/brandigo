@@ -38,8 +38,8 @@ export async function GET() {
         totalRevenue,
       },
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error("Failed to fetch admin stats:", err);
-    return Response.json({ ok: false, error: "Database query failed" }, { status: 500 });
+    return Response.json({ ok: false, error: err.message || "Database query failed" }, { status: 500 });
   }
 }
