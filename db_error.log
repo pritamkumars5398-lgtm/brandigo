@@ -61,3 +61,9 @@
     at async handleRequest (C:\Users\UPL\jkbrandingindia\node_modules\next\dist\server\lib\router-server.js:465:24)
     at async requestHandlerImpl (C:\Users\UPL\jkbrandingindia\node_modules\next\dist\server\lib\router-server.js:514:13)
     at async Server.requestListener (C:\Users\UPL\jkbrandingindia\node_modules\next\dist\server\lib\start-server.js:225:13)
+2026-07-16T09:01:15.562Z - GET leads fetch error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (C:\Users\UPL\jkbrandingindia\node_modules\mongoose\lib\connection.js:1180:11)
+    at NativeConnection.openUri (C:\Users\UPL\jkbrandingindia\node_modules\mongoose\lib\connection.js:1111:11)
+2026-07-16T09:01:15.644Z - GET leads fetch error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (C:\Users\UPL\jkbrandingindia\node_modules\mongoose\lib\connection.js:1180:11)
+    at NativeConnection.openUri (C:\Users\UPL\jkbrandingindia\node_modules\mongoose\lib\connection.js:1111:11)

@@ -6,6 +6,11 @@ import path from "path";
  * even if the dev server was started before the file was created/updated.
  */
 export function initEnv() {
+  // Never run this in production
+  if (process.env.NODE_ENV === "production") {
+    return;
+  }
+
   // If the essential environment variables are already in process.env, do nothing
   if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
     return;
@@ -14,7 +19,7 @@ export function initEnv() {
   try {
     const envFiles = [".env.production", ".env.local", ".env"];
     for (const file of envFiles) {
-      const envPath = path.join(process.cwd(), file);
+      const envPath = path.join(/* turbopackIgnore: true */ process.cwd(), file);
       if (fs.existsSync(envPath)) {
         const content = fs.readFileSync(envPath, "utf-8");
         content.split(/\r?\n/).forEach((line) => {
