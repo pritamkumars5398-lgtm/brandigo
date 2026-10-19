@@ -20,6 +20,7 @@ export default function CareerPage() {
       <Navbar />
       <PageHero bgImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80" />
       <div
+        className="career-page-content"
         style={{
           paddingTop: "80px",
           paddingBottom: "100px",
@@ -71,6 +72,7 @@ export default function CareerPage() {
             we would love to hear from you.
           </p>
           <div
+            className="career-card"
             style={{
               padding: "40px",
               background: "#fff",

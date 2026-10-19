@@ -2,6 +2,7 @@
 
 import { useInView } from "react-intersection-observer";
 import { Target, Lightbulb, Globe, Zap } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 const reasons = [
   { icon: Lightbulb, title: "Seasoned Experts in Graphic Design", description: "Our team comprises highly experienced professionals who bring decades of collective expertise in visual communications." },
@@ -17,16 +18,15 @@ const skills = [
   { label: "Social Media Management", value: 90 },
 ];
 
-
-
 export default function WhyChooseUs() {
-  // triggerOnce: false → re-animates each time the section scrolls into view
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
-    <section id="why" ref={ref} style={{ padding: "100px 0", background: "#ffffff", position: "relative", overflow: "hidden" }}>
+    <section id="why" ref={ref} style={{ padding: "100px 0", background: isDark ? "#0c0e14" : "#ffffff", position: "relative", overflow: "hidden", transition: "background-color 0.3s ease" }}>
       {/* Decorative */}
-      <div style={{ position: "absolute", bottom: "-100px", left: "-100px", width: "380px", height: "380px", borderRadius: "50%", background: "radial-gradient(circle, rgba(11,60,93,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: "-100px", left: "-100px", width: "380px", height: "380px", borderRadius: "50%", background: isDark ? "radial-gradient(circle, rgba(245,130,32,0.08) 0%, transparent 70%)" : "radial-gradient(circle, rgba(11,60,93,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div className="site-wrap">
 
@@ -37,10 +37,10 @@ export default function WhyChooseUs() {
             <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Why Choose Us</span>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
           </div>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "14px" }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "14px" }}>
             Commitment, Quality, <span style={{ color: "#f58220" }}>&amp; Results</span>
           </h2>
-          <p style={{ color: "#777", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
+          <p style={{ color: isDark ? "#94a3b8" : "#777", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
             We don&apos;t just build brands — we build legacies. Here&apos;s why leading businesses choose Brandingo.
           </p>
         </div>
@@ -55,19 +55,20 @@ export default function WhyChooseUs() {
                 style={{
                   padding: "28px 24px",
                   borderRadius: "0",
-                  background: "#fff",
-                  border: "1px solid rgba(0,0,0,0.07)", opacity: inView ? 1 : 0,
+                  background: isDark ? "#12151c" : "#fff",
+                  border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.07)",
+                  opacity: inView ? 1 : 0,
                   transform: inView ? "translateX(0)" : "translateX(-120px)",
                   transition: `opacity 1.3s ease ${i * 0.22}s, transform 1.8s cubic-bezier(0.16,1,0.3,1) ${i * 0.22}s`,
                   willChange: "transform, opacity",
                 }}
                 className="card-hover"
               >
-                <div style={{ width: "48px", height: "48px", borderRadius: "0", background: "#fff5eb", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
+                <div style={{ width: "48px", height: "48px", borderRadius: "0", background: isDark ? "rgba(245,130,32,0.12)" : "#fff5eb", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
                   <r.icon size={22} style={{ color: "#f58220" }} />
                 </div>
-                <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#1a1a1a", marginBottom: "8px" }}>{r.title}</h3>
-                <p style={{ color: "#888", fontSize: "13px", lineHeight: 1.65 }}>{r.description}</p>
+                <h3 style={{ fontSize: "15px", fontWeight: 700, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "8px" }}>{r.title}</h3>
+                <p style={{ color: isDark ? "#94a3b8" : "#888", fontSize: "13px", lineHeight: 1.65 }}>{r.description}</p>
               </div>
             ))}
           </div>
@@ -80,17 +81,17 @@ export default function WhyChooseUs() {
               transition: "opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s",
             }}
           >
-            <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#1a1a1a", marginBottom: "28px" }}>Our Core Competencies</h3>
+            <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "28px" }}>Our Core Competencies</h3>
 
             {/* Skill bars */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "44px" }}>
               {skills.map((skill, i) => (
                 <div key={skill.label}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                    <span style={{ color: "#444", fontSize: "14px", fontWeight: 500 }}>{skill.label}</span>
+                    <span style={{ color: isDark ? "#cbd5e1" : "#444", fontSize: "14px", fontWeight: 500 }}>{skill.label}</span>
                     <span style={{ color: "#f58220", fontSize: "14px", fontWeight: 700 }}>{skill.value}%</span>
                   </div>
-                  <div style={{ height: "8px", background: "#f3f4f6", borderRadius: "999px", overflow: "hidden" }}>
+                  <div style={{ height: "8px", background: isDark ? "rgba(255,255,255,0.08)" : "#f3f4f6", borderRadius: "999px", overflow: "hidden" }}>
                     <div
                       style={{
                         height: "100%",
@@ -104,7 +105,6 @@ export default function WhyChooseUs() {
                 </div>
               ))}
             </div>
-
 
           </div>
         </div>

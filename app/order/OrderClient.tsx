@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Script from "next/script";
 import { Check, ArrowRight, ArrowLeft, Send, Phone, Mail, Upload, Calendar } from "lucide-react";
+import { useTheme } from "@/components/ThemeContext";
 
 const indianStates = [
   "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", 
@@ -33,19 +34,22 @@ const packages: Record<string, { name: string; price: string }> = {
   },
 };
 
-const iBase: React.CSSProperties = {
-  width: "100%",
-  padding: "13px 16px",
-  background: "#f9fafb",
-  border: "1.5px solid #e5e7eb",
-  borderRadius: "0",
-  fontSize: "14px",
-  color: "#1a1a1a",
-  outline: "none",
-  transition: "border-color 0.2s",
-};
-
 function OrderFormContent() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
+  const iBase: React.CSSProperties = {
+    width: "100%",
+    padding: "13px 16px",
+    background: isDark ? "#0e1118" : "#f9fafb",
+    border: isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb",
+    borderRadius: "0",
+    fontSize: "14px",
+    color: isDark ? "#ffffff" : "#1a1a1a",
+    outline: "none",
+    transition: "border-color 0.2s, background-color 0.2s",
+  };
+
   const searchParams = useSearchParams();
   const packageKey = (searchParams.get("package") || "premium").toLowerCase();
   const selectedPkg = packages[packageKey] || packages.premium;
@@ -267,7 +271,7 @@ function OrderFormContent() {
   const stepHeadingStyle: React.CSSProperties = {
     fontSize: "1.4rem",
     fontWeight: 800,
-    color: "#0b3c5d",
+    color: isDark ? "#ffffff" : "#0b3c5d",
     marginBottom: "20px",
     borderBottom: "2px solid rgba(245,130,32,0.15)",
     paddingBottom: "8px",
@@ -275,7 +279,7 @@ function OrderFormContent() {
 
   const formLabelStyle: React.CSSProperties = {
     display: "block",
-    color: "#4b5563",
+    color: isDark ? "#cbd5e1" : "#4b5563",
     fontSize: "13px",
     fontWeight: 600,
     marginBottom: "6px",
@@ -288,7 +292,7 @@ function OrderFormContent() {
   };
 
   return (
-    <div style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.08)", padding: "44px 40px", position: "relative", overflow: "hidden", minHeight: "560px" }}>
+    <div style={{ background: isDark ? "#12151c" : "#fff", border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)", padding: "44px 40px", position: "relative", overflow: "hidden", minHeight: "560px", transition: "background 0.3s ease" }}>
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "4px", background: "linear-gradient(90deg,#f58220,#ff933c,#f58220)" }} />
 
       {/* Progress bar */}
@@ -307,8 +311,8 @@ function OrderFormContent() {
                   width: "36px",
                   height: "36px",
                   borderRadius: "50%",
-                  background: current ? "#f58220" : active ? "#0b3c5d" : "#e5e7eb",
-                  color: active ? "#fff" : "#9ca3af",
+                  background: current ? "#f58220" : active ? (isDark ? "#f58220" : "#0b3c5d") : (isDark ? "#1a1f2c" : "#e5e7eb"),
+                  color: active ? "#fff" : (isDark ? "#64748b" : "#9ca3af"),
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -319,7 +323,7 @@ function OrderFormContent() {
                 }}>
                   {step > s.num ? <Check size={16} /> : s.num}
                 </div>
-                <span style={{ fontSize: "11px", fontWeight: active ? 700 : 500, color: active ? "#0b3c5d" : "#9ca3af", marginTop: "8px", textAlign: "center" }}>
+                <span style={{ fontSize: "11px", fontWeight: active ? 700 : 500, color: active ? (isDark ? "#ffffff" : "#0b3c5d") : (isDark ? "#64748b" : "#9ca3af"), marginTop: "8px", textAlign: "center" }}>
                   {s.label}
                 </span>
                 {s.num < 3 && (
@@ -329,7 +333,7 @@ function OrderFormContent() {
                     left: "50%",
                     right: "-50%",
                     height: "2px",
-                    background: step > s.num ? "#0b3c5d" : "#e5e7eb",
+                    background: step > s.num ? (isDark ? "#f58220" : "#0b3c5d") : (isDark ? "#1a1f2c" : "#e5e7eb"),
                     zIndex: 1
                   }} />
                 )}
@@ -798,23 +802,26 @@ function OrderFormContent() {
 }
 
 export default function OrderClient() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <Navbar />
       <PageHero bgImage="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=80" />
       
-      <section style={{ background: "#f8f9fb", padding: "80px 0" }}>
+      <section style={{ background: isDark ? "#08090d" : "#f8f9fb", padding: "80px 0", transition: "background 0.3s ease" }}>
         <div className="site-wrap" style={{ maxWidth: "780px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
             <span style={{ color: "#f58220", fontSize: "11px", fontWeight: 700, letterSpacing: "4px", textTransform: "uppercase" }}>Checkout</span>
-            <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 800, color: "#1a1a1a", marginTop: "10px" }}>Complete Your Branding Order</h2>
+            <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginTop: "10px" }}>Complete Your Branding Order</h2>
           </div>
 
           <Suspense fallback={
             <div style={{ 
-              background: "#fff", 
-              border: "1px solid rgba(0,0,0,0.08)", 
+              background: isDark ? "#12151c" : "#fff", 
+              border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)", 
               padding: "44px 40px", 
               textAlign: "center",
               minHeight: "560px",
@@ -822,7 +829,7 @@ export default function OrderClient() {
               alignItems: "center",
               justifyContent: "center",
               fontSize: "16px",
-              color: "#555"
+              color: isDark ? "#94a3b8" : "#555"
             }}>
               Loading checkout form...
             </div>

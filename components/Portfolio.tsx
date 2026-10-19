@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { useTheme } from "./ThemeContext";
 
 import { projects } from "@/lib/projects-data";
 
@@ -21,12 +22,14 @@ const cardEntrance = [
 
 export default function Portfolio() {
   const [active, setActive] = useState("All");
-  // triggerOnce: false → re-animates each time the section scrolls into view
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const filtered = active === "All" ? projects : projects.filter(p => p.category === active);
 
   return (
-    <section id="projects" ref={ref} style={{ padding: "100px 0", background: "#f9fafb", overflow: "hidden" }}>
+    <section id="projects" ref={ref} style={{ padding: "100px 0", background: isDark ? "#0c0e14" : "#f9fafb", overflow: "hidden", transition: "background-color 0.3s ease" }}>
       <div className="site-wrap">
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "48px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
@@ -35,10 +38,10 @@ export default function Portfolio() {
             <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Our Work</span>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
           </div>
-          <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.8rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "14px" }}>
+          <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.8rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "14px" }}>
             A Look at Our <span style={{ color: "#f58220" }}>Projects</span>
           </h2>
-          <p style={{ color: "#777", maxWidth: "480px", margin: "0 auto", lineHeight: 1.75 }}>
+          <p style={{ color: isDark ? "#94a3b8" : "#777", maxWidth: "480px", margin: "0 auto", lineHeight: 1.75 }}>
             Explore our portfolio of successful branding projects across industries.
           </p>
         </div>
@@ -46,7 +49,7 @@ export default function Portfolio() {
         {/* Filter tabs */}
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "48px", opacity: inView ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
           {categories.map(cat => (
-            <button key={cat} onClick={() => setActive(cat)} style={{ padding: "8px 20px", borderRadius: "0", fontSize: "13px", fontWeight: 600, border: active === cat ? "none" : "1.5px solid #e5e7eb", background: active === cat ? "#f58220" : "#fff", color: active === cat ? "#fff" : "#555", cursor: "pointer", transition: "all 0.2s" }}>
+            <button key={cat} onClick={() => setActive(cat)} style={{ padding: "8px 20px", borderRadius: "0", fontSize: "13px", fontWeight: 600, border: active === cat ? "none" : (isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb"), background: active === cat ? "#f58220" : (isDark ? "#12151c" : "#fff"), color: active === cat ? "#fff" : (isDark ? "#cbd5e1" : "#555"), cursor: "pointer", transition: "all 0.2s" }}>
               {cat}
             </button>
           ))}
@@ -55,22 +58,22 @@ export default function Portfolio() {
         {/* Grid */}
         <div style={{ display: "grid", gap: "20px" }} className="sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project, i) => (
-            <Link key={project.id} href={`/projects/${project.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block", borderRadius: "0", overflow: "hidden", background: "#fff", border: "1px solid rgba(0,0,0,0.07)", opacity: inView ? 1 : 0, transform: inView ? "translate(0,0) rotate(0deg) scale(1)" : cardEntrance[i % cardEntrance.length], transition: `opacity 1.4s cubic-bezier(0.22,1,0.36,1) ${i * 0.18}s, transform 1.9s cubic-bezier(0.34,1.4,0.5,1) ${i * 0.18}s`, willChange: "transform, opacity" }} className="card-hover group">
+            <Link key={project.id} href={`/projects/${project.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block", borderRadius: "0", overflow: "hidden", background: isDark ? "#12151c" : "#fff", border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.07)", opacity: inView ? 1 : 0, transform: inView ? "translate(0,0) rotate(0deg) scale(1)" : cardEntrance[i % cardEntrance.length], transition: `opacity 1.4s cubic-bezier(0.22,1,0.36,1) ${i * 0.18}s, transform 1.9s cubic-bezier(0.34,1.4,0.5,1) ${i * 0.18}s`, willChange: "transform, opacity" }} className="card-hover group">
               <div style={{ position: "relative", height: "200px", overflow: "hidden" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }} className="group-hover:scale-110" />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%)" }} />
                 <div style={{ position: "absolute", top: "14px", left: "14px", padding: "4px 12px", background: "#f58220", color: "#fff", fontSize: "11px", fontWeight: 700, borderRadius: "999px" }}>{project.category}</div>
-                <div style={{ position: "absolute", top: "14px", right: "14px", width: "34px", height: "34px", borderRadius: "50%", background: "rgba(255,255,255,0.9)", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.2s" }} className="group-hover:opacity-100">
-                  <ExternalLink size={14} style={{ color: "#333" }} />
+                <div style={{ position: "absolute", top: "14px", right: "14px", width: "34px", height: "34px", borderRadius: "50%", background: isDark ? "rgba(0,0,0,0.7)" : "rgba(255,255,255,0.9)", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.2s" }} className="group-hover:opacity-100">
+                  <ExternalLink size={14} style={{ color: isDark ? "#fff" : "#333" }} />
                 </div>
               </div>
               <div style={{ padding: "24px" }}>
-                <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#1a1a1a", marginBottom: "8px", transition: "color 0.2s" }} className="group-hover:text-[#f58220]">{project.title}</h3>
-                <p style={{ color: "#888", fontSize: "13.5px", lineHeight: 1.65, marginBottom: "14px" }}>{project.description}</p>
+                <h3 style={{ fontSize: "16px", fontWeight: 700, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "8px", transition: "color 0.2s" }} className="group-hover:text-[#f58220]">{project.title}</h3>
+                <p style={{ color: isDark ? "#94a3b8" : "#888", fontSize: "13.5px", lineHeight: 1.65, marginBottom: "14px" }}>{project.description}</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                   {project.tags.map(tag => (
-                    <span key={tag} style={{ padding: "4px 10px", fontSize: "11px", background: "#f3f4f6", color: "#666", borderRadius: "999px", fontWeight: 455 }}>{tag}</span>
+                    <span key={tag} style={{ padding: "4px 10px", fontSize: "11px", background: isDark ? "#181c25" : "#f3f4f6", color: isDark ? "#cbd5e1" : "#666", borderRadius: "999px", fontWeight: 455 }}>{tag}</span>
                   ))}
                 </div>
               </div>

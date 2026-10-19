@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Plus } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 const faqs = [
   {
@@ -58,9 +59,11 @@ const faqs = [
 export default function FAQ() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
   const [open, setOpen] = useState<number | null>(0);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
-    <section id="faq" ref={ref} style={{ padding: "100px 0", background: "#f9fafb", position: "relative", overflow: "hidden", scrollMarginTop: "90px" }}>
+    <section id="faq" ref={ref} style={{ padding: "100px 0", background: isDark ? "#0c0e14" : "#f9fafb", position: "relative", overflow: "hidden", scrollMarginTop: "90px", transition: "background-color 0.3s ease" }}>
       <div className="site-wrap">
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "56px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
@@ -69,10 +72,10 @@ export default function FAQ() {
             <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>FAQ</span>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
           </div>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "14px" }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "14px" }}>
             Frequently Asked <span style={{ color: "#f58220" }}>Questions</span>
           </h2>
-          <p style={{ color: "#777", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
+          <p style={{ color: isDark ? "#94a3b8" : "#777", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
             Everything you need to know before starting your brand&apos;s journey with us.
           </p>
         </div>
@@ -85,8 +88,10 @@ export default function FAQ() {
               <div
                 key={item.q}
                 style={{
-                  border: isOpen ? "1px solid rgba(245,130,32,0.45)" : "1px solid rgba(0,0,0,0.08)",
-                  background: "#fff",
+                  border: isOpen
+                    ? "1px solid rgba(245,130,32,0.6)"
+                    : (isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)"),
+                  background: isDark ? "#12151c" : "#fff",
                   opacity: inView ? 1 : 0,
                   transform: inView ? "translateY(0)" : "translateY(20px)",
                   transition: `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s, border-color 0.25s ease`,
@@ -97,14 +102,14 @@ export default function FAQ() {
                   onClick={() => setOpen(isOpen ? null : i)}
                   style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", padding: "20px 24px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
                 >
-                  <span style={{ fontSize: "15px", fontWeight: 700, color: isOpen ? "#f58220" : "#1a1a1a", lineHeight: 1.4 }}>{item.q}</span>
+                  <span style={{ fontSize: "15px", fontWeight: 700, color: isOpen ? "#f58220" : (isDark ? "#ffffff" : "#1a1a1a"), lineHeight: 1.4 }}>{item.q}</span>
                   <Plus
                     size={20}
-                    style={{ color: isOpen ? "#f58220" : "#999", flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0deg)", transition: "transform 0.3s ease, color 0.2s ease" }}
+                    style={{ color: isOpen ? "#f58220" : (isDark ? "#64748b" : "#999"), flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0deg)", transition: "transform 0.3s ease, color 0.2s ease" }}
                   />
                 </button>
                 <div style={{ maxHeight: isOpen ? "260px" : "0", overflow: "hidden", transition: "max-height 0.35s ease" }}>
-                  <p style={{ padding: "0 24px 22px", color: "#666", fontSize: "14px", lineHeight: 1.75 }}>{item.a}</p>
+                  <p style={{ padding: "0 24px 22px", color: isDark ? "#94a3b8" : "#666", fontSize: "14px", lineHeight: 1.75 }}>{item.a}</p>
                 </div>
               </div>
             );

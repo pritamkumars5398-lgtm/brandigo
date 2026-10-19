@@ -14,7 +14,7 @@ const A = "#f58220";
 
 export default function PrivacyPolicyPage() {
   return (
-    <main style={{ background: "#ffffff" }}>
+    <main className="privacy-page" style={{ background: "#ffffff" }}>
       <Navbar />
       <section
         style={{
@@ -172,7 +172,7 @@ export default function PrivacyPolicyPage() {
             </ul>
           </div>
 
-          <div style={{ padding: "32px", border: "1.5px solid #e5e7eb", background: "#f8f9fb" }}>
+          <div className="privacy-box" style={{ padding: "32px", border: "1.5px solid #e5e7eb", background: "#f8f9fb" }}>
             <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#1a1a1a", marginBottom: "12px" }}>
               7. Contact Our Compliance Officer
             </h3>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 const SocialFacebook = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
@@ -26,15 +27,19 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-  { label: "Home", href: "/" }, { label: "About Us", href: "/about" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Scientific Logo", href: "/scientific-logo" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Pricing", href: "/pricing" },
   { label: "Career", href: "/career" },
-  { label: "Contact", href: "/contact" }, { label: "Privacy Policy", href: "/privacy" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy Policy", href: "/privacy" },
 ];
 
 const serviceLinks = [
+  { label: "Scientific Logo Design", href: "/scientific-logo" },
   { label: "Logo Design", href: "/services" },
   { label: "Stationery Design", href: "/services" },
   { label: "Banner & Standee Design", href: "/services" },
@@ -47,6 +52,9 @@ const serviceLinks = [
 
 export default function Footer() {
   const { ref: ctaRef, inView: ctaInView } = useInView({ threshold: 0.3, triggerOnce: false });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const wordIn = (i: number): React.CSSProperties => ({
     display: "inline-block",
     marginRight: "0.28em",
@@ -55,10 +63,10 @@ export default function Footer() {
     transition: `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.07}s`,
   });
   return (
-    <footer style={{ background: "#fff" }}>
+    <footer style={{ background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
       {/* The CTA section has been removed as per user request */}
 
-      <div style={{ background: "#1a1a1a" }}>
+      <div style={{ background: isDark ? "#08090d" : "#1a1a1a", borderTop: isDark ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
         <div className="site-wrap" style={{ padding: "64px 24px" }}>
           <div style={{ display: "grid", gap: "40px" }} className="md:grid-cols-2 lg:grid-cols-4">
             <div>

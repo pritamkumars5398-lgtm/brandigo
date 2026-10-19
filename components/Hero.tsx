@@ -3,57 +3,23 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Play, Star } from "lucide-react";
+import { ArrowRight, Star, Sparkles, CheckCircle2 } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 const words = ["Brands", "Identities", "Success", "Futures", "Legacy"];
 
-const DoodleStar = ({ size = 48, color = "#f58220", style = {} }: { size?: number; color?: string; style?: React.CSSProperties }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" stroke={color} strokeWidth="8" strokeLinecap="round" style={{ transform: "rotate(15deg)", ...style }}>
-    <path d="M50 15 L50 85 M15 50 L85 50 M25 25 L75 75 M75 25 L25 75" />
-  </svg>
-);
-
-const SquiggleLoop = ({ width = 110, height = 70, color = "#4d62e0", style = {} }: { width?: number; height?: number; color?: string; style?: React.CSSProperties }) => (
-  <svg width={width} height={height} viewBox="0 0 120 80" fill="none" stroke={color} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" style={style}>
-    <path d="M10,40 C30,10 50,70 70,25 C85,-5 100,20 110,45 C115,55 105,75 90,75 C70,75 65,50 80,40 C95,30 110,60 115,65" />
-  </svg>
-);
-
-const SunburstSpokes = ({ size = 90, color = "#0b3c5d", style = {}, className = "" }: { size?: number; color?: string; style?: React.CSSProperties; className?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" stroke={color} strokeWidth="6" strokeLinecap="round" style={style} className={className}>
-    {Array.from({ length: 12 }).map((_, i) => {
-      const angle = (i * 360) / 12;
-      return (
-        <line
-          key={i}
-          x1="50"
-          y1="50"
-          x2="50"
-          y2="15"
-          transform={`rotate(${angle} 50 50)`}
-        />
-      );
-    })}
-  </svg>
-);
-
 export default function Hero() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const [wordIdx, setWordIdx] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
-
-  // One-time entrance: content slides in from the left on mount.
   const [entered, setEntered] = useState(false);
+
   useEffect(() => {
     const t = setTimeout(() => setEntered(true), 80);
     return () => clearTimeout(t);
   }, []);
-  // Per-word entrance: each word eases up + fades in, staggered one after another.
-  const wordEnter = (i: number): React.CSSProperties => ({
-    display: "inline-block",
-    opacity: entered ? 1 : 0,
-    transform: entered ? "translateY(0)" : "translateY(24px)",
-    transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.13}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.13}s`,
-  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,6 +32,13 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  const wordEnter = (i: number): React.CSSProperties => ({
+    display: "inline-block",
+    opacity: entered ? 1 : 0,
+    transform: entered ? "translateY(0)" : "translateY(24px)",
+    transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.12}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.12}s`,
+  });
+
   return (
     <section
       id="home"
@@ -75,67 +48,52 @@ export default function Hero() {
         overflow: "hidden",
         display: "flex",
         alignItems: "center",
-        background: "#07273d", // Fallback color
+        backgroundColor: isDark ? "#06090e" : "#07273d",
+        backgroundImage: `url('/hero-bg.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-color 0.3s ease",
       }}
     >
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 0,
-        }}
-      >
-        <source
-          src="https://public-assets.content-platform.envatousercontent.com/ad6f98f0-ec18-413b-9c3f-1355c191c3d0/66385907-c807-4a7a-8e26-37b757c28c18/ad6f98f0-ec18-413b-9c3f-1355c191c3d0/preview_540p_crf22_higher_quality.mp4"
-          type="video/mp4"
-        />
-      </video>
-
-      {/* Dark overlay to ensure contrast */}
+      {/* Dark / Theme Overlay */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35))",
+          background: isDark
+            ? "linear-gradient(135deg, rgba(6,9,14,0.95) 0%, rgba(8,12,20,0.88) 55%, rgba(6,9,14,0.82) 100%)"
+            : "linear-gradient(135deg, rgba(11,60,93,0.95) 0%, rgba(7,39,61,0.88) 55%, rgba(0,69,99,0.82) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      {/* Subtle dot grid */}
+      {/* Subtle Dot Grid */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "radial-gradient(circle, rgba(11,60,93,0.15) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
+          backgroundSize: "36px 36px",
           pointerEvents: "none",
-          opacity: 0.6,
+          opacity: 0.5,
           zIndex: 2,
         }}
       />
 
-      {/* Gold blob decorations */}
+      {/* Ambient Glow Blobs */}
       <div
         className="animate-blob"
         style={{
           position: "absolute",
-          top: "-80px",
-          right: "-80px",
-          width: "500px",
-          height: "500px",
+          top: "-60px",
+          right: "5%",
+          width: "550px",
+          height: "550px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(11,60,93,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(245,130,32,0.18) 0%, rgba(245,130,32,0.04) 50%, transparent 70%)",
           pointerEvents: "none",
+          filter: "blur(40px)",
           zIndex: 2,
         }}
       />
@@ -143,107 +101,252 @@ export default function Hero() {
         className="animate-blob"
         style={{
           position: "absolute",
-          bottom: "-100px",
-          left: "-60px",
-          width: "400px",
-          height: "400px",
+          bottom: "-80px",
+          left: "-50px",
+          width: "450px",
+          height: "450px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(245,130,32,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%)",
           pointerEvents: "none",
+          filter: "blur(40px)",
           animationDelay: "4s",
           zIndex: 2,
         }}
       />
 
-      {/* Background is now banner.png */}
-
-      {/* Content */}
+      {/* Main Content Container */}
       <div
-        style={{ position: "relative", zIndex: 10, width: "100%", paddingTop: "96px", paddingBottom: "60px" }}
+        style={{
+          position: "relative",
+          zIndex: 10,
+          width: "100%",
+          paddingTop: "100px",
+          paddingBottom: "60px",
+        }}
       >
         <div className="site-wrap">
-          <div style={{ maxWidth: "660px" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            
+            {/* LEFT COLUMN: Hero Content & Stats */}
+            <div className="lg:col-span-7 text-left">
+              
+              {/* Agency Tag Pill */}
+              <div
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 text-xs font-semibold tracking-wider uppercase"
+                style={{
+                  background: isDark ? "rgba(245,130,32,0.12)" : "rgba(255,255,255,0.12)",
+                  border: isDark ? "1px solid rgba(245,130,32,0.3)" : "1px solid rgba(255,255,255,0.25)",
+                  color: "#f58220",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <span className="w-2 h-2 rounded-full bg-[#f58220] animate-ping inline-block" />
+                Creative Branding &amp; Design Studio
+              </div>
 
-
-            {/* Heading */}
-            <h1
-              style={{
-                fontSize: "clamp(2.4rem, 5.5vw, 4.2rem)",
-                fontWeight: 600,
-                lineHeight: 1.1,
-                marginBottom: "24px",
-                color: "#ffffff",
-              }}
-            >
-              {["We", "are", "Helping", "\n", "to", "Build"].map((w, i) =>
-                w === "\n" ? (
-                  <br key={`br-${i}`} />
-                ) : (
-                  <span key={i} style={{ ...wordEnter(i), marginRight: "0.28em" }}>
-                    {w}
+              {/* Heading */}
+              <h1
+                style={{
+                  fontSize: "clamp(2.3rem, 5.2vw, 4.2rem)",
+                  fontWeight: 700,
+                  lineHeight: 1.12,
+                  marginBottom: "22px",
+                  color: "#ffffff",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {["We", "are", "Helping", "\n", "to", "Build"].map((w, i) =>
+                  w === "\n" ? (
+                    <br key={`br-${i}`} />
+                  ) : (
+                    <span key={i} style={{ ...wordEnter(i), marginRight: "0.26em" }}>
+                      {w}
+                    </span>
+                  )
+                )}
+                {/* Rotating Word */}
+                <span style={{ ...wordEnter(6), color: "#f58220", position: "relative", display: "inline-block" }}>
+                  <span
+                    style={{
+                      display: "inline-block",
+                      opacity: fadeIn ? 1 : 0,
+                      transform: fadeIn ? "translateY(0)" : "translateY(10px)",
+                      transition: "opacity 350ms ease, transform 350ms ease",
+                    }}
+                  >
+                    {words[wordIdx]}
                   </span>
-                )
-              )}
-              {/* Rotating word — entrance reveal on outer span, swap-fade on inner */}
-              <span style={{ ...wordEnter(6), color: "#f58220" }}>
-                <span
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p
+                style={{
+                  color: "rgba(255, 255, 255, 0.85)",
+                  fontSize: "clamp(1rem, 1.8vw, 1.15rem)",
+                  lineHeight: 1.75,
+                  marginBottom: "36px",
+                  maxWidth: "560px",
+                }}
+              >
+                Build Your Brand&apos;s Journey with Brandigo — your partner in
+                Logo, Packaging, Brochure &amp; all things graphic design. We craft distinctive visual identities that captivate and convert.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 mb-12">
+                <Link
+                  href="#about"
                   style={{
-                    display: "inline-block",
-                    opacity: fadeIn ? 1 : 0,
-                    transform: fadeIn ? "translateY(0)" : "translateY(10px)",
-                    transition: "opacity 350ms ease, transform 350ms ease",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "14px 34px",
+                    background: "#f58220",
+                    color: "#fff",
+                    fontWeight: 700,
+                    borderRadius: "999px",
+                    fontSize: "15px",
+                    transition: "all 0.25s ease",
+                  }}
+                  className="hover:bg-[#ff933c] hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Discover More <ArrowRight size={17} />
+                </Link>
+
+                <Link
+                  href="#portfolio"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "13px 28px",
+                    background: isDark ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.12)",
+                    color: "#ffffff",
+                    fontWeight: 600,
+                    borderRadius: "999px",
+                    fontSize: "15px",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    backdropFilter: "blur(8px)",
+                    transition: "all 0.25s ease",
+                  }}
+                  className="hover:bg-white/20 hover:border-white/40"
+                >
+                  View Work
+                </Link>
+              </div>
+
+              {/* Stats Row */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                  gap: "16px",
+                  maxWidth: "540px",
+                  paddingTop: "20px",
+                  borderTop: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0.15)",
+                }}
+              >
+                {[
+                  { value: "5000+", label: "Projects Completed" },
+                  { value: "4200+", label: "Happy Clients" },
+                  { value: "10+", label: "Years Experience" },
+                ].map((s) => (
+                  <div key={s.label} style={{ borderLeft: "2.5px solid #f58220", paddingLeft: "12px", minWidth: 0 }}>
+                    <div
+                      style={{
+                        fontSize: "clamp(1.15rem, 2.5vw, 1.7rem)",
+                        fontWeight: 800,
+                        color: "#ffffff",
+                        lineHeight: 1.1,
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      {s.value}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "clamp(11px, 1.5vw, 12px)",
+                        color: "rgba(255,255,255,0.7)",
+                        marginTop: "4px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: Visual with Blend Effect */}
+            <div className="lg:col-span-5 relative flex items-center justify-center">
+              
+              {/* Radial backlight glow behind the visual */}
+              <div
+                style={{
+                  position: "absolute",
+                  width: "110%",
+                  height: "110%",
+                  background: "radial-gradient(circle at center, rgba(245,130,32,0.25) 0%, rgba(14,165,233,0.12) 45%, transparent 70%)",
+                  filter: "blur(40px)",
+                  zIndex: 0,
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* Main Image Container with Blend Mask */}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  maxWidth: "520px",
+                  aspectRatio: "4 / 3.4",
+                  zIndex: 1,
+                }}
+              >
+                {/* Image element with blend mask */}
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "24px",
+                    overflow: "hidden",
+                    // Blend effect: radial fade around edges into the hero background
+                    WebkitMaskImage: "radial-gradient(ellipse 92% 88% at 50% 50%, black 50%, rgba(0,0,0,0.7) 75%, transparent 100%)",
+                    maskImage: "radial-gradient(ellipse 92% 88% at 50% 50%, black 50%, rgba(0,0,0,0.7) 75%, transparent 100%)",
                   }}
                 >
-                  {words[wordIdx]}
-                </span>
-              </span>
-            </h1>
-
-            <p style={{ color: "#e5e5e5", fontSize: "1.1rem", lineHeight: 1.75, marginBottom: "36px", maxWidth: "520px" }}>
-              Build Your Brand&apos;s Journey with Barndingo — your partner in
-              Logo, Packaging, Brochure &amp; all things graphic design.
-            </p>
-
-            {/* Mobile-only hero visual removed */}
-
-            {/* CTA buttons */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", marginBottom: "56px" }}>
-              <Link
-                href="#about"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "14px 32px",
-                  background: "#f58220",
-                  color: "#fff",
-                  fontWeight: 700,
-                  borderRadius: "999px",
-                  fontSize: "15px", transition: "background 0.2s",
-                }}
-                className="hover:bg-[#ff933c]"
-              >
-                Discover More <ArrowRight size={17} />
-              </Link>
-
-            </div>
-
-            {/* Stats row */}
-            <div
-              style={{ display: "grid", gap: "12px", maxWidth: "560px" }}
-              className="grid-cols-3"
-            >
-              {[{ value: "5000+", label: "Projects Completed" }, { value: "4200+", label: "Happy Clients" }, { value: "10+", label: "Years Experience" }].map((s) => (
-                <div key={s.label} style={{ borderLeft: "2px solid #f58220", paddingLeft: "10px", minWidth: 0 }}>
-                  <div style={{ fontSize: "clamp(1rem, 3vw, 1.55rem)", fontWeight: 800, color: "#ffffff", lineHeight: 1.1, whiteSpace: "nowrap" }}>{s.value}</div>
-                  <div style={{ fontSize: "clamp(10px, 2vw, 11px)", color: "#cbd5e1", marginTop: "3px", fontWeight: 500 }}>{s.label}</div>
+                  <Image
+                    src="/brandingo-hero.jpg"
+                    alt="Brandingo Creative Branding Mockup"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 520px"
+                    style={{
+                      objectFit: "cover",
+                      transform: "scale(1.02)",
+                    }}
+                  />
+                  {/* Subtle edge vignette gradient overlay for extra smooth blend */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background: "radial-gradient(circle at center, transparent 40%, rgba(6,9,14,0.45) 85%, rgba(6,9,14,0.85) 100%)",
+                      pointerEvents: "none",
+                    }}
+                  />
                 </div>
-              ))}
+
+              </div>
+
             </div>
+
           </div>
         </div>
       </div>
-
     </section>
   );
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ChevronRight, Calendar, Clock, Tag, ArrowRight, Search } from "lucide-react";
+import { useTheme } from "@/components/ThemeContext";
 
 import { posts } from "@/lib/blog-data";
 
@@ -14,6 +15,9 @@ const categories = ["All", "Branding", "Logo Design", "Packaging", "Print Design
 const accent = "#f58220";
 
 export default function BlogClient() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
 
@@ -61,21 +65,21 @@ export default function BlogClient() {
       </section>
 
       {/* ── SEARCH + FILTERS ────────────────────────────────────────── */}
-      <section style={{ background: "#f8f9fb", padding: "40px 0", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+      <section style={{ background: isDark ? "#0c0e14" : "#f8f9fb", padding: "40px 0", borderBottom: isDark ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(0,0,0,0.06)", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
           <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center", justifyContent: "space-between" }}>
 
             {/* Search */}
             <div style={{ position: "relative", flex: "1", minWidth: "220px", maxWidth: "360px" }}>
-              <Search size={16} style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", color: "#aaa" }} />
+              <Search size={16} style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", color: isDark ? "#64748b" : "#aaa" }} />
               <input
                 type="text"
                 placeholder="Search articles..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                style={{ width: "100%", padding: "11px 16px 11px 40px", border: "1.5px solid #e5e7eb", background: "#fff", borderRadius: "0", fontSize: "14px", color: "#1a1a1a", outline: "none", transition: "border-color 0.2s" }}
+                style={{ width: "100%", padding: "11px 16px 11px 40px", border: isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb", background: isDark ? "#12151c" : "#fff", borderRadius: "0", fontSize: "14px", color: isDark ? "#ffffff" : "#1a1a1a", outline: "none", transition: "border-color 0.2s" }}
                 onFocus={e => (e.target.style.borderColor = accent)}
-                onBlur={e => (e.target.style.borderColor = "#e5e7eb")}
+                onBlur={e => (e.target.style.borderColor = isDark ? "rgba(255,255,255,0.12)" : "#e5e7eb")}
               />
             </div>
 
@@ -89,9 +93,9 @@ export default function BlogClient() {
                     padding: "7px 16px",
                     fontSize: "12px",
                     fontWeight: 600,
-                    border: activeCategory === cat ? "none" : "1.5px solid #e5e7eb",
-                    background: activeCategory === cat ? accent : "#fff",
-                    color: activeCategory === cat ? "#fff" : "#555",
+                    border: activeCategory === cat ? "none" : (isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb"),
+                    background: activeCategory === cat ? accent : (isDark ? "#12151c" : "#fff"),
+                    color: activeCategory === cat ? "#fff" : (isDark ? "#cbd5e1" : "#555"),
                     borderRadius: "999px",
                     cursor: "pointer",
                     transition: "all 0.2s",
@@ -107,14 +111,14 @@ export default function BlogClient() {
 
       {/* ── FEATURED POST ───────────────────────────────────────────── */}
       {showFeatured && (
-        <section style={{ background: "#fff", padding: "64px 0 0" }}>
+        <section style={{ background: isDark ? "#08090d" : "#fff", padding: "64px 0 0", transition: "background 0.3s ease" }}>
           <div className="site-wrap">
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "28px" }}>
               <div style={{ width: "32px", height: "2px", background: accent }} />
               <span style={{ color: accent, fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Featured Post</span>
             </div>
 
-            <div style={{ display: "grid", gap: "0", alignItems: "stretch", border: "1px solid rgba(0,0,0,0.08)" }} className="lg:grid-cols-2">
+            <div style={{ display: "grid", gap: "0", alignItems: "stretch", border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)", background: isDark ? "#12151c" : "#fff" }} className="lg:grid-cols-2">
               {/* Image */}
               <div style={{ position: "relative", minHeight: "360px", overflow: "hidden" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -133,18 +137,18 @@ export default function BlogClient() {
               {/* Content */}
               <div style={{ padding: "48px 40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" }}>
-                  <span style={{ display: "flex", alignItems: "center", gap: "5px", color: "#aaa", fontSize: "12px" }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "5px", color: isDark ? "#64748b" : "#aaa", fontSize: "12px" }}>
                     <Calendar size={13} /> {featured.date}
                   </span>
-                  <span style={{ display: "flex", alignItems: "center", gap: "5px", color: "#aaa", fontSize: "12px" }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "5px", color: isDark ? "#64748b" : "#aaa", fontSize: "12px" }}>
                     <Clock size={13} /> {featured.readTime}
                   </span>
                 </div>
 
-                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 800, color: "#1a1a1a", lineHeight: 1.3, marginBottom: "16px" }}>
+                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", lineHeight: 1.3, marginBottom: "16px" }}>
                   {featured.title}
                 </h2>
-                <p style={{ color: "#666", lineHeight: 1.75, marginBottom: "28px", fontSize: "15px" }}>
+                <p style={{ color: isDark ? "#94a3b8" : "#666", lineHeight: 1.75, marginBottom: "28px", fontSize: "15px" }}>
                   {featured.excerpt}
                 </p>
 
@@ -162,10 +166,10 @@ export default function BlogClient() {
       )}
 
       {/* ── BLOG GRID ───────────────────────────────────────────────── */}
-      <section style={{ background: "#fff", padding: showFeatured ? "56px 0 80px" : "64px 0 80px" }}>
+      <section style={{ background: isDark ? "#08090d" : "#fff", padding: showFeatured ? "56px 0 80px" : "64px 0 80px", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
           {!showFeatured && (
-            <p style={{ color: "#888", fontSize: "13px", marginBottom: "32px" }}>
+            <p style={{ color: isDark ? "#94a3b8" : "#888", fontSize: "13px", marginBottom: "32px" }}>
               {filtered.length} article{filtered.length !== 1 ? "s" : ""} found
               {activeCategory !== "All" ? ` in "${activeCategory}"` : ""}
               {search ? ` for "${search}"` : ""}
@@ -182,7 +186,7 @@ export default function BlogClient() {
           {filtered.length === 0 ? (
             <div style={{ textAlign: "center", padding: "80px 0" }}>
               <p style={{ fontSize: "2rem" }}>🔍</p>
-              <p style={{ color: "#888", marginTop: "12px", fontSize: "15px" }}>No articles found. Try a different search or category.</p>
+              <p style={{ color: isDark ? "#94a3b8" : "#888", marginTop: "12px", fontSize: "15px" }}>No articles found. Try a different search or category.</p>
             </div>
           ) : (
             <div style={{ display: "grid", gap: "28px" }} className="sm:grid-cols-2 lg:grid-cols-3">
@@ -190,10 +194,10 @@ export default function BlogClient() {
                 <article
                   key={post.id}
                   style={{
-                    border: "1px solid rgba(0,0,0,0.08)",
-                    background: "#fff",
+                    border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)",
+                    background: isDark ? "#12151c" : "#fff",
                     overflow: "hidden",
-                    transition: "transform 0.3s ease, border-color 0.3s ease",
+                    transition: "transform 0.3s ease, border-color 0.3s ease, background 0.3s",
                     opacity: 1,
                     animationDelay: `${i * 0.05}s`,
                   }}
@@ -224,27 +228,27 @@ export default function BlogClient() {
                   {/* Body */}
                   <div style={{ padding: "24px 24px 28px" }}>
                     {/* Date */}
-                    <div style={{ display: "flex", alignItems: "center", gap: "5px", color: "#bbb", fontSize: "12px", marginBottom: "10px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "5px", color: isDark ? "#64748b" : "#bbb", fontSize: "12px", marginBottom: "10px" }}>
                       <Calendar size={12} />
                       {post.date}
                     </div>
 
                     {/* Title */}
                     <h3
-                      style={{ fontSize: "16px", fontWeight: 700, color: "#1a1a1a", lineHeight: 1.45, marginBottom: "10px", transition: "color 0.2s" }}
+                      style={{ fontSize: "16px", fontWeight: 700, color: isDark ? "#ffffff" : "#1a1a1a", lineHeight: 1.45, marginBottom: "10px", transition: "color 0.2s" }}
                       className="group-hover:text-[#f58220]"
                     >
                       {post.title}
                     </h3>
 
                     {/* Excerpt */}
-                    <p style={{ color: "#888", fontSize: "13.5px", lineHeight: 1.7, marginBottom: "20px", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                    <p style={{ color: isDark ? "#94a3b8" : "#888", fontSize: "13.5px", lineHeight: 1.7, marginBottom: "20px", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                       {post.excerpt}
                     </p>
 
                     {/* Footer */}
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "16px", borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-                      <span style={{ display: "flex", alignItems: "center", gap: "5px", color: "#bbb", fontSize: "12px" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "16px", borderTop: isDark ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(0,0,0,0.06)" }}>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", color: isDark ? "#64748b" : "#bbb", fontSize: "12px" }}>
                         <Tag size={12} /> {post.category}
                       </span>
                       <Link
@@ -270,9 +274,9 @@ export default function BlogClient() {
                   style={{
                     width: "40px",
                     height: "40px",
-                    border: n === 1 ? "none" : "1.5px solid #e5e7eb",
-                    background: n === 1 ? accent : "#fff",
-                    color: n === 1 ? "#fff" : "#555",
+                    border: n === 1 ? "none" : (isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb"),
+                    background: n === 1 ? accent : (isDark ? "#12151c" : "#fff"),
+                    color: n === 1 ? "#fff" : (isDark ? "#cbd5e1" : "#555"),
                     fontWeight: 600,
                     fontSize: "14px",
                     cursor: "pointer",
@@ -283,7 +287,7 @@ export default function BlogClient() {
                   {n}
                 </button>
               ))}
-              <button style={{ padding: "0 16px", height: "40px", border: "1.5px solid #e5e7eb", background: "#fff", color: "#555", fontWeight: 600, fontSize: "13px", cursor: "pointer", transition: "all 0.2s", borderRadius: "0", display: "flex", alignItems: "center", gap: "5px" }}>
+              <button style={{ padding: "0 16px", height: "40px", border: isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb", background: isDark ? "#12151c" : "#fff", color: isDark ? "#cbd5e1" : "#555", fontWeight: 600, fontSize: "13px", cursor: "pointer", transition: "all 0.2s", borderRadius: "0", display: "flex", alignItems: "center", gap: "5px" }}>
                 Next <ArrowRight size={13} />
               </button>
             </div>

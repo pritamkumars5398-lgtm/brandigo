@@ -98,6 +98,11 @@ a {
   animation: float 4s ease-in-out infinite;
 }
 
+.animate-float-delayed {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
 /* Slow spin */
 @keyframes spin-slow {
   0% {
@@ -345,4 +350,92 @@ img {
   -ms-user-select: none;
   /* Allow pointer events so lightbox clicks still work */
   pointer-events: auto;
+}
+
+/* ==========================================================================
+   BLACK / DARK THEME SYSTEM RULES
+   ========================================================================== */
+
+html.dark,
+html.dark body {
+  background-color: #08090d !important;
+  color: #e2e8f0 !important;
+}
+
+/* Dark mode scrollbars */
+html.dark ::-webkit-scrollbar-track {
+  background: #08090d !important;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #f58220 !important;
+}
+
+/* Career Page Dark Overrides */
+html.dark .career-page-content {
+  background: #08090d !important;
+}
+html.dark .career-page-content h1 {
+  color: #ffffff !important;
+}
+html.dark .career-page-content p {
+  color: #94a3b8 !important;
+}
+html.dark .career-card {
+  background: #12151c !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .career-card h3 {
+  color: #ffffff !important;
+}
+html.dark .career-card p {
+  color: #94a3b8 !important;
+}
+
+/* Privacy Page Dark Overrides */
+html.dark .privacy-page {
+  background: #08090d !important;
+}
+html.dark .privacy-page section {
+  background: transparent !important;
+}
+html.dark .privacy-page h2,
+html.dark .privacy-page h3,
+html.dark .privacy-page strong {
+  color: #ffffff !important;
+}
+html.dark .privacy-page p,
+html.dark .privacy-page li {
+  color: #94a3b8 !important;
+}
+html.dark .privacy-box {
+  background: #12151c !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark .privacy-box span {
+  color: #94a3b8 !important;
+}
+
+/* Smooth transition when toggling themes */
+body,
+header,
+nav,
+footer {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+/* Universal Button Shadow Removal */
+button,
+button:hover,
+button:focus,
+button:active,
+a[role="button"],
+.btn,
+a.btn,
+[class*="btn"],
+input[type="submit"],
+input[type="button"] {
+  box-shadow: none !important;
+  text-shadow: none !important;
 }

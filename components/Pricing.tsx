@@ -2,6 +2,7 @@
 
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import { useTheme } from "./ThemeContext";
 
 const plans = ["Basic Bliss Package", "Premium Prestige Package", "Ultimate Elegance Package"];
 
@@ -24,12 +25,16 @@ const rows: { label: string; values: string[]; price?: boolean; highlight?: bool
 
 export default function Pricing() {
   const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
+  const borderColor = isDark ? "rgba(255, 255, 255, 0.08)" : "#eee";
 
   const cell: React.CSSProperties = {
     padding: "13px 18px",
-    borderBottom: "1px solid #eee",
+    borderBottom: `1px solid ${borderColor}`,
     fontSize: "13px",
-    color: "#555",
+    color: isDark ? "#cbd5e1" : "#555",
     textAlign: "center",
     verticalAlign: "middle",
   };
@@ -37,7 +42,7 @@ export default function Pricing() {
     ...cell,
     textAlign: "left",
     fontWeight: 700,
-    color: "#333",
+    color: isDark ? "#ffffff" : "#333",
     fontSize: "13px",
   };
 
@@ -47,10 +52,11 @@ export default function Pricing() {
       ref={ref}
       style={{
         padding: "100px 0",
-        background: "#ffffff",
+        background: isDark ? "#08090d" : "#ffffff",
         position: "relative",
         overflow: "hidden",
         scrollMarginTop: "90px",
+        transition: "background-color 0.3s ease",
       }}
     >
       <div className="site-wrap">
@@ -70,10 +76,10 @@ export default function Pricing() {
             </span>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
           </div>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "14px" }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "14px" }}>
             We <span style={{ color: "#f58220" }}>Help You</span>
           </h2>
-          <p style={{ color: "#777", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
+          <p style={{ color: isDark ? "#94a3b8" : "#777", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
             Transparent logo design packages - pick the one that fits your brand&apos;s journey.
           </p>
         </div>
@@ -82,16 +88,17 @@ export default function Pricing() {
           className="pricing-table-wrap"
           style={{
             overflowX: "auto",
-            border: "1px solid #eee",
+            border: `1px solid ${borderColor}`,
             opacity: inView ? 1 : 0,
             transform: inView ? "translateY(0)" : "translateY(28px)",
             transition: "opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s",
+            background: isDark ? "#12151c" : "#fff",
           }}
         >
           <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "780px" }}>
             <thead>
               <tr>
-                <th style={{ padding: "26px 18px", background: "#0b3c5d", color: "#fff", fontSize: "16px", fontWeight: 800, textAlign: "center", width: "31%" }}>
+                <th style={{ padding: "26px 18px", background: isDark ? "#161a24" : "#0b3c5d", color: "#fff", fontSize: "16px", fontWeight: 800, textAlign: "center", width: "31%" }}>
                   Features
                 </th>
                 {plans.map((p, i) => (
@@ -99,13 +106,13 @@ export default function Pricing() {
                     key={p}
                     style={{
                       padding: "26px 18px",
-                      background: "#0b3c5d",
+                      background: isDark ? "#161a24" : "#0b3c5d",
                       color: "#fff",
                       fontSize: "17px",
                       fontWeight: 800,
                       textAlign: "center",
                       lineHeight: 1.3,
-                      borderLeft: "1px solid rgba(255,255,255,0.08)",
+                      borderLeft: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0.08)",
                     }}
                   >
                     {p}
@@ -123,7 +130,9 @@ export default function Pricing() {
                 <tr
                   key={row.label}
                   style={{
-                    background: ri % 2 === 0 ? "#fafafa" : "#fff",
+                    background: isDark
+                      ? (ri % 2 === 0 ? "#0d0f15" : "#12151c")
+                      : (ri % 2 === 0 ? "#fafafa" : "#fff"),
                     opacity: inView ? 1 : 0,
                     transform: inView ? "translateY(0)" : "translateY(18px)",
                     transition: `opacity 0.5s ease ${0.22 + ri * 0.05}s, transform 0.6s ease ${0.22 + ri * 0.05}s`,
@@ -135,11 +144,11 @@ export default function Pricing() {
                       key={ci}
                       style={{
                         ...cell,
-                        ...(row.price ? { fontSize: "1.4rem", fontWeight: 800, color: "#1a1a1a" } : {}),
-                        ...(v === "Yes" ? { color: "#16a34a", fontWeight: 700 } : {}),
-                        ...(v === "No" ? { color: "#bbb", fontWeight: 600 } : {}),
+                        ...(row.price ? { fontSize: "1.4rem", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a" } : {}),
+                        ...(v === "Yes" ? { color: "#22c55e", fontWeight: 700 } : {}),
+                        ...(v === "No" ? { color: isDark ? "#64748b" : "#bbb", fontWeight: 600 } : {}),
                         ...(row.highlight ? { color: "#f58220", fontWeight: 800 } : {}),
-                        background: ci === 1 ? "rgba(11,60,93,0.03)" : "transparent",
+                        background: ci === 1 ? (isDark ? "rgba(245,130,32,0.06)" : "rgba(11,60,93,0.03)") : "transparent",
                       }}
                     >
                       {v}
@@ -162,7 +171,7 @@ export default function Pricing() {
                       padding: "20px 18px",
                       borderBottom: "none",
                       textAlign: "center",
-                      background: i === 1 ? "rgba(11,60,93,0.03)" : "transparent",
+                      background: i === 1 ? (isDark ? "rgba(245,130,32,0.06)" : "rgba(11,60,93,0.03)") : "transparent",
                     }}
                   >
                     <Link
@@ -204,15 +213,15 @@ export default function Pricing() {
               <div
                 key={plan}
                 style={{
-                  border: popular ? "2px solid #0b3c5d" : "1px solid #eee",
+                  border: popular ? "2px solid #f58220" : `1px solid ${borderColor}`,
                   overflow: "hidden",
-                  background: "#fff",
+                  background: isDark ? "#12151c" : "#fff",
                   opacity: inView ? 1 : 0,
                   transform: inView ? "translateY(0)" : "translateY(24px)",
                   transition: `opacity 0.55s ease ${0.18 + ci * 0.12}s, transform 0.65s ease ${0.18 + ci * 0.12}s`,
                 }}
               >
-                <div style={{ padding: "22px 18px", background: "#0b3c5d", color: "#fff", textAlign: "center" }}>
+                <div style={{ padding: "22px 18px", background: isDark ? "#161a24" : "#0b3c5d", color: "#fff", textAlign: "center" }}>
                   <div style={{ fontSize: "17px", fontWeight: 800, lineHeight: 1.3 }}>{plan}</div>
                   {popular && (
                     <span style={{ display: "block", marginTop: "6px", fontSize: "10px", fontWeight: 700, letterSpacing: "2px", color: "#f58220" }}>
@@ -224,13 +233,26 @@ export default function Pricing() {
                   {rows.map((row, ri) => {
                     const v = row.values[ci];
                     return (
-                      <div key={row.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", padding: "12px 16px", borderBottom: "1px solid #eee", background: ri % 2 === 0 ? "#fafafa" : "#fff" }}>
-                        <span style={{ fontSize: "12.5px", fontWeight: 700, color: "#333", textAlign: "left" }}>{row.label}</span>
+                      <div
+                        key={row.label}
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          gap: "16px",
+                          padding: "12px 16px",
+                          borderBottom: `1px solid ${borderColor}`,
+                          background: isDark
+                            ? (ri % 2 === 0 ? "#0d0f15" : "#12151c")
+                            : (ri % 2 === 0 ? "#fafafa" : "#fff"),
+                        }}
+                      >
+                        <span style={{ fontSize: "12.5px", fontWeight: 700, color: isDark ? "#ffffff" : "#333", textAlign: "left" }}>{row.label}</span>
                         <span
                           style={{
                             fontSize: row.price ? "1.4rem" : "13px",
                             fontWeight: row.price ? 800 : (row.highlight ? 800 : 600),
-                            color: row.price ? "#1a1a1a" : v === "Yes" ? "#16a34a" : v === "No" ? "#bbb" : (row.highlight ? "#f58220" : "#555"),
+                            color: row.price ? (isDark ? "#ffffff" : "#1a1a1a") : v === "Yes" ? "#22c55e" : v === "No" ? (isDark ? "#64748b" : "#bbb") : (row.highlight ? "#f58220" : (isDark ? "#cbd5e1" : "#555")),
                             textAlign: "right",
                             whiteSpace: "nowrap",
                             flexShrink: 0,

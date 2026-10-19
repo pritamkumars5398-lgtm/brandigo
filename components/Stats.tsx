@@ -15,6 +15,7 @@ export default function Stats() {
 
   return (
     <section
+      id="stats"
       ref={ref}
       style={{ padding: "56px 0", background: "#ffffff", position: "relative", overflow: "hidden" }}
     >

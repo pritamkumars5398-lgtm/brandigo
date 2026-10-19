@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { ChevronRight, ArrowUpRight, X, ZoomIn, ArrowUp } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 import { portfolioItems, portfolioCategories } from "@/lib/portfolio-data";
 
@@ -39,22 +40,25 @@ function PortfolioHero() {
 /* ── Brandingo story band ─────────────────────────────────────── */
 function BrandStory() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
-    <section ref={ref} style={{ background: "#fff", padding: "72px 0 8px" }}>
+    <section ref={ref} style={{ background: isDark ? "#08090d" : "#fff", padding: "72px 0 8px", transition: "background-color 0.3s ease" }}>
       <div className="site-wrap" style={{ maxWidth: "880px", textAlign: "center", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "16px" }}>
           <div style={{ width: "32px", height: "2px", background: A }} />
           <span style={{ color: A, fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Est. 2016</span>
           <div style={{ width: "32px", height: "2px", background: A }} />
         </div>
-        <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 800, color: "#1a1a1a", marginBottom: "18px", lineHeight: 1.3 }}>
+        <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "18px", lineHeight: 1.3 }}>
           A decade of turning emerging businesses into <span style={{ color: A }}>unforgettable brands</span>
         </h2>
-        <p style={{ color: "#666", lineHeight: 1.85, marginBottom: "16px", fontSize: "15.5px" }}>
+        <p style={{ color: isDark ? "#cbd5e1" : "#666", lineHeight: 1.85, marginBottom: "16px", fontSize: "15.5px" }}>
           Established in 2016, Brandingo was built on a foundation of over a decade of expertise in Designing, Printing and Brand Development. Founded by the Patel &amp; Sharma brothers, we bring a unique blend of global vision and local expertise to help transform emerging businesses into unforgettable brands.
         </p>
-        <p style={{ color: "#666", lineHeight: 1.85, fontSize: "15.5px" }}>
-          Our objective is simple yet powerful: to make every customer feel <strong style={{ color: "#1a1a1a" }}>&ldquo;WoW.&rdquo;</strong> By blending strategic thinking with flawless creative execution, we deliver result-driven branding solutions that truly resonate with your audience and elevate your market presence.
+        <p style={{ color: isDark ? "#cbd5e1" : "#666", lineHeight: 1.85, fontSize: "15.5px" }}>
+          Our objective is simple yet powerful: to make every customer feel <strong style={{ color: isDark ? "#ffffff" : "#1a1a1a" }}>&ldquo;WoW.&rdquo;</strong> By blending strategic thinking with flawless creative execution, we deliver result-driven branding solutions that truly resonate with your audience and elevate your market presence.
         </p>
       </div>
     </section>
@@ -70,6 +74,9 @@ export default function PortfolioGallery() {
   const [showTop, setShowTop] = useState(false);
   const [visible, setVisible] = useState(PAGE_SIZE);
   const { ref, inView } = useInView({ threshold: 0.02, triggerOnce: true });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const filtered = active === "All" ? portfolioItems : portfolioItems.filter(p => p.category === active);
   const shown = filtered.slice(0, visible);
 
@@ -104,7 +111,7 @@ export default function PortfolioGallery() {
       <PortfolioHero />
       <BrandStory />
 
-      <section ref={ref} style={{ padding: "48px 0 100px", background: "#ffffff" }}>
+      <section ref={ref} style={{ padding: "48px 0 100px", background: isDark ? "#0c0e14" : "#ffffff", transition: "background-color 0.3s ease" }}>
         <div className="site-wrap">
           {/* Filter tabs */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "44px" }}>
@@ -116,9 +123,9 @@ export default function PortfolioGallery() {
                   padding: "9px 20px",
                   fontSize: "13px",
                   fontWeight: 600,
-                  border: active === cat ? "none" : "1.5px solid #e5e7eb",
-                  background: active === cat ? A : "#fff",
-                  color: active === cat ? "#fff" : "#555",
+                  border: active === cat ? "none" : (isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb"),
+                  background: active === cat ? A : (isDark ? "#12151c" : "#fff"),
+                  color: active === cat ? "#fff" : (isDark ? "#cbd5e1" : "#555"),
                   cursor: "pointer",
                   borderRadius: "999px",
                   transition: "all 0.2s",
@@ -241,7 +248,6 @@ export default function PortfolioGallery() {
           alignItems: "center",
           justifyContent: "center",
           cursor: "pointer",
-          boxShadow: "0 8px 24px rgba(245,130,32,0.4)",
           opacity: showTop ? 1 : 0,
           transform: showTop ? "translateY(0)" : "translateY(16px)",
           pointerEvents: showTop ? "auto" : "none",

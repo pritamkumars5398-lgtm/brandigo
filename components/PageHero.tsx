@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTheme } from "./ThemeContext";
 
 const ANIMATED_WORDS = [
   "Graphic Designing",
@@ -20,6 +21,8 @@ export default function PageHero({ title = "", bgImage }: PageHeroProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(65);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -51,13 +54,21 @@ export default function PageHero({ title = "", bgImage }: PageHeroProps) {
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, typingSpeed]);
 
-  const defaultBgClass = "bg-[linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)),url('/heroforpagesmobile.png')] md:bg-[linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)),url('/heroforpagestablet.png')] lg:bg-[linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)),url('/heroforpages.png')]";
+  const overlayGrad = isDark 
+    ? "linear-gradient(rgba(6,9,14,0.94), rgba(10,14,22,0.92))"
+    : "linear-gradient(rgba(11,60,93,0.88), rgba(0,69,99,0.85))";
+
+  const defaultBgClass = !isDark ? "bg-[linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)),url('/heroforpagesmobile.png')] md:bg-[linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)),url('/heroforpagestablet.png')] lg:bg-[linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)),url('/heroforpages.png')]" : "";
 
   return (
     <section
-      className={`${!bgImage ? defaultBgClass : ""} bg-center bg-cover bg-no-repeat`}
+      className={`${!bgImage && !isDark ? defaultBgClass : ""} bg-center bg-cover bg-no-repeat`}
       style={{
-        backgroundImage: bgImage ? `linear-gradient(rgba(11,60,93,0.88),rgba(0,69,99,0.85)), url('${bgImage}')` : undefined,
+        backgroundImage: bgImage 
+          ? `${overlayGrad}, url('${bgImage}')` 
+          : isDark 
+            ? `${overlayGrad}, url('/heroforpages.png')` 
+            : undefined,
         minHeight: "67vh",
         paddingTop: "90px",
         display: "flex",
@@ -65,6 +76,8 @@ export default function PageHero({ title = "", bgImage }: PageHeroProps) {
         justifyContent: "center",
         textAlign: "center",
         position: "relative",
+        borderBottom: isDark ? "1px solid rgba(255,255,255,0.06)" : "none",
+        transition: "background 0.3s ease",
       }}
     >
       {/* Decorative subtle grid */}

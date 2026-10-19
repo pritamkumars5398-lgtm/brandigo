@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
+import { useTheme } from "./ThemeContext";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -22,9 +23,27 @@ const testimonials = [
 export default function Testimonials() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
-    <section id="testimonials" ref={ref} style={{ padding: "100px 0", background: "linear-gradient(rgba(11,60,93,0.92), rgba(0,69,99,0.95)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=80')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", position: "relative", overflow: "hidden" }}>
+    <section
+      id="testimonials"
+      ref={ref}
+      style={{
+        padding: "100px 0",
+        backgroundColor: isDark ? "#05070c" : "#0b3c5d",
+        backgroundImage: isDark
+          ? "linear-gradient(rgba(5,7,12,0.96), rgba(8,11,18,0.97)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=80')"
+          : "linear-gradient(rgba(11,60,93,0.92), rgba(0,69,99,0.95)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=80')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        position: "relative",
+        overflow: "hidden",
+        transition: "background-color 0.3s ease, background-image 0.3s ease",
+      }}
+    >
       
       <div className="site-wrap" style={{ position: "relative", zIndex: 10 }}>
         <div style={{ textAlign: "center", marginBottom: "50px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
@@ -67,15 +86,15 @@ export default function Testimonials() {
                     </div>
                     <Quote size={36} className="quote-icon" style={{ color: "rgba(245,130,32,0.15)", transform: "scaleX(-1)", marginTop: "-6px" }} />
                   </div>
-                  <p style={{ color: "#4b5563", fontSize: "14.5px", lineHeight: 1.8, marginBottom: "24px", flexGrow: 1, fontWeight: 400 }}>
+                  <p style={{ color: isDark ? "#cbd5e1" : "#4b5563", fontSize: "14.5px", lineHeight: 1.8, marginBottom: "24px", flexGrow: 1, fontWeight: 400 }}>
                     &ldquo;{t.text}&rdquo;
                   </p>
-                  <div style={{ display: "flex", alignItems: "center", gap: "14px", borderTop: "1px solid #f3f4f6", paddingTop: "20px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "14px", borderTop: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #f3f4f6", paddingTop: "20px" }}>
                     <div className="avatar-initials" style={{ 
                       width: "48px", 
                       height: "48px", 
                       borderRadius: "50%", 
-                      background: "linear-gradient(135deg, #fff5eb 0%, #ffe4cc 100%)", 
+                      background: isDark ? "linear-gradient(135deg, rgba(245,130,32,0.2) 0%, rgba(245,130,32,0.1) 100%)" : "linear-gradient(135deg, #fff5eb 0%, #ffe4cc 100%)", 
                       color: "#f58220", 
                       display: "flex", 
                       alignItems: "center", 
@@ -88,7 +107,7 @@ export default function Testimonials() {
                       {t.name.split(" ").map(w => w.charAt(0)).slice(0, 2).join("").toUpperCase()}
                     </div>
                     <div>
-                      <p style={{ fontWeight: 700, fontSize: "15px", color: "#1f2937", marginBottom: "2px" }}>{t.name}</p>
+                      <p style={{ fontWeight: 700, fontSize: "15px", color: isDark ? "#ffffff" : "#1f2937", marginBottom: "2px" }}>{t.name}</p>
                       <p style={{ fontSize: "12px", color: "#f58220", fontWeight: 700, letterSpacing: "0.5px", textTransform: "uppercase" }}>{t.role}</p>
                     </div>
                   </div>
@@ -136,9 +155,9 @@ export default function Testimonials() {
           height: 100%;
           padding: 38px 30px;
           border-radius: 16px;
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.04);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+          background: ${isDark ? "#12151c" : "#ffffff"};
+          border: ${isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.04)"};
+          box-shadow: ${isDark ? "0 10px 30px rgba(0, 0, 0, 0.5)" : "0 10px 30px rgba(0, 0, 0, 0.04)"};
           display: flex;
           flex-direction: column;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);

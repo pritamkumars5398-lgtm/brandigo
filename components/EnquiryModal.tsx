@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { X, Send } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 export default function EnquiryModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +10,8 @@ export default function EnquiryModal() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   useEffect(() => {
     // Show modal immediately on mount if not shown in current session
@@ -65,6 +68,26 @@ export default function EnquiryModal() {
 
   if (!isOpen) return null;
 
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "12px 16px",
+    background: isDark ? "#0e1118" : "#f9fafb",
+    border: isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb",
+    borderRadius: "8px",
+    fontSize: "14px",
+    color: isDark ? "#ffffff" : "#111827",
+    outline: "none",
+    transition: "border-color 0.2s",
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    color: isDark ? "#cbd5e1" : "#4b5563",
+    fontSize: "13px",
+    fontWeight: 600,
+    marginBottom: "6px",
+  };
+
   return (
     <div style={{
       position: "fixed",
@@ -77,19 +100,20 @@ export default function EnquiryModal() {
       alignItems: "center",
       justifyContent: "center",
       padding: "20px",
-      background: "rgba(11, 60, 93, 0.4)",
+      background: isDark ? "rgba(0, 0, 0, 0.75)" : "rgba(11, 60, 93, 0.4)",
       backdropFilter: "blur(8px)",
+      WebkitBackdropFilter: "blur(8px)",
       animation: "fadeIn 0.3s ease-out forwards",
     }}>
       <div style={{
         position: "relative",
         width: "100%",
         maxWidth: "460px",
-        background: "#ffffff",
+        background: isDark ? "#12151c" : "#ffffff",
         borderRadius: "16px",
         overflow: "hidden",
-        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-        border: "1px solid rgba(0,0,0,0.05)",
+        boxShadow: isDark ? "0 25px 60px rgba(0, 0, 0, 0.8)" : "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        border: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(0,0,0,0.05)",
         animation: "scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       }}>
         {/* Top Accent line */}
@@ -102,7 +126,7 @@ export default function EnquiryModal() {
             position: "absolute",
             top: "16px",
             right: "16px",
-            background: "#f3f4f6",
+            background: isDark ? "rgba(255,255,255,0.08)" : "#f3f4f6",
             border: "none",
             borderRadius: "50%",
             width: "32px",
@@ -111,16 +135,16 @@ export default function EnquiryModal() {
             alignItems: "center",
             justifyContent: "center",
             cursor: "pointer",
-            color: "#6b7280",
+            color: isDark ? "#cbd5e1" : "#6b7280",
             transition: "all 0.2s",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#e5e7eb";
-            e.currentTarget.style.color = "#111827";
+            e.currentTarget.style.background = isDark ? "rgba(255,255,255,0.15)" : "#e5e7eb";
+            e.currentTarget.style.color = isDark ? "#ffffff" : "#111827";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#f3f4f6";
-            e.currentTarget.style.color = "#6b7280";
+            e.currentTarget.style.background = isDark ? "rgba(255,255,255,0.08)" : "#f3f4f6";
+            e.currentTarget.style.color = isDark ? "#cbd5e1" : "#6b7280";
           }}
         >
           <X size={18} />
@@ -128,8 +152,8 @@ export default function EnquiryModal() {
 
         {/* Modal Header */}
         <div style={{ padding: "32px 32px 10px", textAlign: "center" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#111827", marginBottom: "8px" }}>Enquire Now</h3>
-          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: 1.5 }}>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: isDark ? "#ffffff" : "#111827", marginBottom: "8px" }}>Enquire Now</h3>
+          <p style={{ color: isDark ? "#94a3b8" : "#6b7280", fontSize: "14px", lineHeight: 1.5 }}>
             Please fill out the form below. Our team will get back to you shortly.
           </p>
         </div>
@@ -138,56 +162,56 @@ export default function EnquiryModal() {
         <div style={{ padding: "10px 32px 32px" }}>
           <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <div>
-              <label style={{ display: "block", color: "#4b5563", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Name *</label>
+              <label style={labelStyle}>Name *</label>
               <input 
                 type="text" 
                 value={form.name} 
                 onChange={e => setForm({ ...form, name: e.target.value })} 
                 required 
                 placeholder="Your Name" 
-                style={{ width: "100%", padding: "12px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "8px", fontSize: "14px", color: "#111827", outline: "none", transition: "border-color 0.2s" }} 
+                style={inputStyle} 
                 onFocus={e => (e.target.style.borderColor = "#f58220")} 
-                onBlur={e => (e.target.style.borderColor = "#e5e7eb")} 
+                onBlur={e => (e.target.style.borderColor = isDark ? "rgba(255,255,255,0.12)" : "#e5e7eb")} 
               />
             </div>
             <div>
-              <label style={{ display: "block", color: "#4b5563", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Email *</label>
+              <label style={labelStyle}>Email *</label>
               <input 
                 type="email" 
                 value={form.email} 
                 onChange={e => setForm({ ...form, email: e.target.value })} 
                 required 
                 placeholder="Your Email" 
-                style={{ width: "100%", padding: "12px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "8px", fontSize: "14px", color: "#111827", outline: "none", transition: "border-color 0.2s" }} 
+                style={inputStyle} 
                 onFocus={e => (e.target.style.borderColor = "#f58220")} 
-                onBlur={e => (e.target.style.borderColor = "#e5e7eb")} 
+                onBlur={e => (e.target.style.borderColor = isDark ? "rgba(255,255,255,0.12)" : "#e5e7eb")} 
               />
             </div>
             <div>
-              <label style={{ display: "block", color: "#4b5563", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Contact No *</label>
+              <label style={labelStyle}>Contact No *</label>
               <input 
                 type="tel" 
                 value={form.phone} 
                 onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9]/g, "").slice(0, 10) })} 
-                required
+                required 
                 maxLength={10}
                 placeholder="Contact Number" 
-                style={{ width: "100%", padding: "12px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "8px", fontSize: "14px", color: "#111827", outline: "none", transition: "border-color 0.2s" }} 
+                style={inputStyle} 
                 onFocus={e => (e.target.style.borderColor = "#f58220")} 
-                onBlur={e => (e.target.style.borderColor = "#e5e7eb")} 
+                onBlur={e => (e.target.style.borderColor = isDark ? "rgba(255,255,255,0.12)" : "#e5e7eb")} 
               />
             </div>
             <div>
-              <label style={{ display: "block", color: "#4b5563", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>Requirement *</label>
+              <label style={labelStyle}>Requirement *</label>
               <textarea 
                 value={form.message} 
                 onChange={e => setForm({ ...form, message: e.target.value })} 
                 required 
                 rows={3} 
                 placeholder="Tell us about your brand/requirements..." 
-                style={{ width: "100%", padding: "12px 16px", background: "#f9fafb", border: "1.5px solid #e5e7eb", borderRadius: "8px", fontSize: "14px", color: "#111827", outline: "none", resize: "none", transition: "border-color 0.2s" }} 
+                style={{ ...inputStyle, resize: "none" }} 
                 onFocus={e => (e.target.style.borderColor = "#f58220")} 
-                onBlur={e => (e.target.style.borderColor = "#e5e7eb")} 
+                onBlur={e => (e.target.style.borderColor = isDark ? "rgba(255,255,255,0.12)" : "#e5e7eb")} 
               />
             </div>
             

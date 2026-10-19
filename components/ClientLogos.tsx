@@ -8,6 +8,7 @@ const track = [...brandLogos, ...brandLogos, ...brandLogos];
 export default function ClientLogos() {
   return (
     <section
+      id="client-logos"
       style={{
         background: "#f8f8f8",
         borderTop: "1px solid rgba(0,0,0,0.06)",
@@ -32,8 +33,8 @@ export default function ClientLogos() {
 
       <div style={{ overflow: "hidden", position: "relative" }}>
         {/* Fade edges */}
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to right, #f8f8f8, transparent)", zIndex: 2, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to left, #f8f8f8, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div className="client-logos-fade-left" style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to right, #f8f8f8, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div className="client-logos-fade-right" style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to left, #f8f8f8, transparent)", zIndex: 2, pointerEvents: "none" }} />
 
         <motion.div
           style={{ display: "flex", gap: "80px", width: "max-content", alignItems: "center", paddingRight: "80px" }}

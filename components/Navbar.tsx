@@ -4,12 +4,14 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Scientific Logo", href: "/scientific-logo" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Career", href: "/career" },
   { label: "Pricing", href: "/pricing" },
@@ -20,10 +22,12 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
 
-  const textColor = "#333";
-  const phoneColor = "#555";
-  const logoFilter = "none";
+  const textColor = isDark ? "#e2e8f0" : "#333";
+  const phoneColor = isDark ? "#94a3b8" : "#555";
+  const logoFilter = isDark ? "brightness(0) invert(1)" : "none";
 
   return (
     <header
@@ -33,10 +37,12 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        background: "#ffffff",
-        boxShadow: "0 2px 20px rgba(0,0,0,0.08)",
-        borderBottom: "1px solid rgba(0,0,0,0.06)",
-        transition: "background 0.3s ease, box-shadow 0.3s ease",
+        background: isDark ? "rgba(8, 9, 13, 0.94)" : "#ffffff",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        boxShadow: isDark ? "0 4px 30px rgba(0,0,0,0.6)" : "0 2px 20px rgba(0,0,0,0.08)",
+        borderBottom: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.06)",
+        transition: "background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
       }}
     >
       <div className="site-wrap">
@@ -51,7 +57,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-5 2xl:gap-7">
             {navLinks.map((link) => {
               const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               return (
@@ -87,7 +93,41 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Theme Toggle Button (Desktop) */}
+            <button
+              onClick={toggleTheme}
+              aria-label={isDark ? "Switch to Light Theme" : "Switch to Black Theme"}
+              title={isDark ? "Switch to Light Theme" : "Switch to Black Theme"}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "8px 14px",
+                borderRadius: "999px",
+                border: isDark ? "1px solid rgba(255, 255, 255, 0.15)" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: isDark ? "rgba(255, 255, 255, 0.08)" : "#f4f4f5",
+                color: isDark ? "#facc15" : "#4b5563",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                fontSize: "12px",
+                fontWeight: 600,
+              }}
+              className="hover:scale-105 active:scale-95"
+            >
+              {isDark ? (
+                <>
+                  <Sun size={15} className="text-[#facc15]" />
+                  <span style={{ color: "#e2e8f0" }}>Light</span>
+                </>
+              ) : (
+                <>
+                  <Moon size={15} className="text-[#4b5563]" />
+                  <span style={{ color: "#374151" }}>Dark</span>
+                </>
+              )}
+            </button>
+
             <a
               href="https://wa.me/919979992804"
               target="_blank"
@@ -103,7 +143,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               style={{
-                padding: "10px 24px",
+                padding: "9px 22px",
                 background: "#f58220",
                 color: "#fff",
                 fontWeight: 700,
@@ -119,39 +159,60 @@ export default function Navbar() {
             <Link
               href="/admin/login"
               style={{
-                padding: "8px 20px",
-                border: "2px solid #0b3c5d",
-                color: "#0b3c5d",
+                padding: "7px 18px",
+                border: isDark ? "2px solid #f58220" : "2px solid #0b3c5d",
+                color: isDark ? "#f58220" : "#0b3c5d",
                 fontWeight: 700,
                 fontSize: "13px",
                 borderRadius: "999px",
                 transition: "all 0.2s",
                 whiteSpace: "nowrap",
               }}
-              className="hover:bg-[#0b3c5d] hover:!text-white"
+              className={isDark ? "hover:!bg-[#f58220] hover:!text-white" : "hover:bg-[#0b3c5d] hover:!text-white"}
             >
               Admin Login
             </Link>
           </div>
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            style={{ color: textColor, padding: "8px", background: "none", border: "none", cursor: "pointer", transition: "color 0.3s" }}
-            className="lg:hidden"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Right Controls */}
+          <div className="flex lg:hidden items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "36px",
+                height: "36px",
+                borderRadius: "50%",
+                border: isDark ? "1px solid rgba(255, 255, 255, 0.15)" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: isDark ? "rgba(255, 255, 255, 0.08)" : "#f4f4f5",
+                color: isDark ? "#facc15" : "#4b5563",
+                cursor: "pointer",
+              }}
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              style={{ color: textColor, padding: "8px", background: "none", border: "none", cursor: "pointer", transition: "color 0.3s" }}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
       <div
         style={{
-          maxHeight: mobileOpen ? "600px" : "0",
+          maxHeight: mobileOpen ? "650px" : "0",
           overflow: "hidden",
           transition: "max-height 0.35s ease",
-          background: "#fff",
-          borderTop: mobileOpen ? "1px solid rgba(0,0,0,0.06)" : "none",
+          background: isDark ? "#0d0f15" : "#fff",
+          borderTop: mobileOpen ? (isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.06)") : "none",
         }}
         className="lg:hidden"
       >
@@ -163,25 +224,71 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                style={{ display: "block", padding: "12px 16px", fontSize: "14px", fontWeight: 500, color: isActive ? "#f58220" : "#444", backgroundColor: isActive ? "#fff5eb" : "transparent", borderRadius: "8px", transition: "background 0.15s, color 0.15s" }}
-                className="hover:bg-[#fff5eb] hover:text-[#f58220]"
+                style={{
+                  display: "block",
+                  padding: "12px 16px",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: isActive ? "#f58220" : (isDark ? "#e2e8f0" : "#444"),
+                  backgroundColor: isActive ? (isDark ? "rgba(245, 130, 32, 0.15)" : "#fff5eb") : "transparent",
+                  borderRadius: "8px",
+                  transition: "background 0.15s, color 0.15s",
+                }}
+                className={isDark ? "hover:bg-white/5 hover:text-[#f58220]" : "hover:bg-[#fff5eb] hover:text-[#f58220]"}
               >
                 {link.label}
               </Link>
             );
           })}
+
+          <button
+            onClick={toggleTheme}
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "12px 16px",
+              fontSize: "14px",
+              fontWeight: 600,
+              borderRadius: "8px",
+              border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.08)",
+              background: isDark ? "rgba(255, 255, 255, 0.05)" : "#f9fafb",
+              color: isDark ? "#fff" : "#1a1a1a",
+              cursor: "pointer",
+              marginTop: "8px",
+              marginBottom: "8px",
+            }}
+          >
+            <span>Theme Mode</span>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px", color: isDark ? "#facc15" : "#f58220" }}>
+              {isDark ? <><Sun size={16} /> Light Theme</> : <><Moon size={16} /> Black Theme</>}
+            </span>
+          </button>
+
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
-            style={{ display: "block", marginTop: "12px", textAlign: "center", padding: "14px", background: "#f58220", color: "#fff", fontWeight: 700, borderRadius: "999px", fontSize: "14px" }}
+            style={{ display: "block", marginTop: "10px", textAlign: "center", padding: "13px", background: "#f58220", color: "#fff", fontWeight: 700, borderRadius: "999px", fontSize: "14px" }}
           >
             Get Quote
           </Link>
           <Link
             href="/admin/login"
             onClick={() => setMobileOpen(false)}
-            style={{ display: "block", marginTop: "12px", textAlign: "center", padding: "14px", border: "2px solid #0b3c5d", color: "#0b3c5d", fontWeight: 700, borderRadius: "999px", fontSize: "14px", transition: "all 0.2s" }}
-            className="hover:bg-[#0b3c5d] hover:!text-white"
+            style={{
+              display: "block",
+              marginTop: "10px",
+              textAlign: "center",
+              padding: "13px",
+              border: isDark ? "2px solid #f58220" : "2px solid #0b3c5d",
+              color: isDark ? "#f58220" : "#0b3c5d",
+              fontWeight: 700,
+              borderRadius: "999px",
+              fontSize: "14px",
+              transition: "all 0.2s",
+            }}
+            className={isDark ? "hover:!bg-[#f58220] hover:!text-white" : "hover:bg-[#0b3c5d] hover:!text-white"}
           >
             Admin Login
           </Link>

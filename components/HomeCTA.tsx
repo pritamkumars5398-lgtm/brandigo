@@ -3,17 +3,25 @@
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTheme } from "./ThemeContext";
 
 export default function HomeCTA() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
     <section 
       ref={ref} 
       style={{ 
-        background: "linear-gradient(135deg, #0b3c5d 0%, #062438 100%)", 
+        background: isDark 
+          ? "linear-gradient(135deg, #0d121c 0%, #06080d 100%)" 
+          : "linear-gradient(135deg, #0b3c5d 0%, #062438 100%)", 
+        borderTop: isDark ? "1px solid rgba(255,255,255,0.06)" : "none",
+        borderBottom: isDark ? "1px solid rgba(255,255,255,0.06)" : "none",
         position: "relative",
-        overflow: "hidden"
+        overflow: "hidden",
+        transition: "background 0.3s ease",
       }}
     >
       <div 
@@ -58,7 +66,7 @@ export default function HomeCTA() {
               fontSize: "15px",
               transition: "all 0.3s ease",
             }}
-            className="hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(245,130,32,0.4)] group"
+            className="hover:-translate-y-1 group"
           >
             Get Started Now
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
