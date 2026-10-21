@@ -1,75 +1,74 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
-import { ChevronRight, ArrowUpRight, X, ZoomIn, ArrowUp } from "lucide-react";
+import { ChevronRight, ArrowUpRight, X, ZoomIn, ArrowUp, Play, LayoutGrid } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 
-import { portfolioItems, portfolioCategories } from "@/lib/portfolio-data";
+import { portfolioItems, portfolioCategories, type PortfolioItem } from "@/lib/portfolio-data";
 
 const A = "#f58220"; // accent orange
 const NAVY = "#0b3c5d"; // brand navy
 
-/* ── Hero band ────────────────────────────────────────────────── */
-function PortfolioHero() {
+/* ── Individual Card Component ────────────────────────────────── */
+function PortfolioCard({
+  item,
+  isDark,
+  onClick,
+}: {
+  item: PortfolioItem;
+  isDark: boolean;
+  onClick: () => void;
+}) {
   return (
-    <section style={{ position: "relative", padding: "120px 0 72px", overflow: "hidden", background: NAVY }}>
-      <div style={{ position: "absolute", inset: 0, background: `linear-gradient(135deg, rgba(11,60,93,0.96) 0%, rgba(245,130,32,0.85) 100%)` }} />
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-      <div className="site-wrap" style={{ position: "relative", zIndex: 10, textAlign: "center" }}>
-        <div style={{ display: "inline-block", padding: "5px 14px", background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: "999px", color: "#fff", fontSize: "12px", fontWeight: 600, marginBottom: "16px" }}>
-          Our Portfolio
-        </div>
-        <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.4rem)", fontWeight: 900, color: "#fff", lineHeight: 1.1, marginBottom: "14px" }}>
-          Work That Makes Brands Say <span style={{ color: "#fff", textDecoration: "underline", textDecorationColor: "rgba(255,255,255,0.4)", textUnderlineOffset: "6px" }}>WoW</span>
-        </h1>
-        <p style={{ color: "rgba(255,255,255,0.82)", fontSize: "1.05rem", maxWidth: "600px", margin: "0 auto 18px", lineHeight: 1.65 }}>
-          A showcase of logos, packaging, print and social creatives we&apos;ve designed for businesses across India.
-        </p>
-        <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
-          <Link href="/" style={{ color: "rgba(255,255,255,0.65)", fontSize: "13px" }} className="hover:text-white">Home</Link>
-          <ChevronRight size={12} style={{ color: "rgba(255,255,255,0.45)" }} />
-          <span style={{ color: "#fff", fontSize: "13px", fontWeight: 600 }}>Portfolio</span>
-        </nav>
+    <button
+      onClick={onClick}
+      className="portfolio-card group"
+      style={{
+        background: isDark ? "#12151c" : "#ffffff",
+        border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.05)",
+      }}
+      aria-label={`View ${item.category} design`}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={item.image}
+        alt={`${item.category} design by Brandingo`}
+        loading="lazy"
+      />
+      {/* Hover overlay */}
+      <div className="portfolio-overlay" />
+
+      {/* Accent Action Circle */}
+      <div className="portfolio-zoom-icon">
+        <ZoomIn size={18} style={{ color: "#fff" }} />
       </div>
-    </section>
+
+      {/* Floating Tag */}
+      <div className="portfolio-tag">
+        <span>{item.category}</span>
+      </div>
+    </button>
   );
 }
 
-/* ── Brandingo story band ─────────────────────────────────────── */
-function BrandStory() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
-  return (
-    <section ref={ref} style={{ background: isDark ? "#08090d" : "#fff", padding: "72px 0 8px", transition: "background-color 0.3s ease" }}>
-      <div className="site-wrap" style={{ maxWidth: "880px", textAlign: "center", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "16px" }}>
-          <div style={{ width: "32px", height: "2px", background: A }} />
-          <span style={{ color: A, fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Est. 2016</span>
-          <div style={{ width: "32px", height: "2px", background: A }} />
-        </div>
-        <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginBottom: "18px", lineHeight: 1.3 }}>
-          A decade of turning emerging businesses into <span style={{ color: A }}>unforgettable brands</span>
-        </h2>
-        <p style={{ color: isDark ? "#cbd5e1" : "#666", lineHeight: 1.85, marginBottom: "16px", fontSize: "15.5px" }}>
-          Established in 2016, Brandingo was built on a foundation of over a decade of expertise in Designing, Printing and Brand Development. Founded by the Patel &amp; Sharma brothers, we bring a unique blend of global vision and local expertise to help transform emerging businesses into unforgettable brands.
-        </p>
-        <p style={{ color: isDark ? "#cbd5e1" : "#666", lineHeight: 1.85, fontSize: "15.5px" }}>
-          Our objective is simple yet powerful: to make every customer feel <strong style={{ color: isDark ? "#ffffff" : "#1a1a1a" }}>&ldquo;WoW.&rdquo;</strong> By blending strategic thinking with flawless creative execution, we deliver result-driven branding solutions that truly resonate with your audience and elevate your market presence.
-        </p>
-      </div>
-    </section>
-  );
+// Helper to ensure each column has enough items to create a smooth, seamless infinite loop
+function prepareColumnItems(items: PortfolioItem[], minLength = 6): PortfolioItem[] {
+  if (!items || items.length === 0) return [];
+  let res = [...items];
+  while (res.length < minLength) {
+    res = [...res, ...items];
+  }
+  return res;
 }
 
 /* ── Gallery ──────────────────────────────────────────────────── */
-const PAGE_SIZE = 24; // images rendered per batch — keeps the masonry grid fast
+const PAGE_SIZE = 24;
 
 export default function PortfolioGallery() {
   const [active, setActive] = useState("All");
+  const [viewMode, setViewMode] = useState<"marquee" | "grid">("marquee");
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [showTop, setShowTop] = useState(false);
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -77,16 +76,37 @@ export default function PortfolioGallery() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const filtered = active === "All" ? portfolioItems : portfolioItems.filter(p => p.category === active);
-  const shown = filtered.slice(0, visible);
+  const filtered = useMemo(() => {
+    return active === "All" ? portfolioItems : portfolioItems.filter(p => p.category === active);
+  }, [active]);
 
-  // Reset the visible window whenever the category filter changes.
+  const shown = useMemo(() => {
+    return filtered.slice(0, visible);
+  }, [filtered, visible]);
+
+  // Split filtered items into 3 columns for desktop marquee
+  const col0Items = useMemo(() => {
+    const raw = filtered.filter((_, i) => i % 3 === 0);
+    return prepareColumnItems(raw.length > 0 ? raw : filtered, 8);
+  }, [filtered]);
+
+  const col1Items = useMemo(() => {
+    const raw = filtered.filter((_, i) => i % 3 === 1);
+    return prepareColumnItems(raw.length > 0 ? raw : filtered, 8);
+  }, [filtered]);
+
+  const col2Items = useMemo(() => {
+    const raw = filtered.filter((_, i) => i % 3 === 2);
+    return prepareColumnItems(raw.length > 0 ? raw : filtered, 8);
+  }, [filtered]);
+
+  // Reset visible window when category changes
   const selectCategory = (cat: string) => {
     setActive(cat);
     setVisible(PAGE_SIZE);
   };
 
-  // Show the scroll-to-top button once the user has scrolled down a bit.
+  // Show scroll-to-top button
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 600);
     onScroll();
@@ -94,10 +114,12 @@ export default function PortfolioGallery() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the lightbox on Escape + lock body scroll while it's open.
+  // Lightbox key handler
   useEffect(() => {
     if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightbox(null); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
@@ -108,96 +130,212 @@ export default function PortfolioGallery() {
 
   return (
     <>
-      <PortfolioHero />
-      <BrandStory />
-
-      <section ref={ref} style={{ padding: "48px 0 100px", background: isDark ? "#0c0e14" : "#ffffff", transition: "background-color 0.3s ease" }}>
+      <section ref={ref} style={{ padding: "40px 0 64px", background: isDark ? "#08090d" : "#ffffff", transition: "background-color 0.3s ease", position: "relative" }}>
         <div className="site-wrap">
-          {/* Filter tabs */}
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "44px" }}>
-            {portfolioCategories.map(cat => (
+
+          {/* Clean Top Header */}
+          <div style={{ textAlign: "center", marginBottom: "26px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
+              <div style={{ width: "28px", height: "2px", background: A }} />
+              <span style={{ color: A, fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Our Portfolio</span>
+              <div style={{ width: "28px", height: "2px", background: A }} />
+            </div>
+            <h1 style={{ fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: 900, color: isDark ? "#ffffff" : "#1a1a1a", lineHeight: 1.2 }}>
+              Work That Makes Brands Say <span style={{ color: A }}>WoW</span>
+            </h1>
+          </div>
+
+          {/* Filter Tabs & View Mode Switcher */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: "32px" }}>
+            
+            {/* View Mode Toggle */}
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "4px", background: isDark ? "#12151c" : "#f1f5f9", borderRadius: "999px", border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #e2e8f0" }}>
               <button
-                key={cat}
-                onClick={() => selectCategory(cat)}
+                onClick={() => setViewMode("marquee")}
                 style={{
-                  padding: "9px 20px",
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  border: active === cat ? "none" : (isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb"),
-                  background: active === cat ? A : (isDark ? "#12151c" : "#fff"),
-                  color: active === cat ? "#fff" : (isDark ? "#cbd5e1" : "#555"),
-                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "7px 16px",
+                  fontSize: "12.5px",
+                  fontWeight: 700,
                   borderRadius: "999px",
+                  border: "none",
+                  background: viewMode === "marquee" ? A : "transparent",
+                  color: viewMode === "marquee" ? "#fff" : (isDark ? "#94a3b8" : "#64748b"),
+                  cursor: "pointer",
                   transition: "all 0.2s",
                 }}
               >
-                {cat}
+                <Play size={13} fill={viewMode === "marquee" ? "#fff" : "none"} /> Auto-Scroll Showcase (Up &amp; Down)
               </button>
-            ))}
-          </div>
 
-          {/* Masonry grid */}
-          <div
-            style={{
-              columnGap: "18px",
-              opacity: inView ? 1 : 0,
-              transition: "opacity 0.6s ease",
-            }}
-            className="columns-1 sm:columns-2 lg:columns-3"
-          >
-            {shown.map((item, i) => (
               <button
-                key={item.id}
-                onClick={() => setLightbox(item.image)}
-                className="portfolio-card group"
+                onClick={() => setViewMode("grid")}
                 style={{
-                  transform: inView ? "translateY(0)" : "translateY(24px)",
-                  transitionDelay: `${(i % 9) * 0.04}s`,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "7px 16px",
+                  fontSize: "12.5px",
+                  fontWeight: 700,
+                  borderRadius: "999px",
+                  border: "none",
+                  background: viewMode === "grid" ? A : "transparent",
+                  color: viewMode === "grid" ? "#fff" : (isDark ? "#94a3b8" : "#64748b"),
+                  cursor: "pointer",
+                  transition: "all 0.2s",
                 }}
-                aria-label={`View ${item.category} design`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={item.image}
-                  alt={`${item.category} design by Brandingo`}
-                  loading="lazy"
-                />
-                {/* Hover overlay */}
-                <div className="portfolio-overlay" />
-                
-                {/* Accent Action Circle */}
-                <div className="portfolio-zoom-icon">
-                  <ZoomIn size={18} style={{ color: "#fff" }} />
-                </div>
-                
-                {/* Floating Tag */}
-                <div className="portfolio-tag">
-                  <span>{item.category}</span>
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Load more */}
-          {visible < filtered.length && (
-            <div style={{ textAlign: "center", marginTop: "40px" }}>
-              <button
-                onClick={() => setVisible(v => v + PAGE_SIZE)}
-                style={{ padding: "13px 32px", background: "#fff", color: NAVY, fontWeight: 700, fontSize: "14px", border: `1.5px solid ${NAVY}`, borderRadius: "999px", cursor: "pointer", transition: "all 0.2s" }}
-              >
-                Load More ({filtered.length - visible} more)
+                <LayoutGrid size={13} /> Grid View
               </button>
             </div>
+
+            {/* Category Filter Tabs */}
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px", maxWidth: "980px" }}>
+              {portfolioCategories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => selectCategory(cat)}
+                  style={{
+                    padding: "7px 16px",
+                    fontSize: "12.5px",
+                    fontWeight: 600,
+                    border: active === cat ? "none" : (isDark ? "1px solid rgba(255,255,255,0.12)" : "1px solid #e5e7eb"),
+                    background: active === cat ? A : (isDark ? "#12151c" : "#fff"),
+                    color: active === cat ? "#fff" : (isDark ? "#cbd5e1" : "#555"),
+                    cursor: "pointer",
+                    borderRadius: "999px",
+                    transition: "all 0.2s",
+                  }}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Hover tip for Auto-Scroll mode */}
+            {viewMode === "marquee" && (
+              <span style={{ fontSize: "12px", color: isDark ? "#64748b" : "#94a3b8", display: "flex", alignItems: "center", gap: "6px" }}>
+                💡 Hover on any card to pause movement &amp; click to zoom
+              </span>
+            )}
+          </div>
+
+          {/* VIEW MODE 1: AUTO-SCROLLING VERTICAL MARQUEE (UP & DOWN COLUMNS) */}
+          {viewMode === "marquee" ? (
+            <div
+              className="portfolio-marquee-container"
+              style={{
+                position: "relative",
+                height: "760px",
+                overflow: "hidden",
+                borderRadius: "20px",
+                border: isDark ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(0,0,0,0.06)",
+                background: isDark ? "#090b10" : "#fafbfc",
+                opacity: inView ? 1 : 0,
+                transition: "opacity 0.6s ease",
+              }}
+            >
+              {/* 3 Columns: Col 1 moves UP ⬆️, Col 2 moves DOWN ⬇️, Col 3 moves UP ⬆️ */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 h-full px-4">
+                
+                {/* Column 1: Moves UP ⬆️ */}
+                <div className="marquee-col overflow-hidden h-full">
+                  <div className="marquee-track marquee-track-up-1">
+                    {[...col0Items, ...col0Items].map((item, i) => (
+                      <PortfolioCard
+                        key={`${item.id}-c0-${i}`}
+                        item={item}
+                        isDark={isDark}
+                        onClick={() => setLightbox(item.image)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 2: Moves DOWN ⬇️ */}
+                <div className="marquee-col overflow-hidden h-full hidden md:block">
+                  <div className="marquee-track marquee-track-down-2">
+                    {[...col1Items, ...col1Items].map((item, i) => (
+                      <PortfolioCard
+                        key={`${item.id}-c1-${i}`}
+                        item={item}
+                        isDark={isDark}
+                        onClick={() => setLightbox(item.image)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 3: Moves UP ⬆️ */}
+                <div className="marquee-col overflow-hidden h-full hidden lg:block">
+                  <div className="marquee-track marquee-track-up-3">
+                    {[...col2Items, ...col2Items].map((item, i) => (
+                      <PortfolioCard
+                        key={`${item.id}-c2-${i}`}
+                        item={item}
+                        isDark={isDark}
+                        onClick={() => setLightbox(item.image)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          ) : (
+            /* VIEW MODE 2: CLASSIC MASONRY GRID */
+            <>
+              <div
+                style={{
+                  columnGap: "18px",
+                  opacity: inView ? 1 : 0,
+                  transition: "opacity 0.6s ease",
+                }}
+                className="columns-1 sm:columns-2 lg:columns-3"
+              >
+                {shown.map((item, i) => (
+                  <div
+                    key={item.id}
+                    style={{
+                      transform: inView ? "translateY(0)" : "translateY(24px)",
+                      transitionDelay: `${(i % 9) * 0.04}s`,
+                      marginBottom: "18px",
+                    }}
+                  >
+                    <PortfolioCard
+                      item={item}
+                      isDark={isDark}
+                      onClick={() => setLightbox(item.image)}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Load more in grid view */}
+              {visible < filtered.length && (
+                <div style={{ textAlign: "center", marginTop: "36px" }}>
+                  <button
+                    onClick={() => setVisible(v => v + PAGE_SIZE)}
+                    style={{ padding: "12px 30px", background: isDark ? "#12151c" : "#fff", color: A, fontWeight: 700, fontSize: "14px", border: `1.5px solid ${A}`, borderRadius: "999px", cursor: "pointer", transition: "all 0.2s" }}
+                    className="hover:bg-[#f58220] hover:!text-white"
+                  >
+                    Load More ({filtered.length - visible} more)
+                  </button>
+                </div>
+              )}
+            </>
           )}
 
           {/* Bottom CTA */}
-          <div style={{ textAlign: "center", marginTop: "64px" }}>
-            <p style={{ color: "#777", fontSize: "15px", marginBottom: "20px" }}>
+          <div style={{ textAlign: "center", marginTop: "48px" }}>
+            <p style={{ color: isDark ? "#94a3b8" : "#777", fontSize: "15px", marginBottom: "16px" }}>
               Like what you see? Let&apos;s create something remarkable for your brand.
             </p>
             <Link
               href="/contact"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 34px", background: A, color: "#fff", fontWeight: 700, borderRadius: "999px", fontSize: "14px", transition: "background 0.2s" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 32px", background: A, color: "#fff", fontWeight: 700, borderRadius: "999px", fontSize: "14px", transition: "background 0.2s" }}
               className="hover:bg-[#ff933c]"
             >
               Start Your Project <ArrowUpRight size={16} />
@@ -206,7 +344,7 @@ export default function PortfolioGallery() {
         </div>
       </section>
 
-      {/* Lightbox */}
+      {/* Lightbox Modal */}
       {lightbox && (
         <div
           onClick={() => setLightbox(null)}
@@ -258,35 +396,78 @@ export default function PortfolioGallery() {
         <ArrowUp size={22} />
       </button>
 
+      {/* Keyframe & Component Styles */}
       <style dangerouslySetInnerHTML={{__html: `
+        @keyframes marqueeScrollUp {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-50%);
+          }
+        }
+
+        @keyframes marqueeScrollDown {
+          0% {
+            transform: translateY(-50%);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+
+        .marquee-track {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          will-change: transform;
+        }
+
+        /* Continuous linear vertical animation speeds (gentle, leisurely pace) */
+        .marquee-track-up-1 {
+          animation: marqueeScrollUp 120s linear infinite;
+        }
+
+        .marquee-track-down-2 {
+          animation: marqueeScrollDown 130s linear infinite;
+        }
+
+        .marquee-track-up-3 {
+          animation: marqueeScrollUp 115s linear infinite;
+        }
+
+        /* Hover pauses the column track smoothly */
+        .marquee-col:hover .marquee-track,
+        .portfolio-card:hover {
+          animation-play-state: paused !important;
+        }
+
         .portfolio-card {
           display: block;
           width: 100%;
-          margin-bottom: 20px;
           position: relative;
           overflow: hidden;
           background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.04);
           border-radius: 16px;
           padding: 0;
           cursor: zoom-in;
           break-inside: avoid;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
-          transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+          box-shadow: none;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
         }
         .portfolio-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
-          border-color: rgba(245, 130, 32, 0.25);
+          transform: translateY(-4px) scale(1.015);
+          box-shadow: none;
+          border-color: rgba(245, 130, 32, 0.45) !important;
         }
         .portfolio-card img {
           width: 100%;
           height: auto;
           display: block;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .portfolio-card:hover img {
-          transform: scale(1.04);
+          transform: scale(1.03);
         }
         .portfolio-overlay {
           position: absolute;
@@ -301,10 +482,10 @@ export default function PortfolioGallery() {
         }
         .portfolio-zoom-icon {
           position: absolute;
-          top: 16px;
-          right: 16px;
-          width: 40px;
-          height: 40px;
+          top: 14px;
+          right: 14px;
+          width: 38px;
+          height: 38px;
           border-radius: 50%;
           background: #f58220;
           display: flex;
@@ -312,9 +493,8 @@ export default function PortfolioGallery() {
           justify-content: center;
           opacity: 0;
           transform: scale(0.6);
-          transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: opacity 0.25s ease, transform 0.25s ease;
           z-index: 20;
-          box-shadow: 0 4px 10px rgba(245, 130, 32, 0.3);
         }
         .portfolio-card:hover .portfolio-zoom-icon {
           opacity: 1;
@@ -322,11 +502,11 @@ export default function PortfolioGallery() {
         }
         .portfolio-tag {
           position: absolute;
-          left: 18px;
-          bottom: 18px;
+          left: 14px;
+          bottom: 14px;
           opacity: 0;
           transform: translateY(8px);
-          transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: opacity 0.25s ease, transform 0.25s ease;
           z-index: 20;
         }
         .portfolio-card:hover .portfolio-tag {
@@ -335,14 +515,13 @@ export default function PortfolioGallery() {
         }
         .portfolio-tag span {
           display: inline-block;
-          padding: 6px 14px;
+          padding: 5px 12px;
           background: #f58220;
           color: #fff;
           font-size: 11px;
           font-weight: 700;
           border-radius: 999px;
           letter-spacing: 0.5px;
-          box-shadow: 0 4px 10px rgba(245, 130, 32, 0.25);
         }
       `}} />
     </>
