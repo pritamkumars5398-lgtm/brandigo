@@ -21,14 +21,14 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="font-sans" suppressHydrationWarning>
+    <html lang="en" className="dark font-sans" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  var t = localStorage.getItem('brandingo_theme');
+                  var t = localStorage.getItem('brandingo_theme_v2');
                   if (t === 'light') {
                     document.documentElement.classList.remove('dark');
                   } else {

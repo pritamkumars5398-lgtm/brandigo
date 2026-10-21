@@ -21,7 +21,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("brandingo_theme") as Theme | null;
+      const stored = localStorage.getItem("brandingo_theme_v2") as Theme | null;
       if (stored === "light") {
         setThemeState("light");
         document.documentElement.classList.remove("dark");
@@ -40,7 +40,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
     try {
-      localStorage.setItem("brandingo_theme", newTheme);
+      localStorage.setItem("brandingo_theme_v2", newTheme);
     } catch {}
 
     if (newTheme === "dark") {
