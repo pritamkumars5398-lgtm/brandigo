@@ -19,7 +19,7 @@ export default function Vision() {
     <section
       ref={ref}
       style={{
-        padding: "80px 0",
+        padding: "48px 0",
         background: isDark ? "#0d0f15" : "#f0f6fa",
         overflow: "hidden",
         borderTop: isDark ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(11,60,93,0.1)",
@@ -34,7 +34,7 @@ export default function Vision() {
               key={p.title}
               style={{
                 textAlign: "center",
-                padding: "40px 28px",
+                padding: "28px 24px",
                 borderRadius: "0",
                 background: isDark ? "#12151c" : "#fff",
                 border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(11,60,93,0.1)",

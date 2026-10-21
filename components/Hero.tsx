@@ -132,7 +132,7 @@ export default function Hero() {
               
               {/* Agency Tag Pill */}
               <div
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 text-xs font-semibold tracking-wider uppercase"
+                className="inline-flex items-center px-3.5 py-1.5 rounded-full mb-6 text-xs font-semibold tracking-wider uppercase"
                 style={{
                   background: isDark ? "rgba(245,130,32,0.12)" : "rgba(255,255,255,0.12)",
                   border: isDark ? "1px solid rgba(245,130,32,0.3)" : "1px solid rgba(255,255,255,0.25)",
@@ -140,7 +140,6 @@ export default function Hero() {
                   backdropFilter: "blur(8px)",
                 }}
               >
-                <span className="w-2 h-2 rounded-full bg-[#f58220] animate-ping inline-block" />
                 Creative Branding &amp; Design Studio
               </div>
 

@@ -29,10 +29,10 @@ export default function Portfolio() {
   const filtered = active === "All" ? projects : projects.filter(p => p.category === active);
 
   return (
-    <section id="projects" ref={ref} style={{ padding: "100px 0", background: isDark ? "#0c0e14" : "#f9fafb", overflow: "hidden", transition: "background-color 0.3s ease" }}>
+    <section id="projects" ref={ref} style={{ padding: "54px 0", background: isDark ? "#0c0e14" : "#f9fafb", overflow: "hidden", transition: "background-color 0.3s ease" }}>
       <div className="site-wrap">
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "48px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
+        <div style={{ textAlign: "center", marginBottom: "32px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "14px" }}>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
             <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Our Work</span>
@@ -47,7 +47,7 @@ export default function Portfolio() {
         </div>
 
         {/* Filter tabs */}
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "48px", opacity: inView ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "32px", opacity: inView ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
           {categories.map(cat => (
             <button key={cat} onClick={() => setActive(cat)} style={{ padding: "8px 20px", borderRadius: "0", fontSize: "13px", fontWeight: 600, border: active === cat ? "none" : (isDark ? "1.5px solid rgba(255,255,255,0.12)" : "1.5px solid #e5e7eb"), background: active === cat ? "#f58220" : (isDark ? "#12151c" : "#fff"), color: active === cat ? "#fff" : (isDark ? "#cbd5e1" : "#555"), cursor: "pointer", transition: "all 0.2s" }}>
               {cat}

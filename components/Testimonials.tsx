@@ -31,7 +31,7 @@ export default function Testimonials() {
       id="testimonials"
       ref={ref}
       style={{
-        padding: "100px 0",
+        padding: "54px 0",
         backgroundColor: isDark ? "#05070c" : "#0b3c5d",
         backgroundImage: isDark
           ? "linear-gradient(rgba(5,7,12,0.96), rgba(8,11,18,0.97)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=80')"
@@ -46,7 +46,7 @@ export default function Testimonials() {
     >
       
       <div className="site-wrap" style={{ position: "relative", zIndex: 10 }}>
-        <div style={{ textAlign: "center", marginBottom: "50px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
+        <div style={{ textAlign: "center", marginBottom: "36px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "14px" }}>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
             <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Client Reviews</span>

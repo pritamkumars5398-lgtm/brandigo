@@ -14,7 +14,7 @@ export default function About({ showValues = true }: { showValues?: boolean }) {
     <section
       id="about"
       ref={ref}
-      style={{ padding: "100px 0", background: isDark ? "#08090d" : "#f9fafb", position: "relative", overflow: "hidden", transition: "background-color 0.3s ease" }}
+      style={{ padding: "54px 0", background: isDark ? "#08090d" : "#f9fafb", position: "relative", overflow: "hidden", transition: "background-color 0.3s ease" }}
     >
       <div
         style={{
@@ -179,7 +179,7 @@ export default function About({ showValues = true }: { showValues?: boolean }) {
       </div>
 
       {showValues && (
-      <div className="site-wrap" style={{ marginTop: "100px" }}>
+      <div className="site-wrap" style={{ marginTop: "48px" }}>
         <div
           style={{
             display: "grid",

@@ -85,13 +85,13 @@ export default function ContactClient() {
       <PageHero bgImage="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=2000&q=80" />
 
       {/* FORM */}
-      <section style={{ background: isDark ? "#08090d" : "#fff", padding: "80px 0", transition: "background 0.3s ease" }}>
+      <section style={{ background: isDark ? "#08090d" : "#fff", padding: "48px 0", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
-          <div style={{ textAlign: "center", marginBottom: "52px" }}>
+          <div style={{ textAlign: "center", marginBottom: "32px" }}>
             <span style={{ color: "#f58220", fontSize: "11px", fontWeight: 700, letterSpacing: "4px", textTransform: "uppercase" }}>CONTACT</span>
             <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.8rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginTop: "10px" }}>Reach Out for Expert Advice</h2>
           </div>
-          <div style={{ display: "grid", gap: "60px", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gap: "36px", alignItems: "center" }} className="lg:grid-cols-2">
 
             {/* Illustration side */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
@@ -146,7 +146,7 @@ export default function ContactClient() {
       </section>
 
       {/* INFO CARDS */}
-      <section style={{ background: isDark ? "#0d0f15" : "#f8f9fb", padding: "72px 0", transition: "background 0.3s ease" }}>
+      <section style={{ background: isDark ? "#0d0f15" : "#f8f9fb", padding: "48px 0", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
           <div style={{ display: "grid", gap: "20px", marginBottom: "20px" }} className="sm:grid-cols-2">
             {[{ icon: Phone, label: "Phone", value: "+91 99799 92804", href: "tel:+919979992804" }, { icon: Mail, label: "Email", value: "sales@brandingo.in", href: "mailto:Sales@brandingo.in" }].map(({ icon: Icon, label, value, href }) => (
@@ -179,7 +179,7 @@ export default function ContactClient() {
           </div>
         </div>
       </section>
-      <div style={{ height: "72px", background: isDark ? "#0d0f15" : "#f8f9fb", transition: "background 0.3s ease" }} />
+      <div style={{ height: "40px", background: isDark ? "#0d0f15" : "#f8f9fb", transition: "background 0.3s ease" }} />
       <Footer />
     </>
   );

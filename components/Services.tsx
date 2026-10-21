@@ -39,7 +39,7 @@ export default function Services() {
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
 
   return (
-    <section id="services" ref={ref} style={{ padding: "100px 0", background: "#08090c", position: "relative", overflow: "hidden" }}>
+    <section id="services" ref={ref} style={{ padding: "54px 0", background: "#08090c", position: "relative", overflow: "hidden" }}>
       {/* Background watermark */}
       <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", fontSize: "240px", fontWeight: 900, color: "rgba(255,255,255,0.015)", whiteSpace: "nowrap", pointerEvents: "none", userSelect: "none", letterSpacing: "-0.05em" }}>
         SERVICES
@@ -51,7 +51,7 @@ export default function Services() {
         <div
           style={{
             textAlign: "center",
-            marginBottom: "64px",
+            marginBottom: "38px",
             opacity: inView ? 1 : 0,
             transform: inView ? "translateY(0)" : "translateY(24px)",
             transition: "opacity 0.6s ease, transform 0.6s ease",

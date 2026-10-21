@@ -63,10 +63,10 @@ export default function FAQ() {
   const isDark = theme === "dark";
 
   return (
-    <section id="faq" ref={ref} style={{ padding: "100px 0", background: isDark ? "#0c0e14" : "#f9fafb", position: "relative", overflow: "hidden", scrollMarginTop: "90px", transition: "background-color 0.3s ease" }}>
+    <section id="faq" ref={ref} style={{ padding: "54px 0", background: isDark ? "#0c0e14" : "#f9fafb", position: "relative", overflow: "hidden", scrollMarginTop: "90px", transition: "background-color 0.3s ease" }}>
       <div className="site-wrap">
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "56px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
+        <div style={{ textAlign: "center", marginBottom: "36px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "14px" }}>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
             <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>FAQ</span>

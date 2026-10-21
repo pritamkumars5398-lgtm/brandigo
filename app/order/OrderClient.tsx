@@ -811,9 +811,9 @@ export default function OrderClient() {
       <Navbar />
       <PageHero bgImage="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=80" />
       
-      <section style={{ background: isDark ? "#08090d" : "#f8f9fb", padding: "80px 0", transition: "background 0.3s ease" }}>
+      <section style={{ background: isDark ? "#08090d" : "#f8f9fb", padding: "48px 0", transition: "background 0.3s ease" }}>
         <div className="site-wrap" style={{ maxWidth: "780px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "40px" }}>
+          <div style={{ textAlign: "center", marginBottom: "28px" }}>
             <span style={{ color: "#f58220", fontSize: "11px", fontWeight: 700, letterSpacing: "4px", textTransform: "uppercase" }}>Checkout</span>
             <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", marginTop: "10px" }}>Complete Your Branding Order</h2>
           </div>

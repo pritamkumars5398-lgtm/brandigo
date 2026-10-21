@@ -51,7 +51,7 @@ export default function Pricing() {
       id="pricing"
       ref={ref}
       style={{
-        padding: "100px 0",
+        padding: "54px 0",
         background: isDark ? "#08090d" : "#ffffff",
         position: "relative",
         overflow: "hidden",
@@ -63,7 +63,7 @@ export default function Pricing() {
         <div
           style={{
             textAlign: "center",
-            marginBottom: "56px",
+            marginBottom: "38px",
             opacity: inView ? 1 : 0,
             transform: inView ? "translateY(0)" : "translateY(24px)",
             transition: "opacity 0.6s ease, transform 0.6s ease",

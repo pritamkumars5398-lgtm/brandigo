@@ -23,6 +23,7 @@ import {
   Star,
   Check,
   Zap,
+  Play,
 } from "lucide-react";
 import { useTheme } from "@/components/ThemeContext";
 
@@ -507,119 +508,328 @@ export default function ScientificLogoClient() {
     <div style={{ backgroundColor: isDark ? "#06090e" : "#ffffff", color: headingCol, transition: "background 0.3s ease" }}>
       
       {/* =========================================================================
-          HERO SECTION: Astro-Vastu & Scientific Logo
+          HERO SECTION: Vedic Astro-Vastu & Sacred Geometry Brand Engineering
       ========================================================================= */}
       <section
         style={{
           position: "relative",
-          minHeight: "88vh",
+          minHeight: "90vh",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
           overflow: "hidden",
-          paddingTop: "120px",
-          paddingBottom: "80px",
-          backgroundColor: isDark ? "#05080e" : "#07273d",
-          backgroundImage: "radial-gradient(circle at 50% 30%, rgba(245,130,32,0.18) 0%, rgba(6,182,212,0.08) 45%, transparent 75%)",
+          paddingTop: "100px",
+          paddingBottom: "45px",
+          backgroundColor: "#060b13",
         }}
       >
-        {/* Subtle Sacred Geometry Watermark / Dot Grid */}
+        {/* Full-bleed 3D Vedic Sage Background Artwork with Seamless Blend */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
-            backgroundSize: "36px 36px",
-            opacity: 0.45,
+            backgroundImage: "url('/scientific-hero-sage.jpg')",
+            backgroundPosition: "right center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Seamless Horizontal Blend Overlay: solid dark on left for text, softly blending into the 3D artwork */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to right, #060b13 0%, #060b13 36%, rgba(6,11,19,0.92) 48%, rgba(6,11,19,0.55) 64%, transparent 82%)",
+            zIndex: 2,
             pointerEvents: "none",
           }}
         />
 
-        {/* Ambient Glows */}
+        {/* Top Navbar Soft Blend */}
         <div
           style={{
             position: "absolute",
-            top: "-100px",
-            right: "-80px",
-            width: "550px",
-            height: "550px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(245,130,32,0.2) 0%, transparent 70%)",
-            filter: "blur(60px)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-100px",
-            left: "-80px",
-            width: "480px",
-            height: "480px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%)",
-            filter: "blur(60px)",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "100px",
+            background: "linear-gradient(to bottom, #060b13 0%, rgba(6,11,19,0.8) 50%, transparent 100%)",
+            zIndex: 3,
             pointerEvents: "none",
           }}
         />
 
-        <div className="site-wrap relative z-10 text-center" style={{ maxWidth: "1050px" }}>
-          
-          {/* Eyebrow Badge */}
-          <div
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full mb-6 text-xs font-bold tracking-wider uppercase"
-            style={{
-              background: "rgba(245,130,32,0.15)",
-              border: "1px solid rgba(245,130,32,0.4)",
-              color: "#f58220",
-              backdropFilter: "blur(8px)",
-            }}
-          >
-            <Sparkles size={14} className="text-[#f58220] animate-spin-slow" />
-            Vedic Astro-Vastu &amp; Sacred Geometry Brand Engineering
+        {/* Bottom Section Soft Blend */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "120px",
+            background: "linear-gradient(to top, #060b13 0%, rgba(6,11,19,0.7) 40%, transparent 100%)",
+            zIndex: 3,
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Warm Golden Ambient Glow behind content */}
+        <div
+          style={{
+            position: "absolute",
+            top: "15%",
+            left: "6%",
+            width: "500px",
+            height: "500px",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(245,130,32,0.12) 0%, transparent 70%)",
+            filter: "blur(80px)",
+            zIndex: 2,
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* MAIN HERO CONTENT (Left Column) */}
+        <div className="site-wrap relative z-10" style={{ maxWidth: "1280px" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-7 xl:col-span-7 text-left">
+              
+              {/* Eyebrow: Glowing Om Symbol & Vedic Badge */}
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  marginBottom: "16px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div style={{ width: "24px", height: "1px", background: "linear-gradient(to left, #f58220, transparent)" }} />
+                  <div
+                    style={{
+                      width: "34px",
+                      height: "34px",
+                      borderRadius: "50%",
+                      border: "1.5px solid rgba(245, 130, 32, 0.7)",
+                      background: "radial-gradient(circle, rgba(245, 130, 32, 0.25) 0%, rgba(6, 11, 19, 0.95) 75%)",
+                      boxShadow: "0 0 16px rgba(245, 130, 32, 0.5)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#f58220",
+                      fontSize: "18px",
+                      fontWeight: 700,
+                      lineHeight: 1,
+                    }}
+                  >
+                    ॐ
+                  </div>
+                  <div style={{ width: "16px", height: "1px", background: "#f58220" }} />
+                </div>
+
+                <span
+                  style={{
+                    color: "#f58220",
+                    fontSize: "11.5px",
+                    fontWeight: 700,
+                    letterSpacing: "2.2px",
+                    textTransform: "uppercase",
+                    textShadow: "0 0 12px rgba(245, 130, 32, 0.3)",
+                  }}
+                >
+                  Vedic Astro-Vastu &amp; Sacred Geometry Brand Engineering
+                </span>
+              </div>
+
+              {/* Main Headline */}
+              <h1
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
+                  fontSize: "clamp(2.2rem, 4vw, 3.8rem)",
+                  fontWeight: 700,
+                  lineHeight: 1.14,
+                  color: "#ffffff",
+                  marginBottom: "18px",
+                  letterSpacing: "-0.015em",
+                }}
+              >
+                Align Your Brand Identity with{" "}
+                <span
+                  style={{
+                    color: "#f58220",
+                    textShadow: "0 0 20px rgba(245, 130, 32, 0.3)",
+                  }}
+                >
+                  Sacred Geometry
+                </span>{" "}
+                &amp;{" "}
+                <span
+                  style={{
+                    color: "#38bdf8",
+                    textShadow: "0 0 20px rgba(56, 189, 248, 0.35)",
+                  }}
+                >
+                  Planetary Energies
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p
+                style={{
+                  fontSize: "clamp(0.92rem, 1.25vw, 1.05rem)",
+                  color: "rgba(255, 255, 255, 0.78)",
+                  lineHeight: 1.74,
+                  maxWidth: "540px",
+                  marginBottom: "28px",
+                }}
+              >
+                Every design element possesses an energetic wavelength. We align your corporate
+                logo, signature pattern, and name vibrations to match your zodiac ruler, planetary
+                elements, and cosmic wealth frequencies for sustainable business growth.
+              </p>
+
+              {/* 4 Feature Badges in Row */}
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "20px 28px",
+                  marginBottom: "32px",
+                  paddingTop: "4px",
+                  paddingBottom: "4px",
+                }}
+              >
+                {/* 1. Vedic Astrology */}
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div style={{ filter: "drop-shadow(0 0 8px rgba(245, 130, 32, 0.45))", flexShrink: 0 }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f58220" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" strokeDasharray="2 2" />
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                    </svg>
+                  </div>
+                  <span style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.3 }}>
+                    Vedic<br />Astrology
+                  </span>
+                </div>
+
+                {/* 2. Sacred Geometry */}
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div style={{ filter: "drop-shadow(0 0 8px rgba(245, 130, 32, 0.45))", flexShrink: 0 }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f58220" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
+                      <line x1="12" y1="22" x2="12" y2="15.5" />
+                      <polyline points="22 8.5 12 15.5 2 8.5" />
+                      <line x1="12" y1="2" x2="12" y2="8.5" />
+                    </svg>
+                  </div>
+                  <span style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.3 }}>
+                    Sacred<br />Geometry
+                  </span>
+                </div>
+
+                {/* 3. Planetary Energies */}
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div style={{ filter: "drop-shadow(0 0 8px rgba(245, 130, 32, 0.45))", flexShrink: 0 }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f58220" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)" />
+                      <circle cx="12" cy="12" r="5.5" />
+                    </svg>
+                  </div>
+                  <span style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.3 }}>
+                    Planetary<br />Energies
+                  </span>
+                </div>
+
+                {/* 4. Brand Engineering */}
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div style={{ filter: "drop-shadow(0 0 8px rgba(245, 130, 32, 0.45))", flexShrink: 0 }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f58220" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 3c-1.5 2-3 4.5-3 7a3 3 0 0 0 6 0c0-2.5-1.5-5-3-7z" />
+                      <path d="M6 9c-2 1.5-4 3.5-4 5.5a4 4 0 0 0 7 2.5c-.5-2.5-1.5-5-3-8z" />
+                      <path d="M18 9c2 1.5 4 3.5 4 5.5a4 4 0 0 1-7 2.5c.5-2.5 1.5-5 3-8z" />
+                      <path d="M3 18c3-1 6-1 9 0 3-1 6-1 9 0" />
+                    </svg>
+                  </div>
+                  <span style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.3 }}>
+                    Brand<br />Engineering
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "22px" }}>
+                {/* Primary Button */}
+                <a
+                  href="#calculator"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "16px 36px",
+                    background: "#f58220",
+                    color: "#ffffff",
+                    fontWeight: 700,
+                    borderRadius: "999px",
+                    fontSize: "15px",
+                    transition: "all 0.2s ease",
+                    textDecoration: "none",
+                  }}
+                  className="hover:bg-[#ff933c] hover:scale-105 active:scale-95"
+                >
+                  Get Your Brand Aligned <ArrowRight size={18} />
+                </a>
+
+                {/* Contact Us Button */}
+                <Link
+                  href="/contact"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "15px 32px",
+                    background: "rgba(255, 255, 255, 0.08)",
+                    color: "#ffffff",
+                    fontWeight: 600,
+                    borderRadius: "999px",
+                    fontSize: "15px",
+                    border: "1.5px solid rgba(245, 130, 32, 0.7)",
+                    backdropFilter: "blur(12px)",
+                    transition: "all 0.25s ease",
+                    textDecoration: "none",
+                  }}
+                  className="hover:bg-[#f58220] hover:border-[#f58220] hover:scale-105 active:scale-95 group"
+                >
+                  <MessageCircle size={18} className="text-[#f58220] group-hover:text-white transition-colors" />
+                  <span>Contact Us</span>
+                </Link>
+              </div>
+
+            </div>
+
           </div>
+        </div>
+      </section>
 
-          {/* Main Title */}
-          <h1
-            style={{
-              fontSize: "clamp(2.4rem, 5.5vw, 4.4rem)",
-              fontWeight: 800,
-              lineHeight: 1.15,
-              color: "#ffffff",
-              marginBottom: "24px",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Align Your Brand Identity with{" "}
-            <span style={{ color: "#f58220" }}>Sacred Geometry</span> &amp;{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #38bdf8 0%, #f58220 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Planetary Energies
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            style={{
-              fontSize: "clamp(1.05rem, 1.8vw, 1.25rem)",
-              color: "rgba(255, 255, 255, 0.85)",
-              lineHeight: 1.8,
-              maxWidth: "780px",
-              margin: "0 auto 40px auto",
-            }}
-          >
-            Every design element possesses an energetic wavelength. We align your corporate logo,
-            signature pattern, and name vibrations to match your zodiac ruler, planetary elements,
-            and cosmic wealth frequencies for sustainable business growth.
-          </p>
-
-          {/* 3 Pillars in Hero */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10 text-left">
+      {/* =========================================================================
+          COSMIC PILLARS & VASTU WISDOM BANNER
+      ========================================================================= */}
+      <section
+        style={{
+          backgroundColor: isDark ? "#060b13" : "#07273d",
+          padding: "20px 0 35px 0",
+          borderBottom: `1px solid ${borderCol}`,
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        <div className="site-wrap" style={{ maxWidth: "1200px" }}>
+          {/* 3 Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left" style={{ marginBottom: "32px" }}>
             {[
               {
                 icon: Sun,
@@ -681,63 +891,21 @@ export default function ScientificLogoClient() {
             })}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-            <a
-              href="#calculator"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "15px 36px",
-                background: "#f58220",
-                color: "#fff",
-                fontWeight: 700,
-                borderRadius: "999px",
-                fontSize: "15px",
-                transition: "all 0.2s ease",
-              }}
-              className="hover:bg-[#ff933c] hover:scale-105"
-            >
-              Explore Zodiac Brand Calculator <ArrowRight size={17} />
-            </a>
-
-            <a
-              href={`${whatsappBaseUrl}${encodeURIComponent(
-                "Hello Brandingo Team, I want to consult for Scientific & Astrology Logo Design for my business."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "14px 30px",
-                background: "rgba(255, 255, 255, 0.1)",
-                color: "#ffffff",
-                fontWeight: 600,
-                borderRadius: "999px",
-                fontSize: "15px",
-                border: "1px solid rgba(255, 255, 255, 0.25)",
-                backdropFilter: "blur(8px)",
-                transition: "all 0.2s ease",
-              }}
-              className="hover:bg-white/20 hover:border-white/40"
-            >
-              <MessageCircle size={18} className="text-[#25D366]" /> WhatsApp Consultation
-            </a>
-          </div>
-
           {/* Vastu Wisdom Quote Banner */}
           <div
             style={{
               background: "rgba(0, 0, 0, 0.45)",
+              borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+              borderRight: "1px solid rgba(255, 255, 255, 0.08)",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
               borderLeft: "4px solid #f58220",
-              borderRadius: "12px",
+              borderRadius: "14px",
               padding: "18px 24px",
               maxWidth: "840px",
               margin: "0 auto",
               textAlign: "left",
+              position: "relative",
+              zIndex: 5,
             }}
           >
             <p style={{ fontStyle: "italic", color: "rgba(255,255,255,0.85)", fontSize: "14.5px", lineHeight: 1.7 }}>
@@ -745,14 +913,13 @@ export default function ScientificLogoClient() {
               chart, it creates cosmic static — leading to unstable sales, friction, and expansion resistance.&rdquo;
             </p>
           </div>
-
         </div>
       </section>
 
       {/* =========================================================================
           WHAT WE DO: Blend of Creative Design & Cosmic Engineering
       ========================================================================= */}
-      <section style={{ padding: "90px 0", backgroundColor: sectionBg, borderBottom: `1px solid ${borderCol}` }}>
+      <section style={{ padding: "48px 0", backgroundColor: sectionBg, borderBottom: `1px solid ${borderCol}` }}>
         <div className="site-wrap">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -893,10 +1060,10 @@ export default function ScientificLogoClient() {
       {/* =========================================================================
           INTERACTIVE ZODIAC BRAND ALIGNMENT CALCULATOR
       ========================================================================= */}
-      <section id="calculator" style={{ padding: "100px 0", position: "relative" }}>
+      <section id="calculator" style={{ padding: "48px 0 24px 0", position: "relative" }}>
         <div className="site-wrap">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-8">
             <div
               style={{
                 display: "inline-flex",
@@ -1159,8 +1326,7 @@ export default function ScientificLogoClient() {
                             height: "36px",
                             borderRadius: "10px",
                             backgroundColor: c.hex,
-                            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-                            border: "1px solid rgba(255,255,255,0.2)",
+                            border: isDark ? "1px solid rgba(255,255,255,0.15)" : "1px solid rgba(0,0,0,0.08)",
                           }}
                         />
                         <div>
@@ -1247,10 +1413,10 @@ export default function ScientificLogoClient() {
       {/* =========================================================================
           PLANETARY IMBALANCES & BUSINESS SYMPTOMS (DIAGNOSTIC MATRIX)
       ========================================================================= */}
-      <section style={{ padding: "90px 0", backgroundColor: sectionBg, borderTop: `1px solid ${borderCol}`, borderBottom: `1px solid ${borderCol}` }}>
+      <section style={{ padding: "24px 0 48px 0", backgroundColor: sectionBg, borderTop: `1px solid ${borderCol}`, borderBottom: `1px solid ${borderCol}` }}>
         <div className="site-wrap">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-8">
             <div
               style={{
                 display: "inline-flex",
@@ -1373,10 +1539,10 @@ export default function ScientificLogoClient() {
       {/* =========================================================================
           OUR 6-STEP SCIENTIFIC METHODOLOGY
       ========================================================================= */}
-      <section style={{ padding: "100px 0" }}>
+      <section style={{ padding: "48px 0" }}>
         <div className="site-wrap">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-9">
             <div
               style={{
                 display: "inline-flex",
@@ -1450,10 +1616,10 @@ export default function ScientificLogoClient() {
       {/* =========================================================================
           SCIENTIFIC LOGO PACKAGES (PRICING TABLE)
       ========================================================================= */}
-      <section style={{ padding: "90px 0", backgroundColor: sectionBg, borderTop: `1px solid ${borderCol}`, borderBottom: `1px solid ${borderCol}` }}>
+      <section style={{ padding: "48px 0", backgroundColor: sectionBg, borderTop: `1px solid ${borderCol}`, borderBottom: `1px solid ${borderCol}` }}>
         <div className="site-wrap">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-9">
             <div
               style={{
                 display: "inline-flex",
@@ -1602,10 +1768,10 @@ export default function ScientificLogoClient() {
       {/* =========================================================================
           FOUNDER EXPERIENCES / TESTIMONIALS
       ========================================================================= */}
-      <section style={{ padding: "100px 0" }}>
+      <section style={{ padding: "48px 0" }}>
         <div className="site-wrap">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-8">
             <div
               style={{
                 display: "inline-flex",
@@ -1702,10 +1868,10 @@ export default function ScientificLogoClient() {
       {/* =========================================================================
           FAQ ACCORDION SECTION
       ========================================================================= */}
-      <section style={{ padding: "90px 0", backgroundColor: sectionBg, borderTop: `1px solid ${borderCol}` }}>
+      <section style={{ padding: "48px 0", backgroundColor: sectionBg, borderTop: `1px solid ${borderCol}` }}>
         <div className="site-wrap" style={{ maxWidth: "880px" }}>
           
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <div
               style={{
                 display: "inline-flex",
@@ -1791,7 +1957,7 @@ export default function ScientificLogoClient() {
       ========================================================================= */}
       <section
         style={{
-          padding: "100px 0",
+          padding: "54px 0",
           backgroundColor: isDark ? "#060a12" : "#07273d",
           position: "relative",
           overflow: "hidden",

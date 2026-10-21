@@ -69,7 +69,7 @@ function GraphicDesigning() {
   return (
     <>
       {/* Intro */}
-      <section style={{ padding: "80px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
+      <section style={{ padding: "48px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
           <div style={{ display: "grid", gap: "60px", alignItems: "center" }} className="lg:grid-cols-2">
             <div>
@@ -105,9 +105,9 @@ function GraphicDesigning() {
       </section>
 
       {/* Offerings grid */}
-      <section style={{ padding: "80px 0", background: isDark ? "#0c0e14" : "#f8f9fb", transition: "background 0.3s ease" }}>
+      <section style={{ padding: "48px 0", background: isDark ? "#0c0e14" : "#f8f9fb", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
-          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "48px" }}>
+          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "32px" }}>
             What We <span style={{ color: A }}>Design</span>
           </h2>
           <div style={{ display: "grid", gap: "20px" }} className="sm:grid-cols-2 lg:grid-cols-3">
@@ -127,9 +127,9 @@ function GraphicDesigning() {
       </section>
 
       {/* Process timeline */}
-      <section style={{ padding: "80px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
+      <section style={{ padding: "48px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
-          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "56px" }}>
+          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "36px" }}>
             Our <span style={{ color: A }}>Design Process</span>
           </h2>
           <div style={{ display: "grid", gap: "0", position: "relative" }} className="sm:grid-cols-2 lg:grid-cols-4">
@@ -171,7 +171,7 @@ function StandardLayout({ eyebrow, heading, intro, tags, stats, offeringsTitle, 
   return (
     <>
       {/* Intro */}
-      <section style={{ padding: "80px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
+      <section style={{ padding: "48px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
           <div style={{ display: "grid", gap: "60px", alignItems: "center" }} className="lg:grid-cols-2">
             <div>
@@ -204,9 +204,9 @@ function StandardLayout({ eyebrow, heading, intro, tags, stats, offeringsTitle, 
       </section>
 
       {/* Offerings grid */}
-      <section style={{ padding: "80px 0", background: isDark ? "#0c0e14" : "#f8f9fb", transition: "background 0.3s ease" }}>
+      <section style={{ padding: "48px 0", background: isDark ? "#0c0e14" : "#f8f9fb", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
-          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "48px" }}>
+          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "32px" }}>
             {offeringsTitle}
           </h2>
           <div style={{ display: "grid", gap: "20px" }} className="sm:grid-cols-2 lg:grid-cols-3">
@@ -227,9 +227,9 @@ function StandardLayout({ eyebrow, heading, intro, tags, stats, offeringsTitle, 
 
       {/* Process timeline */}
       {steps.length > 0 && (
-      <section style={{ padding: "80px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
+      <section style={{ padding: "48px 0", background: isDark ? "#08090d" : "#fff", transition: "background 0.3s ease" }}>
         <div className="site-wrap">
-          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "56px" }}>
+          <h2 style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", fontWeight: 800, color: isDark ? "#ffffff" : "#1a1a1a", textAlign: "center", marginBottom: "36px" }}>
             Our <span style={{ color: A }}>Process</span>
           </h2>
           <div style={{ display: "grid", gap: "0", position: "relative" }} className="sm:grid-cols-2 lg:grid-cols-4">

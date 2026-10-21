@@ -156,22 +156,6 @@ export default function Navbar() {
             >
               Get Quote
             </Link>
-            <Link
-              href="/admin/login"
-              style={{
-                padding: "7px 18px",
-                border: isDark ? "2px solid #f58220" : "2px solid #0b3c5d",
-                color: isDark ? "#f58220" : "#0b3c5d",
-                fontWeight: 700,
-                fontSize: "13px",
-                borderRadius: "999px",
-                transition: "all 0.2s",
-                whiteSpace: "nowrap",
-              }}
-              className={isDark ? "hover:!bg-[#f58220] hover:!text-white" : "hover:bg-[#0b3c5d] hover:!text-white"}
-            >
-              Admin Login
-            </Link>
           </div>
 
           {/* Mobile Right Controls */}
@@ -272,25 +256,6 @@ export default function Navbar() {
             style={{ display: "block", marginTop: "10px", textAlign: "center", padding: "13px", background: "#f58220", color: "#fff", fontWeight: 700, borderRadius: "999px", fontSize: "14px" }}
           >
             Get Quote
-          </Link>
-          <Link
-            href="/admin/login"
-            onClick={() => setMobileOpen(false)}
-            style={{
-              display: "block",
-              marginTop: "10px",
-              textAlign: "center",
-              padding: "13px",
-              border: isDark ? "2px solid #f58220" : "2px solid #0b3c5d",
-              color: isDark ? "#f58220" : "#0b3c5d",
-              fontWeight: 700,
-              borderRadius: "999px",
-              fontSize: "14px",
-              transition: "all 0.2s",
-            }}
-            className={isDark ? "hover:!bg-[#f58220] hover:!text-white" : "hover:bg-[#0b3c5d] hover:!text-white"}
-          >
-            Admin Login
           </Link>
         </div>
       </div>

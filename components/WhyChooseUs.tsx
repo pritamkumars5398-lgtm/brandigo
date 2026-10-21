@@ -24,14 +24,14 @@ export default function WhyChooseUs() {
   const isDark = theme === "dark";
 
   return (
-    <section id="why" ref={ref} style={{ padding: "100px 0", background: isDark ? "#0c0e14" : "#ffffff", position: "relative", overflow: "hidden", transition: "background-color 0.3s ease" }}>
+    <section id="why" ref={ref} style={{ padding: "54px 0", background: isDark ? "#0c0e14" : "#ffffff", position: "relative", overflow: "hidden", transition: "background-color 0.3s ease" }}>
       {/* Decorative */}
       <div style={{ position: "absolute", bottom: "-100px", left: "-100px", width: "380px", height: "380px", borderRadius: "50%", background: isDark ? "radial-gradient(circle, rgba(245,130,32,0.08) 0%, transparent 70%)" : "radial-gradient(circle, rgba(11,60,93,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div className="site-wrap">
 
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "64px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
+        <div style={{ textAlign: "center", marginBottom: "38px", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "14px" }}>
             <div style={{ width: "32px", height: "2px", background: "#f58220" }} />
             <span style={{ color: "#f58220", fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase" }}>Why Choose Us</span>
@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gap: "60px", alignItems: "start" }} className="lg:grid-cols-2">
+        <div style={{ display: "grid", gap: "36px", alignItems: "start" }} className="lg:grid-cols-2">
 
           {/* Left: Reason cards */}
           <div style={{ display: "grid", gap: "16px" }} className="sm:grid-cols-2">
