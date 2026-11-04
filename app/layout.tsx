@@ -41,7 +41,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Geist:wght@100..900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
       </head>
@@ -58,7 +58,7 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '1988248838720405');
+              fbq('init', '1506602408192129');
               fbq('track', 'PageView');
             `}
           </Script>
@@ -67,7 +67,7 @@ export default function RootLayout({
               height="1"
               width="1"
               style={{ display: "none" }}
-              src="https://www.facebook.com/tr?id=1988248838720405&ev=PageView&noscript=1"
+              src="https://www.facebook.com/tr?id=1506602408192129&ev=PageView&noscript=1"
               alt=""
             />
           </noscript>
