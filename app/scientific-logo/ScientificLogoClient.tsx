@@ -504,6 +504,13 @@ export default function ScientificLogoClient() {
 
   const whatsappBaseUrl = "https://wa.me/919979992804?text=";
 
+  const heroGradient = (gradient: string): React.CSSProperties => ({
+    backgroundImage: gradient,
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+  });
+
   return (
     <div style={{ backgroundColor: isDark ? "#06090e" : "#ffffff", color: headingCol, transition: "background 0.3s ease" }}>
       
@@ -535,8 +542,9 @@ export default function ScientificLogoClient() {
           }}
         />
 
-        {/* Seamless Horizontal Blend Overlay: solid dark on left for text, softly blending into the 3D artwork */}
+        {/* Seamless Horizontal Blend Overlay: keeps text readable on small screens where the curved panel is hidden */}
         <div
+          className="lg:hidden"
           style={{
             position: "absolute",
             inset: 0,
@@ -545,6 +553,29 @@ export default function ScientificLogoClient() {
             pointerEvents: "none",
           }}
         />
+
+        {/* Curved Wave Panel: solid dark behind the text, flowing into the artwork on desktop */}
+        <svg
+          className="hidden lg:block"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "60%",
+            height: "100%",
+            zIndex: 2,
+            pointerEvents: "none",
+            filter: "blur(14px)",
+          }}
+        >
+          <path
+            d="M0 0 H92 C70 14 72 30 84 46 C94 60 84 72 72 82 C66 88 66 95 70 100 H0 Z"
+            fill="#060b13"
+          />
+        </svg>
 
         {/* Top Navbar Soft Blend */}
         <div
@@ -648,7 +679,7 @@ export default function ScientificLogoClient() {
               <h1
                 style={{
                   fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
-                  fontSize: "clamp(2.2rem, 4vw, 3.8rem)",
+                  fontSize: "clamp(2.2rem, 3.3vw, 3.4rem)",
                   fontWeight: 700,
                   lineHeight: 1.14,
                   color: "#ffffff",
@@ -656,33 +687,21 @@ export default function ScientificLogoClient() {
                   letterSpacing: "-0.015em",
                 }}
               >
-                Align Your Brand Identity with{" "}
-                <span
-                  style={{
-                    color: "#f58220",
-                    textShadow: "0 0 20px rgba(245, 130, 32, 0.3)",
-                  }}
-                >
-                  Sacred Geometry
-                </span>{" "}
+                Align Your Brand Identity with <br className="hidden lg:block" />
+                <span style={heroGradient("linear-gradient(90deg, #f26b21 0%, #f9a23b 100%)")}>Sacred Geometry</span>{" "}
                 &amp;{" "}
-                <span
-                  style={{
-                    color: "#38bdf8",
-                    textShadow: "0 0 20px rgba(56, 189, 248, 0.35)",
-                  }}
-                >
-                  Planetary Energies
-                </span>
+                <span style={heroGradient("linear-gradient(90deg, #2a9d9f 0%, #0ea5e9 100%)")}>Planetary</span>{" "}
+                <br className="hidden lg:block" />
+                <span style={heroGradient("linear-gradient(90deg, #e0a458 0%, #a9713a 100%)")}>Energies</span>
               </h1>
 
               {/* Subtitle */}
               <p
+                className="max-w-[540px] lg:max-w-[min(540px,42vw)]"
                 style={{
                   fontSize: "clamp(0.92rem, 1.25vw, 1.05rem)",
                   color: "rgba(255, 255, 255, 0.78)",
                   lineHeight: 1.74,
-                  maxWidth: "540px",
                   marginBottom: "28px",
                 }}
               >
@@ -697,7 +716,7 @@ export default function ScientificLogoClient() {
                   display: "flex",
                   flexWrap: "wrap",
                   alignItems: "center",
-                  gap: "20px 28px",
+                  gap: "16px 20px",
                   marginBottom: "32px",
                   paddingTop: "4px",
                   paddingBottom: "4px",
@@ -717,6 +736,8 @@ export default function ScientificLogoClient() {
                   </span>
                 </div>
 
+                <div className="hidden sm:block" style={{ width: "1px", height: "44px", background: "rgba(255, 255, 255, 0.14)" }} />
+
                 {/* 2. Sacred Geometry */}
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <div style={{ filter: "drop-shadow(0 0 8px rgba(245, 130, 32, 0.45))", flexShrink: 0 }}>
@@ -732,6 +753,8 @@ export default function ScientificLogoClient() {
                   </span>
                 </div>
 
+                <div className="hidden sm:block" style={{ width: "1px", height: "44px", background: "rgba(255, 255, 255, 0.14)" }} />
+
                 {/* 3. Planetary Energies */}
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <div style={{ filter: "drop-shadow(0 0 8px rgba(245, 130, 32, 0.45))", flexShrink: 0 }}>
@@ -744,6 +767,8 @@ export default function ScientificLogoClient() {
                     Planetary<br />Energies
                   </span>
                 </div>
+
+                <div className="hidden sm:block" style={{ width: "1px", height: "44px", background: "rgba(255, 255, 255, 0.14)" }} />
 
                 {/* 4. Brand Engineering */}
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -771,7 +796,7 @@ export default function ScientificLogoClient() {
                     alignItems: "center",
                     gap: "10px",
                     padding: "16px 36px",
-                    background: "#f58220",
+                    background: "linear-gradient(90deg, #f58220 0%, #fba13f 100%)",
                     color: "#ffffff",
                     fontWeight: 700,
                     borderRadius: "999px",
@@ -784,29 +809,39 @@ export default function ScientificLogoClient() {
                   Get Your Brand Aligned <ArrowRight size={18} />
                 </a>
 
-                {/* Contact Us Button */}
-                <Link
-                  href="/contact"
+                {/* Watch How It Works Button */}
+                <a
+                  href="#what-we-do"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "10px",
-                    padding: "15px 32px",
-                    background: "rgba(255, 255, 255, 0.08)",
+                    gap: "12px",
                     color: "#ffffff",
                     fontWeight: 600,
-                    borderRadius: "999px",
                     fontSize: "15px",
-                    border: "1.5px solid rgba(245, 130, 32, 0.7)",
-                    backdropFilter: "blur(12px)",
-                    transition: "all 0.25s ease",
                     textDecoration: "none",
+                    transition: "all 0.25s ease",
                   }}
-                  className="hover:bg-[#f58220] hover:border-[#f58220] hover:scale-105 active:scale-95 group"
+                  className="hover:text-[#f58220] group"
                 >
-                  <MessageCircle size={18} className="text-[#f58220] group-hover:text-white transition-colors" />
-                  <span>Contact Us</span>
-                </Link>
+                  <span
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                      border: "1.5px solid #f58220",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      transition: "all 0.25s ease",
+                    }}
+                    className="group-hover:bg-[#f58220]/15 group-hover:scale-105"
+                  >
+                    <Play size={18} fill="#f58220" color="#f58220" style={{ marginLeft: "2px" }} />
+                  </span>
+                  <span>Watch How It Works</span>
+                </a>
               </div>
 
             </div>
@@ -919,7 +954,7 @@ export default function ScientificLogoClient() {
       {/* =========================================================================
           WHAT WE DO: Blend of Creative Design & Cosmic Engineering
       ========================================================================= */}
-      <section style={{ padding: "48px 0", backgroundColor: sectionBg, borderBottom: `1px solid ${borderCol}` }}>
+      <section id="what-we-do" style={{ padding: "48px 0", backgroundColor: sectionBg, borderBottom: `1px solid ${borderCol}` }}>
         <div className="site-wrap">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             

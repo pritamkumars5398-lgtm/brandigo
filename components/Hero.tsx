@@ -128,7 +128,7 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             
             {/* LEFT COLUMN: Hero Content & Stats */}
-            <div className="lg:col-span-7 text-left">
+            <div className="lg:col-span-6 text-left">
               
               {/* Agency Tag Pill */}
               <div
@@ -278,8 +278,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Visual with Blend Effect */}
-            <div className="lg:col-span-5 relative flex items-center justify-center">
+            {/* RIGHT COLUMN: Diwali Banner */}
+            <div className="lg:col-span-6 relative flex items-center justify-center">
               
               {/* Radial backlight glow behind the visual */}
               <div
@@ -294,51 +294,28 @@ export default function Hero() {
                 }}
               />
 
-              {/* Main Image Container with Blend Mask */}
+              {/* Full banner, shown uncropped so its greeting and logo stay readable */}
               <div
                 style={{
                   position: "relative",
                   width: "100%",
-                  maxWidth: "520px",
-                  aspectRatio: "4 / 3.4",
+                  maxWidth: "640px",
+                  aspectRatio: "1672 / 941",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(255,255,255,0.14)",
+                  boxShadow: "0 24px 60px rgba(0,0,0,0.45)",
                   zIndex: 1,
                 }}
               >
-                {/* Image element with blend mask */}
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: "24px",
-                    overflow: "hidden",
-                    // Blend effect: radial fade around edges into the hero background
-                    WebkitMaskImage: "radial-gradient(ellipse 92% 88% at 50% 50%, black 50%, rgba(0,0,0,0.7) 75%, transparent 100%)",
-                    maskImage: "radial-gradient(ellipse 92% 88% at 50% 50%, black 50%, rgba(0,0,0,0.7) 75%, transparent 100%)",
-                  }}
-                >
-                  <Image
-                    src="/brandingo-hero.jpg"
-                    alt="Brandingo Creative Branding Mockup"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 520px"
-                    style={{
-                      objectFit: "cover",
-                      transform: "scale(1.02)",
-                    }}
-                  />
-                  {/* Subtle edge vignette gradient overlay for extra smooth blend */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background: "radial-gradient(circle at center, transparent 40%, rgba(6,9,14,0.45) 85%, rgba(6,9,14,0.85) 100%)",
-                      pointerEvents: "none",
-                    }}
-                  />
-                </div>
-
+                <Image
+                  src="/Brandingo Diwali Glow.png"
+                  alt="Happy Diwali greeting from Brandingo"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 640px"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
 
             </div>
