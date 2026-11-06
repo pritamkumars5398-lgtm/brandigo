@@ -300,7 +300,7 @@ export default function Hero() {
                   position: "relative",
                   width: "100%",
                   maxWidth: "640px",
-                  aspectRatio: "1672 / 941",
+                  aspectRatio: "1600 / 1280",
                   borderRadius: "20px",
                   overflow: "hidden",
                   border: "1px solid rgba(255,255,255,0.14)",
@@ -309,7 +309,7 @@ export default function Hero() {
                 }}
               >
                 <Image
-                  src="/Brandingo Diwali Glow.png"
+                  src="/WhatsApp Image 2026-11-06 at 12.20.42.jpeg"
                   alt="Happy Diwali greeting from Brandingo"
                   fill
                   priority
